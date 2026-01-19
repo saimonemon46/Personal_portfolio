@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Sai Mon Hasan Emon - AI & Backend Engineer</title>
+    <meta name="description" content="Engineer building practical AI systems and backend services. Expertise in FastAPI, LangChain, LangGraph, and ML applications.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container">
+            <div class="logo">saimonemon46</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="#projects" class="nav-link" data-page="projects">Projects</a></li>
+                <li><a href="#ai-systems" class="nav-link" data-page="ai-systems">AI Systems</a></li>
+                <li><a href="#timeline" class="nav-link" data-page="timeline">Timeline</a></li>
+                <li><a href="#about" class="nav-link" data-page="about">About</a></li>
+                <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page">
+        <header class="hero">
+            <div class="container">
+                <h1>Md. Sai Mon Hasan Emon</h1>
+                <p class="tagline">Engineer building practical AI systems and backend services.</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>AI & ML</h3>
+                        <p>LangChain, LangGraph, TensorFlow, PyTorch, Scikit-Learn, LLM applications</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Backend Engineering</h3>
+                        <p>FastAPI, SQL Server, PostgreSQL, .NET MVC, API development, authentication</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Full-Stack & Tools</h3>
+                        <p>Docker, Streamlit, HTML/CSS, Git, system architecture, deployment-ready design</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid" id="featured-projects">
+                <!-- Projects will be loaded from JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- PROJECTS PAGE -->
+    <div id="projects" class="page">
+        <section class="container">
+            <h2>Projects</h2>
+            <p class="section-intro">A collection of engineering projects focused on AI systems, backend development, and production-ready implementations. Each project includes a complete case study covering architecture, design decisions, and technical details.</p>
+            
+            <div class="projects-grid" id="all-projects">
+                <!-- Projects will be loaded from JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- AI SYSTEMS PAGE -->
+    <div id="ai-systems" class="page">
+        <section class="container">
+            <h2>AI Systems</h2>
+            <p class="section-intro">This section highlights AI engineering work, focusing on LLM workflows, tool integrations, retrieval systems, and agent architectures.</p>
+
+            <div class="ai-section">
+                <h3>RAG Architecture</h3>
+                <p>A retrieval system combining embeddings, vector search, and LLM reasoning to produce context-aware responses.</p>
+                <div class="ai-diagram">
+                    <div class="flow-item">User Query</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Text Splitter</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Embedding Model</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Vector Database</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Top-k Retrieval</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">LLM</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Final Response</div>
+                </div>
+                <p class="diagram-note"><strong>Why RAG:</strong> Combines external knowledge with LLM capabilities to reduce hallucinations and provide source-grounded responses.</p>
+            </div>
+
+            <div class="ai-section">
+                <h3>LangGraph Agent Architecture</h3>
+                <p>A graph-based conversational system where nodes represent processing steps.</p>
+                <div class="ai-diagram">
+                    <div class="flow-item">Input</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Parser Node</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">LLM Node</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Tool Node (Weather, News, etc.)</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Memory Node (Threaded History)</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Output</div>
+                </div>
+            </div>
+
+            <div class="ai-section">
+                <h3>FastAPI + LLM Integration</h3>
+                <p>Shows how UI, API, model pipeline, and database interact.</p>
+                <div class="ai-diagram">
+                    <div class="flow-item">UI</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">FastAPI Endpoints</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">LLM Providers (Groq / OpenAI)</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Database (SQL)</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-item">Response</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TIMELINE PAGE -->
+    <div id="timeline" class="page">
+        <section class="container">
+            <h2>Timeline</h2>
+            <p class="section-intro">A structured timeline from early academics → engineering development → certifications → upcoming career steps.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h3>HSC Completed</h3>
+                        <p>Achieved GPA 5.00 at Ispahani Public School and College, Comilla</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2022–2024</div>
+                    <div class="timeline-content">
+                        <h3>Foundation in Computer Science</h3>
+                        <p>Started B.Sc. in Computer Science & Engineering at IUBAT. Built foundation in programming fundamentals, data structures, and algorithms.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>ML Foundations</h3>
+                        <p>Completed 100 Days of Machine Learning (CampusX). Gained expertise in Scikit-learn, TensorFlow, and practical ML implementations.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>AI Systems Specialization</h3>
+                        <p>Completed certifications in Deep Learning, NLP, LangChain, and Agentic AI using LangGraph. Built production-ready AI applications.</p>
+                        <p style="margin-top: 8px;"><strong>Certifications:</strong> Applied Data Science & ML, 100 Days of Deep Learning, Building NLP Projects, Generative AI using LangChain, Agentic AI using LangGraph</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2025–2026</div>
+                    <div class="timeline-content">
+                        <h3>Core Project Development</h3>
+                        <p>Built comprehensive portfolio of AI systems, backend services, and full-stack applications demonstrating production-ready engineering skills.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2027</div>
+                    <div class="timeline-content">
+                        <h3>Expected Graduation</h3>
+                        <p>B.Sc. in Computer Science & Engineering (Expected CGPA: 3.90/4.00)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2027+</div>
+                    <div class="timeline-content">
+                        <h3>Industry Focus</h3>
+                        <p>Transitioning to industry roles focusing on production-scale AI systems, cloud deployment, and backend engineering. Interested in working with startups and tech companies on scalable AI infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="container">
+            <h2>About</h2>
+            
+            <div class="about-content">
+                <div class="about-section">
+                    <h3>Professional Summary</h3>
+                    <p>I focus on building AI-powered backend systems, ensuring reliability, clarity, and scalability. I value engineering discipline, reproducibility, structured design, and practical impact.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3>Core Competencies</h3>
+                    <p>Applied AI, LLM engineering, backend/API systems, data processing, software design principles</p>
+                </div>
+
+                <div class="about-section">
+                    <h3>What I Work On</h3>
+                    <ul class="about-list">
+                        <li>Production-style FastAPI services</li>
+                        <li>LLM agent systems</li>
+                        <li>LangChain and LangGraph workflows</li>
+                        <li>ML model deployment</li>
+                        <li>Database-backed applications</li>
+                    </ul>
+                </div>
+
+                <div class="about-section">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-detailed">
+                        <div class="skill-category">
+                            <h4>Programming Languages</h4>
+                            <p>Python, C/C++, C#, SQL</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>AI & Machine Learning</h4>
+                            <p>LangChain, LangGraph, LangSmith, TensorFlow, PyTorch, Keras, Scikit-learn, Pandas, NumPy</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Frameworks & Tools</h4>
+                            <p>.NET MVC, FastAPI, Streamlit, Docker, Git, Jupyter Notebook</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Databases</h4>
+                            <p>MySQL, PostgreSQL, SQL Server</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Web Technologies</h4>
+                            <p>HTML, CSS, FastAPI, Streamlit, .NET MVC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="container">
+            <h2>Contact</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p style="margin-bottom: 24px;">Feel free to reach out for opportunities, collaborations, or questions.</p>
+                    
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:saimonemon46@gmail.com">saimonemon46@gmail.com</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>Phone</strong>
+                        <a href="tel:+8801622015799">+880 1622 015799</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>LinkedIn</strong>
+                        <a href="#" target="_blank">linkedin.com/in/yourprofile</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>GitHub</strong>
+                        <a href="#" target="_blank">github.com/yourprofile</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Location</strong>
+                        <p>Sector-10, Bamnartek New Road, Uttara, Dhaka</p>
+                    </div>
+
+                    <div style="margin-top: 32px;">
+                        <a href="assets/resume/resume.pdf" class="btn" download>Download Resume (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contact-form">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <input type="text" name="honeypot" style="display:none;">
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                    <div id="form-message" style="margin-top: 16px; display: none;"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- DYNAMIC CASE STUDY CONTAINER -->
+    <div id="case-study-container"></div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="mailto:saimonemon46@gmail.com">Email</a>
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">GitHub</a>
+            </div>
+            <p>&copy; 2026 Md. Sai Mon Hasan Emon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/projects-data.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>

@@ -77,6 +77,20 @@ header.hero {
     padding: calc(var(--spacing-unit) * 6) 0;
 }
 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.header-pic img {
+    width: 160px;       /* bigger circular size */
+    height: 160px;
+    border-radius: 50%; /* circle */
+    object-fit: cover;
+    border: 3px solid #ccc; /* optional border */
+}
 h1 {
     font-size: 48px;
     font-weight: 700;

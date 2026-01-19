@@ -7,8 +7,8 @@ const projectsData = [
         summary: 'Multi-model prediction engine with authentication, history tracking, and admin panel.',
         techStack: ['Python', 'FastAPI', 'SQL', 'Scikit-learn'],
         featured: true,
-        github: '#',
-        demo: '#',
+        github: 'https://github.com/saimonemon46/PredictWise.git',
+        demo: 'https://youtu.be/rE4Ma4ITB8Q',
         caseStudy: {
             problem: 'Users need accurate predictions for items like cars or laptops but lack a centralized system that provides insights, history tracking, and secure user-specific recommendations.',
             whyMatters: 'Prediction data supports better decision-making and enables businesses to build recommendation pipelines and personalized systems.',

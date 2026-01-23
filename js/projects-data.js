@@ -110,8 +110,8 @@ const projectsData = [
         summary: 'Automated documentation generator for Python projects using LLMs.',
         techStack: ['LangChain', 'Llama3', 'FastAPI', 'Groq API'],
         featured: false,
-        github: '#',
-        demo: '#',
+        github: 'https://github.com/saimonemon46/Auto-Code-Dcoumentation.git',
+        demo: 'https://youtu.be/xhl2dsSN5YM',
         caseStudy: {
             problem: 'Maintaining up-to-date documentation for code projects is tedious and often neglected. Developers need automated tools that generate clear, comprehensive documentation from code.',
             whyMatters: 'Good documentation improves code maintainability, team collaboration, and onboarding. Automated generation ensures consistency and saves developer time.',

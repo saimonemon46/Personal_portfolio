@@ -38,10 +38,46 @@ document.addEventListener("DOMContentLoaded", () => {
   const screenshotModalElement = document.getElementById("screenshotModal");
   const screenshotModalImage = document.getElementById("screenshotModalImage");
   const screenshotModalTitle = document.getElementById("screenshotModalTitle");
+  const screenshotPrev = document.getElementById("screenshotPrev");
+  const screenshotNext = document.getElementById("screenshotNext");
   const screenshotModal =
     screenshotModalElement && window.bootstrap
       ? new bootstrap.Modal(screenshotModalElement)
       : null;
+  let screenshotImages = [];
+  let screenshotIndex = 0;
+
+  const setScreenshot = (index) => {
+    if (
+      !screenshotModalImage ||
+      !screenshotModalTitle ||
+      screenshotImages.length === 0
+    ) {
+      return;
+    }
+
+    screenshotIndex =
+      (index + screenshotImages.length) % screenshotImages.length;
+
+    const image = screenshotImages[screenshotIndex];
+    screenshotModalImage.src = image.currentSrc || image.src;
+    screenshotModalImage.alt = image.alt || "Project screenshot";
+    screenshotModalTitle.textContent = `${image.alt || "Project screenshot"} (${screenshotIndex + 1}/${screenshotImages.length})`;
+
+    const hasMultipleImages = screenshotImages.length > 1;
+    screenshotPrev?.classList.toggle("d-none", !hasMultipleImages);
+    screenshotNext?.classList.toggle("d-none", !hasMultipleImages);
+  };
+
+  const getScreenshotGroup = (image) => {
+    const imageGroup =
+      image.closest(".project-media, .hackathon-feature, .certificate-card") ||
+      document;
+
+    return Array.from(imageGroup.querySelectorAll("img")).filter(
+      (groupImage) => groupImage.getAttribute("src"),
+    );
+  };
 
   document
     .querySelectorAll(
@@ -50,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .forEach((image) => {
       image.setAttribute("role", "button");
       image.setAttribute("tabindex", "0");
-      image.setAttribute("title", "Click to view full screen");
+      image.setAttribute("title", "Click to view larger");
 
       const openScreenshot = () => {
         if (
@@ -61,9 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        screenshotModalImage.src = image.currentSrc || image.src;
-        screenshotModalImage.alt = image.alt || "Project screenshot";
-        screenshotModalTitle.textContent = image.alt || "Project screenshot";
+        screenshotImages = getScreenshotGroup(image);
+        setScreenshot(screenshotImages.indexOf(image));
         screenshotModal.show();
       };
 
@@ -76,8 +111,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-  screenshotModalImage?.addEventListener("click", () => {
-    screenshotModal?.hide();
+  screenshotPrev?.addEventListener("click", () => {
+    setScreenshot(screenshotIndex - 1);
+  });
+
+  screenshotNext?.addEventListener("click", () => {
+    setScreenshot(screenshotIndex + 1);
+  });
+
+  screenshotModalElement?.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      setScreenshot(screenshotIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      setScreenshot(screenshotIndex + 1);
+    }
   });
 
   if (window.AOS) {

@@ -823,9 +823,17 @@ body.light-theme .skill-list span:hover {
   transform: scale(1.18) rotate(-5deg);
 }
 
+.screenshot-modal .screenshot-dialog {
+  max-width: min(1120px, calc(100vw - 32px));
+}
+
 .screenshot-modal .modal-content {
   background-color: var(--bg-main);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+  border-radius: 8px;
   color: var(--text-main);
+  max-height: calc(100vh - 56px);
+  overflow: hidden;
 }
 
 .screenshot-modal .modal-header {
@@ -849,28 +857,64 @@ body.light-theme .skill-list span:hover {
 .screenshot-modal .modal-body {
   align-items: flex-start;
   display: flex;
+  gap: 16px;
   justify-content: center;
-  overflow: auto;
-  padding: 28px;
+  min-height: 0;
+  overflow: hidden;
+  padding: 18px;
+  position: relative;
 }
 
-.screenshot-modal img {
+.screenshot-frame {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  max-height: calc(100vh - 176px);
+  overflow: auto;
+  width: 100%;
+}
+
+.screenshot-frame img {
   background: var(--bg-card);
   border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
   border-radius: 8px;
   box-shadow: 0 20px 70px rgba(0, 0, 0, 0.38);
-  cursor: zoom-out;
+  cursor: default;
   height: auto;
-  max-width: none;
-  min-width: min(100%, 920px);
+  max-height: none;
+  max-width: 100%;
   width: auto;
+}
+
+.screenshot-nav {
+  align-items: center;
+  align-self: center;
+  background: color-mix(in srgb, var(--bg-card) 88%, #000 12%);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  border-radius: 8px;
+  color: var(--text-main);
+  display: inline-flex;
+  flex: 0 0 44px;
+  height: 44px;
+  justify-content: center;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+  width: 44px;
+}
+
+.screenshot-nav:hover {
+  background-color: var(--color-primary);
+  color: #001018;
+  transform: translateY(-2px);
 }
 
 body.light-theme .screenshot-modal .modal-header {
   background-color: rgba(247, 251, 255, 0.96);
 }
 
-body.light-theme .screenshot-modal img {
+body.light-theme .screenshot-frame img {
   box-shadow: 0 20px 70px rgba(14, 165, 233, 0.14);
 }
 

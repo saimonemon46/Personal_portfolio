@@ -33,6 +33,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto py-3 py-lg-0 fw-semibold">
             <li class="nav-item">
+              <a class="nav-link" href="#hero">Home</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
@@ -287,9 +290,9 @@
             class="text-light opacity-75 project-section-copy"
             data-aos="fade-left"
           >
-            Project work is presented with visual previews, multiple
-            screenshots, and room for demo captures so visitors can understand
-            the product flow before opening the live link or repository.
+            A few things I have built while learning, experimenting, and
+            solving real problems. Some are polished, some are growing, but
+            each one taught me something useful.
           </p>
         </div>
 
@@ -592,28 +595,40 @@
           >
             <article class="card project-card h-100 bg-card border-0 shadow-sm">
               <div
-                id="geotrackCarousel"
+                id="smartParkingCarousel"
                 class="carousel slide project-media"
                 data-bs-ride="carousel"
               >
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img
-                      src="img/GeoTrack Sync System/screenshot-1.png"
-                      alt="GeoTrack map screen"
+                      src="assets/Projects/Smart_parking/img1.png"
+                      alt="Smart Parking spot map and active vehicles"
                     />
                   </div>
                   <div class="carousel-item">
                     <img
-                      src="img/GeoTrack Sync System/screenshot-2.png"
-                      alt="GeoTrack mobile tracking preview"
+                      src="assets/Projects/Smart_parking/img2.png"
+                      alt="Smart Parking vehicle entry and agent pipeline"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/Projects/Smart_parking/img3.png"
+                      alt="Smart Parking agent output and activity log"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/Projects/Smart_parking/img4.png"
+                      alt="Smart Parking full dashboard"
                     />
                   </div>
                 </div>
                 <button
                   class="carousel-control-prev"
                   type="button"
-                  data-bs-target="#geotrackCarousel"
+                  data-bs-target="#smartParkingCarousel"
                   data-bs-slide="prev"
                 >
                   <span class="carousel-control-prev-icon"></span>
@@ -621,7 +636,7 @@
                 <button
                   class="carousel-control-next"
                   type="button"
-                  data-bs-target="#geotrackCarousel"
+                  data-bs-target="#smartParkingCarousel"
                   data-bs-slide="next"
                 >
                   <span class="carousel-control-next-icon"></span>
@@ -629,23 +644,26 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-white fw-bold">
-                  GeoTrack Sync System
+                  Smart Parking System
                 </h5>
                 <p class="text-primary small fw-semibold mb-3">
-                  JavaScript | Google Maps API | Geolocation
+                  HTML | CSS | JavaScript | FastAPI | SQLite3 | Groq LLM
                 </p>
                 <p class="card-text text-light opacity-75 small-line-height">
-                  A planned real-time location tracking system centered on map
-                  synchronization, device geolocation, and route visibility. The
-                  architecture focuses on the hardest core feature first:
-                  accurate user position updates, clean map rendering, and a
-                  workflow that can later support operations dashboards.
+                  An AI-powered parking agent that checks live spot status,
+                  predicts short-term occupancy, assigns a suitable parking
+                  space, and explains the decision to the driver. The agent
+                  workflow uses LangChain, LangGraph, Groq LLM, FastAPI, and
+                  SQLite3 behind a clean web dashboard.
                 </p>
               </div>
               <div
                 class="card-footer bg-transparent border-0 d-flex gap-2 pt-0"
               >
-                <a href="#" class="btn btn-sm btn-primary flex-grow-1"
+                <a
+                  href="https://live-parking-agent.vercel.app/"
+                  target="_blank"
+                  class="btn btn-sm btn-primary flex-grow-1"
                   ><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
                   Live Link</a
                 >
@@ -742,9 +760,9 @@
             class="text-light opacity-75 project-section-copy"
             data-aos="fade-left"
           >
-            A focused showcase of achievements, certificates, and competition
-            work that reflects hands-on AI, data science, prompt engineering,
-            and problem-solving experience.
+            A small collection of courses, certificates, and hackathon moments
+            that shaped my journey. I keep these here as reminders of what I
+            have learned and where I am still growing.
           </p>
         </div>
 
@@ -1037,7 +1055,7 @@
       tabindex="-1"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-fullscreen">
+      <div class="modal-dialog modal-xl modal-dialog-centered screenshot-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="screenshotModalTitle">
@@ -1051,7 +1069,25 @@
             ></button>
           </div>
           <div class="modal-body">
-            <img id="screenshotModalImage" src="" alt="" />
+            <button
+              type="button"
+              class="screenshot-nav screenshot-nav-prev"
+              id="screenshotPrev"
+              aria-label="Previous screenshot"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="screenshot-frame">
+              <img id="screenshotModalImage" src="" alt="" />
+            </div>
+            <button
+              type="button"
+              class="screenshot-nav screenshot-nav-next"
+              id="screenshotNext"
+              aria-label="Next screenshot"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </div>

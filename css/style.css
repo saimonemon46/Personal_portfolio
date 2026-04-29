@@ -849,9 +849,39 @@ body.light-theme .skill-list span:hover {
 }
 
 .screenshot-modal .btn-close {
-  background-color: color-mix(in srgb, var(--text-main) 12%, transparent);
+  background-color: var(--color-primary);
   border-radius: 8px;
   opacity: 1;
+  padding: 10px;
+}
+
+.screenshot-modal .btn-close::before,
+.screenshot-modal .btn-close::after {
+  background-color: #fff;
+  content: "";
+  display: block;
+  height: 16px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 2px;
+}
+
+.screenshot-modal .btn-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.screenshot-modal .btn-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+body.light-theme .screenshot-modal .btn-close {
+  background-color: var(--color-primary);
+}
+
+body.light-theme .screenshot-modal .btn-close::before,
+body.light-theme .screenshot-modal .btn-close::after {
+  background-color: #fff;
 }
 
 .screenshot-modal .modal-body {

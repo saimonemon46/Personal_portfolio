@@ -599,9 +599,10 @@ body.light-theme .skill-list span {
 
 .hackathon-certificate img,
 .certificate-card img {
+  background: #f8fafc;
   cursor: zoom-in;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.55s ease;
   width: 100%;
 }
@@ -637,6 +638,10 @@ body.light-theme .skill-list span {
   min-height: 230px;
   padding: 28px;
   text-align: center;
+}
+
+.certificate-placeholder-visible {
+  display: grid;
 }
 
 .certificate-placeholder i {

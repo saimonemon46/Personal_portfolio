@@ -1,336 +1,1067 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Sai Mon Hasan Emon - AI & Backend Engineer</title>
-    <meta name="description" content="Engineer building practical AI systems and backend services. Expertise in FastAPI, LangChain, LangGraph, and ML applications.">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="container">
-            <div class="logo">saimonemon46</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="#projects" class="nav-link" data-page="projects">Projects</a></li>
-                <li><a href="#ai-systems" class="nav-link" data-page="ai-systems">AI Systems</a></li>
-                <li><a href="#timeline" class="nav-link" data-page="timeline">Timeline</a></li>
-                <li><a href="#about" class="nav-link" data-page="about">About</a></li>
-                <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
-            </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md. Sai Mon Hasan Emon | Portfolio</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-primary fw-bold fs-4" href="#hero"
+          >Saimon<span class="text-white">.dev</span></a
+        >
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto py-3 py-lg-0 fw-semibold">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#certificates">Certificates</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <button
+            class="theme-toggle ms-lg-3"
+            type="button"
+            id="themeToggle"
+            aria-label="Switch to light theme"
+          >
+            <i class="fa-solid fa-sun"></i>
+            <span>Light</span>
+          </button>
         </div>
+      </div>
     </nav>
 
-    <!-- HOME PAGE -->
-    <div id="home" class="page">
-        <header class="hero">
-            <div class="container">
-                <!-- Top row: name + pic -->
-                <div class="header-top">
-                    <h1>Md. Sai Mon Hasan Emon</h1>
-                    <div class="header-pic">
-                        <img src="assets/saimon.jpeg" alt="Md. Sai Mon Hasan Emon">
-                    </div>
-                </div>
-
-                <!-- Below: tagline + skills -->
-                <p class="tagline">Engineer building practical AI systems and backend services.</p>
-
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>AI & ML</h3>
-                        <p>LangChain, LangGraph, TensorFlow, PyTorch, Scikit-Learn, LLM applications</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Backend Engineering</h3>
-                        <p>FastAPI, SQL Server, PostgreSQL, .NET MVC, API development, authentication</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Full-Stack & Tools</h3>
-                        <p>Docker, Streamlit, HTML/CSS, Git, system architecture, deployment-ready design</p>
-                    </div>
-                </div>
+    <header id="hero" class="hero-section d-flex align-items-center">
+      <div class="hero-grid"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7" data-aos="fade-right">
+            <p class="text-primary fw-bold mb-1 letter-spacing-1">
+              HI THERE, I'M
+            </p>
+            <h1 class="display-3 fw-bolder mb-3 text-white">
+              Md. Sai Mon Hasan Emon
+            </h1>
+            <h2 class="h3 text-muted mb-4">AI / Software Engineer</h2>
+            <p class="lead mb-5 text-light opacity-75 hero-copy">
+              Backend-focused AI engineer building production-ready systems with
+              FastAPI, PHP, Docker, and modern ML workflows. I enjoy turning
+              rough ideas into useful software: clean APIs, reliable databases,
+              practical AI features, and interfaces that people can actually
+              use.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                class="btn btn-primary btn-lg px-4 py-2 fw-bold shadow-sm"
+                >View My Work</a
+              >
+              <a
+                href="resume.pdf"
+                target="_blank"
+                class="btn btn-outline-light btn-lg px-4 py-2 fw-bold"
+                >Resume <i class="fa-solid fa-download ms-2"></i
+              ></a>
             </div>
-        </header>
+          </div>
 
-        <section class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid" id="featured-projects">
-                <!-- Projects will be loaded from JavaScript -->
+          <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="180">
+            <div class="profile-frame mx-auto">
+              <div class="profile-photo">
+                <img
+                  src="assets/picture/profile.jpeg"
+                  alt="Md. Sai Mon Hasan Emon profile"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                  "
+                />
+                <div class="profile-placeholder">
+                  <i class="fa-solid fa-user"></i>
+                  <span>Profile Photo</span>
+                </div>
+              </div>
+              <div class="floating-chip chip-one">
+                <i class="fa-solid fa-brain"></i> AI Systems
+              </div>
+              <div class="floating-chip chip-two">
+                <i class="fa-solid fa-server"></i> Backend APIs
+              </div>
+              <div class="floating-chip chip-three">
+                <i class="fa-brands fa-docker"></i> Docker
+              </div>
             </div>
-        </section>
-    </div>
-
-    <!-- PROJECTS PAGE -->
-    <div id="projects" class="page">
-        <section class="container">
-            <h2>Projects</h2>
-            <p class="section-intro">A collection of engineering projects focused on AI systems, backend development, and production-ready implementations. Each project includes a complete case study covering architecture, design decisions, and technical details.</p>
-            
-            <div class="projects-grid" id="all-projects">
-                <!-- Projects will be loaded from JavaScript -->
-            </div>
-        </section>
-    </div>
-
-    <!-- AI SYSTEMS PAGE -->
-    <div id="ai-systems" class="page">
-        <section class="container">
-            <h2>AI Systems</h2>
-            <p class="section-intro">This section highlights AI engineering work, focusing on LLM workflows, tool integrations, retrieval systems, and agent architectures.</p>
-
-            <div class="ai-section">
-                <h3>RAG Architecture</h3>
-                <p>A retrieval system combining embeddings, vector search, and LLM reasoning to produce context-aware responses.</p>
-                <div class="ai-diagram">
-                    <div class="flow-item">User Query</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Text Splitter</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Embedding Model</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Vector Database</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Top-k Retrieval</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">LLM</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Final Response</div>
-                </div>
-                <p class="diagram-note"><strong>Why RAG:</strong> Combines external knowledge with LLM capabilities to reduce hallucinations and provide source-grounded responses.</p>
-            </div>
-
-            <div class="ai-section">
-                <h3>LangGraph Agent Architecture</h3>
-                <p>A graph-based conversational system where nodes represent processing steps.</p>
-                <div class="ai-diagram">
-                    <div class="flow-item">Input</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Parser Node</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">LLM Node</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Tool Node (Weather, News, etc.)</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Memory Node (Threaded History)</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Output</div>
-                </div>
-            </div>
-
-            <div class="ai-section">
-                <h3>FastAPI + LLM Integration</h3>
-                <p>Shows how UI, API, model pipeline, and database interact.</p>
-                <div class="ai-diagram">
-                    <div class="flow-item">UI</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">FastAPI Endpoints</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">LLM Providers (Groq / OpenAI)</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Database (SQL)</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Response</div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- TIMELINE PAGE -->
-    <div id="timeline" class="page">
-        <section class="container">
-            <h2>Timeline</h2>
-            <p class="section-intro">A structured timeline from early academics → engineering development → certifications → upcoming career steps.</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2021</div>
-                    <div class="timeline-content">
-                        <h3>HSC Completed</h3>
-                        <p>Achieved GPA 5.00 at Ispahani Public School and College, Comilla</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2023–2027</div>
-                    <div class="timeline-content">
-                        <h3>Foundation in Computer Science</h3>
-                        <p>Started B.Sc. in Computer Science & Engineering at IUBAT. Built foundation in programming fundamentals, data structures, and algorithms.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2024</div>
-                    <div class="timeline-content">
-                        <h3>ML Foundations</h3>
-                        <p>Completed 100 Days of Machine Learning (CampusX). Gained expertise in Scikit-learn, TensorFlow, and practical ML implementations.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-content">
-                        <h3>AI Systems Specialization</h3>
-                        <p>Completed certifications in Deep Learning, NLP, LangChain, and Agentic AI using LangGraph. Built production-ready AI applications.</p>
-                        <p style="margin-top: 8px;"><strong>Certifications:</strong> Applied Data Science & ML, 100 Days of Deep Learning, Building NLP Projects, Generative AI using LangChain, Agentic AI using LangGraph</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2025–2026</div>
-                    <div class="timeline-content">
-                        <h3>Core Project Development</h3>
-                        <p>Built comprehensive portfolio of AI systems, backend services, and full-stack applications demonstrating production-ready engineering skills.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2027</div>
-                    <div class="timeline-content">
-                        <h3>Expected Graduation</h3>
-                        <p>B.Sc. in Computer Science & Engineering (Expected CGPA: 3.90/4.00)</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2027+</div>
-                    <div class="timeline-content">
-                        <h3>Industry Focus</h3>
-                        <p>Transitioning to industry roles focusing on production-scale AI systems, cloud deployment, and backend engineering. Interested in working with startups and tech companies on scalable AI infrastructure.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- ABOUT PAGE -->
-    <div id="about" class="page">
-        <section class="container">
-            <h2>About</h2>
-            
-            <div class="about-content">
-                <div class="about-section">
-                    <h3>Professional Summary</h3>
-                    <p>I focus on building AI-powered backend systems, ensuring reliability, clarity, and scalability. I value engineering discipline, reproducibility, structured design, and practical impact.</p>
-                </div>
-
-                <div class="about-section">
-                    <h3>Core Competencies</h3>
-                    <p>Applied AI, LLM engineering, backend/API systems, data processing, software design principles</p>
-                </div>
-
-                <div class="about-section">
-                    <h3>What I Work On</h3>
-                    <ul class="about-list">
-                        <li>Production-style FastAPI services</li>
-                        <li>LLM agent systems</li>
-                        <li>LangChain and LangGraph workflows</li>
-                        <li>ML model deployment</li>
-                        <li>Database-backed applications</li>
-                    </ul>
-                </div>
-
-                <div class="about-section">
-                    <h3>Technical Skills</h3>
-                    <div class="skills-detailed">
-                        <div class="skill-category">
-                            <h4>Programming Languages</h4>
-                            <p>Python, C/C++, C#, SQL</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>AI & Machine Learning</h4>
-                            <p>LangChain, LangGraph, LangSmith, TensorFlow, PyTorch, Keras, Scikit-learn, Pandas, NumPy</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Frameworks & Tools</h4>
-                            <p>.NET MVC, FastAPI, Streamlit, Docker, Git, Jupyter Notebook</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Databases</h4>
-                            <p>MySQL, PostgreSQL, SQL Server</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Web Technologies</h4>
-                            <p>HTML, CSS, FastAPI, Streamlit, .NET MVC</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- CONTACT PAGE -->
-    <div id="contact" class="page">
-        <section class="container">
-            <h2>Contact</h2>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p style="margin-bottom: 24px;">Feel free to reach out for opportunities, collaborations, or questions.</p>
-                    
-                    <div class="contact-item">
-                        <strong>Email</strong>
-                        <a href="mailto:saimonemon46@gmail.com">saimonemon46@gmail.com</a>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <strong>Phone</strong>
-                        <a href="tel:+8801622015799">+880 1622 015799</a>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <strong>LinkedIn</strong>
-                        <a href="https://www.linkedin.com/in/md-saimon-hasan-emon-17739a324/" target="_blank">linkedin.com/in/md-saimon-hasan</a>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <strong>GitHub</strong>
-                        <a href="https://github.com/saimonemon46" target="_blank">github.com/saimonemon46</a>
-                    </div>
-                    <div class="contact-item">
-                        <strong>Location</strong>
-                        <p>Sector-10, Bamnartek New Road, Uttara, Dhaka</p>
-                    </div>
-
-                    <div style="margin-top: 32px;">
-                        <a href="assets/resume/resume.pdf" class="btn" download>Download Resume (PDF)</a>
-                    </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <form id="contact-form">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <input type="text" name="subject" placeholder="Subject" required>
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                        <input type="text" name="honeypot" style="display:none;">
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                    <div id="form-message" style="margin-top: 16px; display: none;"></div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- DYNAMIC CASE STUDY CONTAINER -->
-    <div id="case-study-container"></div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="mailto:saimonemon46@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/md-saimon-hasan-emon-17739a324/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/saimonemon46" target="_blank">GitHub</a>
-            </div>
-            <p>&copy; 2026 Md. Sai Mon Hasan Emon. All rights reserved.</p>
+          </div>
         </div>
+      </div>
+    </header>
+
+    <section id="about" class="py-6 bg-alt">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5" data-aos="fade-up">
+            <div class="intro-photo-wrap">
+              <img
+                src="assets/picture/intro.jpeg"
+                alt="Saimon working on software projects"
+                class="intro-photo"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="intro-photo-placeholder">
+                <i class="fa-solid fa-image"></i>
+                <span>Self Intro Picture</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="120">
+            <h2 class="section-title mb-5">Self Introduction</h2>
+            <p class="text-light opacity-75 mb-4">
+              I am Md. Sai Mon Hasan Emon, a Computer Science & Engineering
+              student and software developer focused on backend engineering,
+              AI-assisted applications, and practical automation. My strongest
+              work usually sits between data, APIs, and product needs: I like
+              designing systems that are understandable, measurable, and easy to
+              extend.
+            </p>
+            <p class="text-light opacity-75 mb-4">
+              I have hands-on experience with live ERP work, ML model
+              deployment, PHP and MySQL systems, FastAPI services, Dockerized
+              apps, and documentation tooling. I care about writing clean
+              business logic, building usable admin experiences, and learning
+              the domain deeply enough that the final product solves the right
+              problem.
+            </p>
+            <div class="intro-stats">
+              <div>
+                <strong>3.91</strong>
+                <span>Current CGPA</span>
+              </div>
+              <div>
+                <strong>400+</strong>
+                <span>Buildathon Teams</span>
+              </div>
+              <div>
+                <strong>2026</strong>
+                <span>Live ERP Internship</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-6">
+      <div class="container">
+        <h2 class="section-title mb-5" data-aos="fade-right">
+          Experience & Education
+        </h2>
+
+        <div class="row g-5">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h4 class="mb-4 text-white d-flex align-items-center">
+              <i class="fa-solid fa-briefcase text-primary me-3"></i> Work
+              Experience
+            </h4>
+            <div class="timeline ps-4 border-start border-primary ms-2">
+              <div class="timeline-item mb-4 position-relative">
+                <i class="fa-solid fa-circle text-primary timeline-dot"></i>
+                <h5 class="text-primary fw-bold mb-0">
+                  Software Developer Intern
+                </h5>
+                <p class="text-muted small mb-2">
+                  Leotech | Dhaka, Bangladesh | 2026
+                </p>
+                <p class="text-light opacity-75 small-line-height">
+                  Contributed to a live school ERP system where reliability,
+                  database correctness, and clear workflows mattered every day.
+                  I worked on both the fee management module and academic
+                  module, built PHP and MySQL backend logic for transactions and
+                  academic records, handled real production data, and improved
+                  existing features through debugging and query optimization.
+                </p>
+                <ul class="text-light opacity-75 small-line-height">
+                  <li>
+                    Developed fee collection and payment tracking flows for
+                    school administration users.
+                  </li>
+                  <li>
+                    Enhanced academic module workflows for managing student,
+                    class, and academic information inside the ERP.
+                  </li>
+                  <li>
+                    Improved database queries to make common retrieval paths
+                    faster and easier to maintain.
+                  </li>
+                  <li>
+                    Collaborated around existing ERP constraints while keeping
+                    changes compatible with live users.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="mb-4 text-white d-flex align-items-center">
+              <i class="fa-solid fa-graduation-cap text-primary me-3"></i>
+              Education & Highlights
+            </h4>
+            <div class="timeline ps-4 border-start border-primary ms-2">
+              <div class="timeline-item mb-4 position-relative">
+                <i class="fa-solid fa-circle text-primary timeline-dot"></i>
+                <h5 class="text-primary fw-bold mb-0">
+                  B.Sc. in Computer Science & Engineering
+                </h5>
+                <p class="text-muted small mb-2">
+                  IUBAT | CGPA: 3.91/4.00 | 2023 - 2027
+                </p>
+                <p class="text-light opacity-75 small-line-height">
+                  Building a strong foundation in algorithms, software
+                  engineering, databases, AI, and system design while applying
+                  classroom knowledge to portfolio projects, competitions, and
+                  production-oriented development.
+                </p>
+              </div>
+              <div class="timeline-item position-relative mt-4">
+                <i class="fa-solid fa-trophy text-primary timeline-dot"></i>
+                <h5 class="text-primary fw-bold mb-0">
+                  National AI Buildathon Finalist
+                </h5>
+                <p class="text-muted small mb-2">MillionX Bangladesh | 2026</p>
+                <p class="text-light opacity-75 small-line-height">
+                  Ranked among the top teams out of 400+ participants. Built a
+                  health-tech AI system using LangChain and LangGraph for
+                  symptom analysis, medical reasoning support, and doctor
+                  recommendation workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="py-6 bg-alt">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-5"
+        >
+          <h2 class="section-title" data-aos="fade-right">
+            Certificates & Hackathon
+          </h2>
+          <p
+            class="text-light opacity-75 project-section-copy"
+            data-aos="fade-left"
+          >
+            A focused showcase of achievements, certificates, and competition
+            work that reflects hands-on AI, software engineering, and
+            problem-solving experience.
+          </p>
+        </div>
+
+        <div class="row g-4 align-items-stretch mb-4">
+          <div class="col-lg-7" data-aos="fade-up">
+            <article class="hackathon-feature h-100">
+              <div class="hackathon-content">
+                <span class="achievement-label">
+                  <i class="fa-solid fa-trophy"></i> Featured Achievement
+                </span>
+                <h3>National AI Buildathon Finalist</h3>
+                <p class="text-muted fw-bold mb-3">
+                  MillionX Bangladesh | 2026
+                </p>
+                <p class="text-light opacity-75 small-line-height">
+                  Ranked among the top teams from 400+ participants with a
+                  health-tech AI project designed to support symptom analysis,
+                  medical reasoning, and doctor recommendation. The system used
+                  LangChain and LangGraph to structure the AI workflow and
+                  focused on making health guidance more accessible and
+                  actionable.
+                </p>
+                <div class="achievement-tags">
+                  <span>LangChain</span>
+                  <span>LangGraph</span>
+                  <span>Health-Tech AI</span>
+                  <span>Finalist</span>
+                </div>
+              </div>
+              <div class="hackathon-certificate">
+                <img
+                  src="img/certificates/ai-buildathon-certificate.jpg"
+                  alt="National AI Buildathon finalist certificate"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'grid';
+                  "
+                />
+                <div class="certificate-placeholder">
+                  <i class="fa-solid fa-certificate"></i>
+                  <span>Hackathon Certificate</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="120">
+            <div class="certificate-card h-100">
+              <img
+                src="img/certificates/software-development-certificate.jpg"
+                alt="Software development certificate"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="certificate-placeholder">
+                <i class="fa-solid fa-award"></i>
+                <span>Software Development Certificate</span>
+              </div>
+              <div class="certificate-info">
+                <h5>Software Development Certificate</h5>
+                <p>
+                  Highlights practical development skills across backend logic,
+                  databases, deployment practices, and real-world application
+                  building.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-4" data-aos="zoom-in" data-aos-delay="80">
+            <div class="certificate-card h-100">
+              <img
+                src="img/certificates/ai-ml-certificate.jpg"
+                alt="AI and machine learning certificate"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="certificate-placeholder">
+                <i class="fa-solid fa-brain"></i>
+                <span>AI / ML Certificate</span>
+              </div>
+              <div class="certificate-info">
+                <h5>AI / ML Certificate</h5>
+                <p>
+                  Recognizes learning and applied work with model pipelines,
+                  intelligent systems, and data-driven software features.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-xl-4"
+            data-aos="zoom-in"
+            data-aos-delay="160"
+          >
+            <div class="certificate-card h-100">
+              <img
+                src="img/certificates/backend-certificate.jpg"
+                alt="Backend engineering certificate"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="certificate-placeholder">
+                <i class="fa-solid fa-server"></i>
+                <span>Backend Certificate</span>
+              </div>
+              <div class="certificate-info">
+                <h5>Backend Engineering</h5>
+                <p>
+                  Highlights API design, server-side development, database
+                  workflows, and maintainable application architecture.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-xl-4"
+            data-aos="zoom-in"
+            data-aos-delay="240"
+          >
+            <div class="certificate-card h-100">
+              <img
+                src="img/certificates/hackathon-project-demo.jpg"
+                alt="Hackathon AI project demo"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="certificate-placeholder">
+                <i class="fa-solid fa-laptop-code"></i>
+                <span>Hackathon Project Demo</span>
+              </div>
+              <div class="certificate-info">
+                <h5>Hackathon Project Demo</h5>
+                <p>
+                  A visual slot for the competition project interface,
+                  prototype, presentation slide, or demo screenshot.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-6 bg-alt">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-5"
+        >
+          <h2 class="section-title" data-aos="fade-right">Featured Projects</h2>
+          <p
+            class="text-light opacity-75 project-section-copy"
+            data-aos="fade-left"
+          >
+            Project work is presented with visual previews, multiple
+            screenshots, and room for demo captures so visitors can understand
+            the product flow before opening the live link or repository.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div
+            class="col-md-6 col-xl-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <article class="card project-card h-100 bg-card border-0 shadow-sm">
+              <div
+                id="predictwiseCarousel"
+                class="carousel slide project-media"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="img/PredictWise - ML Web App/screenshot-1.png"
+                      alt="PredictWise dashboard screenshot"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="img/PredictWise - ML Web App/screenshot-2.png"
+                      alt="PredictWise model workflow"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="img/PredictWise - ML Web App/screenshot-3.png"
+                      alt="PredictWise code and API preview"
+                    />
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#predictwiseCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#predictwiseCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-white fw-bold">
+                  PredictWise - ML Web App
+                </h5>
+                <p class="text-primary small fw-semibold mb-3">
+                  FastAPI | Scikit-learn | Docker
+                </p>
+                <p class="card-text text-light opacity-75 small-line-height">
+                  A machine-learning web application that exposes multiple
+                  predictive models through a FastAPI backend. The project
+                  focuses on clean model serving, reusable Scikit-learn
+                  pipelines, fast prediction requests, and Dockerized deployment
+                  so the same app can run consistently in local and hosted
+                  environments.
+                </p>
+              </div>
+              <div
+                class="card-footer bg-transparent border-0 d-flex gap-2 pt-0"
+              >
+                <a href="#" class="btn btn-sm btn-primary flex-grow-1"
+                  ><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                  Live Link</a
+                >
+                <a href="#" class="btn btn-sm btn-outline-light"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="col-md-6 col-xl-4"
+            data-aos="fade-up"
+            data-aos-delay="180"
+          >
+            <article class="card project-card h-100 bg-card border-0 shadow-sm">
+              <div
+                id="docsCarousel"
+                class="carousel slide project-media"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="img/Auto Documentation Tool/screenshot-1.png"
+                      alt="Auto documentation tool interface"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="img/Auto Documentation Tool/screenshot-2.png"
+                      alt="Generated documentation preview"
+                    />
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#docsCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#docsCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-white fw-bold">
+                  Auto Documentation Tool
+                </h5>
+                <p class="text-primary small fw-semibold mb-3">
+                  Python | AST | CLI
+                </p>
+                <p class="card-text text-light opacity-75 small-line-height">
+                  A Python CLI utility that parses source files with AST-based
+                  analysis and generates structured Markdown documentation. It
+                  was designed to reduce repetitive documentation work, preserve
+                  function-level details, and make larger codebases easier to
+                  understand for future contributors.
+                </p>
+              </div>
+              <div
+                class="card-footer bg-transparent border-0 d-flex gap-2 pt-0"
+              >
+                <a href="#" class="btn btn-sm btn-primary flex-grow-1"
+                  ><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                  Live Link</a
+                >
+                <a href="#" class="btn btn-sm btn-outline-light"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="col-md-6 col-xl-4"
+            data-aos="fade-up"
+            data-aos-delay="260"
+          >
+            <article class="card project-card h-100 bg-card border-0 shadow-sm">
+              <div
+                id="rentalCarousel"
+                class="carousel slide project-media"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="img/Premium Car Rental System/screenshot-1.png"
+                      alt="Premium car rental fleet"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="img/Premium Car Rental System/screenshot-2.png"
+                      alt="Car rental booking screen"
+                    />
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#rentalCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#rentalCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-white fw-bold">
+                  Premium Car Rental System
+                </h5>
+                <p class="text-primary small fw-semibold mb-3">
+                  PHP | MySQL | MVC Architecture
+                </p>
+                <p class="card-text text-light opacity-75 small-line-height">
+                  A full-stack rental management system with role-based access,
+                  vehicle inventory, booking control, and administrative
+                  reporting. The project emphasizes MVC separation, clear data
+                  handling, and an admin dashboard that helps operators manage
+                  availability, customers, and rental activity efficiently.
+                </p>
+              </div>
+              <div
+                class="card-footer bg-transparent border-0 d-flex gap-2 pt-0"
+              >
+                <a href="#" class="btn btn-sm btn-primary flex-grow-1"
+                  ><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                  Live Link</a
+                >
+                <a href="#" class="btn btn-sm btn-outline-light"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="col-md-6 col-xl-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <article class="card project-card h-100 bg-card border-0 shadow-sm">
+              <div
+                id="nexacoreCarousel"
+                class="carousel slide project-media"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="img\Apartment Management System\Screenshot 2026-04-20 005240.png"
+                      alt="NexaCore corporate website homepage"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="img\Apartment Management System\Screenshot 2026-02-04 151751.png"
+                      alt="NexaCore contact workflow"
+                    />
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#nexacoreCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#nexacoreCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-white fw-bold">
+                  NexaCore Corporate Website
+                </h5>
+                <p class="text-primary small fw-semibold mb-3">
+                  PHP | MySQL | Bootstrap
+                </p>
+                <p class="card-text text-light opacity-75 small-line-height">
+                  A responsive corporate website built with server-side form
+                  validation, database-backed message handling, and
+                  email-triggered notifications. The implementation balances a
+                  polished public-facing design with practical backend features
+                  that help the business respond to inquiries.
+                </p>
+              </div>
+              <div
+                class="card-footer bg-transparent border-0 d-flex gap-2 pt-0"
+              >
+                <a href="#" class="btn btn-sm btn-primary flex-grow-1"
+                  ><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                  Live Link</a
+                >
+                <a href="#" class="btn btn-sm btn-outline-light"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="col-md-6 col-xl-4"
+            data-aos="fade-up"
+            data-aos-delay="180"
+          >
+            <article class="card project-card h-100 bg-card border-0 shadow-sm">
+              <div
+                id="geotrackCarousel"
+                class="carousel slide project-media"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="img/GeoTrack Sync System/screenshot-1.png"
+                      alt="GeoTrack map screen"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="img/GeoTrack Sync System/screenshot-2.png"
+                      alt="GeoTrack mobile tracking preview"
+                    />
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#geotrackCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#geotrackCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-white fw-bold">
+                  GeoTrack Sync System
+                </h5>
+                <p class="text-primary small fw-semibold mb-3">
+                  JavaScript | Google Maps API | Geolocation
+                </p>
+                <p class="card-text text-light opacity-75 small-line-height">
+                  A planned real-time location tracking system centered on map
+                  synchronization, device geolocation, and route visibility. The
+                  architecture focuses on the hardest core feature first:
+                  accurate user position updates, clean map rendering, and a
+                  workflow that can later support operations dashboards.
+                </p>
+              </div>
+              <div
+                class="card-footer bg-transparent border-0 d-flex gap-2 pt-0"
+              >
+                <a href="#" class="btn btn-sm btn-primary flex-grow-1"
+                  ><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                  Live Link</a
+                >
+                <a href="#" class="btn btn-sm btn-outline-light"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="col-md-6 col-xl-4"
+            data-aos="fade-up"
+            data-aos-delay="260"
+          >
+            <article class="card project-card h-100 bg-card border-0 shadow-sm">
+              <div
+                id="apartmentCarousel"
+                class="carousel slide project-media"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="img/Apartment Management System/screenshot-1.png"
+                      alt="Apartment management dashboard"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="img/Apartment Management System/screenshot-2.png"
+                      alt="Apartment property records"
+                    />
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#apartmentCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#apartmentCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-white fw-bold">
+                  Apartment Management System
+                </h5>
+                <p class="text-primary small fw-semibold mb-3">
+                  PHP | MVC | Ace Admin
+                </p>
+                <p class="card-text text-light opacity-75 small-line-height">
+                  A property management application designed around tenant,
+                  apartment, payment, and administrative records. It keeps a
+                  strict MVC folder structure, uses an admin template for fast
+                  operational screens, and supports the kind of organized
+                  workflows needed by building managers.
+                </p>
+              </div>
+              <div
+                class="card-footer bg-transparent border-0 d-flex gap-2 pt-0"
+              >
+                <a href="#" class="btn btn-sm btn-primary flex-grow-1"
+                  ><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                  Live Link</a
+                >
+                <a href="#" class="btn btn-sm btn-outline-light"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-6">
+      <div class="container">
+        <h2 class="section-title mb-5 text-center" data-aos="fade-up">
+          Technical Toolbox
+        </h2>
+        <div class="row g-4">
+          <div
+            class="col-md-6 col-xl-3"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="skill-panel h-100">
+              <i class="fa-solid fa-code skill-panel-icon"></i>
+              <h5>Languages</h5>
+              <div class="skill-list">
+                <span>Python</span>
+                <span>PHP</span>
+                <span>C#</span>
+                <span>JavaScript</span>
+                <span>SQL</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-xl-3"
+            data-aos="zoom-in"
+            data-aos-delay="180"
+          >
+            <div class="skill-panel h-100">
+              <i class="fa-solid fa-server skill-panel-icon"></i>
+              <h5>Backend</h5>
+              <div class="skill-list">
+                <span>FastAPI</span>
+                <span>.NET MVC</span>
+                <span>PHP MVC</span>
+                <span>REST APIs</span>
+                <span>MySQL</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-xl-3"
+            data-aos="zoom-in"
+            data-aos-delay="260"
+          >
+            <div class="skill-panel h-100">
+              <i class="fa-solid fa-robot skill-panel-icon"></i>
+              <h5>AI & Data</h5>
+              <div class="skill-list">
+                <span>Scikit-learn</span>
+                <span>TensorFlow</span>
+                <span>LangChain</span>
+                <span>LangGraph</span>
+                <span>ML Pipelines</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-xl-3"
+            data-aos="zoom-in"
+            data-aos-delay="340"
+          >
+            <div class="skill-panel h-100">
+              <i class="fa-solid fa-screwdriver-wrench skill-panel-icon"></i>
+              <h5>Tools</h5>
+              <div class="skill-list">
+                <span>Docker</span>
+                <span>Git</span>
+                <span>Bootstrap</span>
+                <span>PostgreSQL</span>
+                <span>Google Maps API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-6 bg-alt">
+      <div class="container text-center">
+        <h2 class="section-title mb-4 mx-auto" data-aos="fade-up">
+          Let's Connect
+        </h2>
+        <p
+          class="text-light opacity-75 mb-5 mx-auto"
+          style="max-width: 600px"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Currently open to new opportunities. Whether you have a question or
+          just want to say hi, I'll try my best to get back to you!
+        </p>
+        <div
+          class="d-flex justify-content-center gap-4 mb-5"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <a
+            href="mailto:saimonemon46@gmail.com"
+            class="contact-icon text-white"
+            ><i class="fa-solid fa-envelope fs-2"></i
+          ></a>
+          <a
+            href="https://linkedin.com/in/your-linkedin"
+            target="_blank"
+            class="contact-icon text-white"
+            ><i class="fa-brands fa-linkedin fs-2"></i
+          ></a>
+          <a
+            href="https://github.com/your-github"
+            target="_blank"
+            class="contact-icon text-white"
+            ><i class="fa-brands fa-github fs-2"></i
+          ></a>
+        </div>
+        <a
+          href="mailto:saimonemon46@gmail.com"
+          class="btn btn-primary btn-lg px-5 fw-bold shadow-sm"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          >Say Hello</a
+        >
+      </div>
+    </section>
+
+    <footer class="py-4 bg-alt text-center border-top border-dark">
+      <div class="container">
+        <p class="text-muted small mb-0">
+          &copy; 2026 Md. Sai Mon Hasan Emon. Built for the modern web.
+        </p>
+      </div>
     </footer>
 
-    <script src="js/projects-data.js"></script>
-    <script src="js/navigation.js"></script>
-</body>
+    <div
+      class="modal fade screenshot-modal"
+      id="screenshotModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="screenshotModalTitle">
+              Project Screenshot
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img id="screenshotModalImage" src="" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

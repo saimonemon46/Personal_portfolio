@@ -599,7 +599,7 @@ body.light-theme .skill-list span {
 
 .hackathon-certificate img,
 .certificate-card img {
-  background: #f8fafc;
+  background: color-mix(in srgb, var(--bg-card) 82%, var(--bg-main) 18%);
   cursor: zoom-in;
   height: 100%;
   object-fit: contain;

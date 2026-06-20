@@ -1,2734 +1,1392 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      MD. Saimon Hasan Emon — Python Developer & AI Systems Developer
+      MD. Saimon Hasan Emon - Python Developer & AI Systems Developer
     </title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
       *,
-      *::before,
-      *::after {
+      *:before,
+      *:after {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
       }
-
       :root {
-        --bg: #0b0f19;
-        --card: #111827;
-        --card2: #0f1623;
-        --blue: #3b82f6;
-        --cyan: #06b6d4;
-        --text: #f9fafb;
-        --muted: #9ca3af;
-        --border: rgba(255, 255, 255, 0.08);
-        --blue-dim: rgba(59, 130, 246, 0.12);
-        --cyan-dim: rgba(6, 182, 212, 0.1);
-        --blue-glow: rgba(59, 130, 246, 0.25);
+        --paper: #f5f2eb;
+        --ink: #1a1a1a;
+        --muted: #625f57;
+        --line: rgba(26, 26, 26, 0.18);
+        --line2: rgba(26, 26, 26, 0.34);
+        --blue: #1b3f8b;
+        --max: 1180px;
       }
-
       html {
         scroll-behavior: smooth;
       }
-
       body {
-        font-family: "Inter", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-        overflow-x: hidden;
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "DM Sans", system-ui, sans-serif;
+        font-size: 17px;
+        line-height: 1.7;
       }
-
-      /* NAV */
+      a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 5px;
+        transition: text-decoration-color 0.16s ease;
+      }
+      a:hover {
+        text-decoration-color: var(--blue);
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      .container {
+        width: min(var(--max), calc(100% - 48px));
+        margin: 0 auto;
+      }
       nav {
-        position: fixed;
+        position: sticky;
         top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(245, 242, 235, 0.94);
+      }
+      .nav-inner {
+        width: min(var(--max), calc(100% - 48px));
+        min-height: 72px;
+        margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 48px;
-        height: 64px;
-        background: rgba(11, 15, 25, 0.85);
-        backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
+        gap: 24px;
       }
-      .nav-logo {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 14px;
-        font-weight: 600;
+      .brand,
+      .nav-links,
+      .mono,
+      .eyebrow,
+      .meta-label,
+      .section-divider,
+      .section-kicker,
+      .role-date,
+      .role,
+      .stack,
+      .project-index,
+      .visual-label,
+      .detail-box,
+      .flow-node,
+      .flow-caption,
+      .module-title,
+      .skill-category,
+      .project-links,
+      .based,
+      footer,
+      code,
+      pre {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+      }
+      .brand {
         color: var(--blue);
+        font-size: 0.82rem;
+        font-weight: 600;
         letter-spacing: 0.02em;
+        text-decoration: none;
       }
       .nav-links {
         display: flex;
-        gap: 32px;
+        align-items: center;
+        gap: clamp(14px, 2.5vw, 34px);
+        font-size: 0.78rem;
       }
       .nav-links a {
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--muted);
-        text-decoration: none;
-        letter-spacing: 0.02em;
-        transition: color 0.2s;
+        text-decoration-color: transparent;
       }
-      .nav-links a:hover {
-        color: var(--text);
-      }
-      .nav-cta {
-        background: var(--blue-dim);
-        color: var(--blue) !important;
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        padding: 6px 16px;
-        border-radius: 6px;
-        transition:
-          background 0.2s,
-          color 0.2s !important;
-      }
-      .nav-cta:hover {
-        background: var(--blue) !important;
-        color: #fff !important;
-      }
-
-      /* SECTIONS */
       section {
-        padding: 100px 0;
+        padding: clamp(72px, 10vw, 136px) 0;
       }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 48px;
-      }
-
-      /* HERO */
-      #hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        padding: 100px 0 60px;
-        position: relative;
-        overflow: hidden;
-      }
-      #hero::before {
-        content: "";
-        position: absolute;
-        top: -200px;
-        left: -200px;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(59, 130, 246, 0.08) 0%,
-          transparent 70%
-        );
-        pointer-events: none;
-      }
-      .hero-inner {
+      .hero {
+        min-height: calc(100vh - 72px);
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
         align-items: center;
-        width: 100%;
+        padding: clamp(56px, 8vw, 96px) 0;
       }
-      .hero-label {
-        display: inline-flex;
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
         align-items: center;
-        gap: 8px;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 12px;
-        font-weight: 500;
-        color: var(--cyan);
-        background: var(--cyan-dim);
-        border: 1px solid rgba(6, 182, 212, 0.2);
-        padding: 5px 12px;
-        border-radius: 4px;
-        margin-bottom: 24px;
-        letter-spacing: 0.06em;
+        gap: clamp(42px, 8vw, 112px);
+      }
+      .hero-copy {
+        max-width: 670px;
+      }
+      .eyebrow {
+        margin: 0 0 28px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
-      .hero-label::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--cyan);
-        animation: pulse 2s infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.4;
-        }
-      }
-      .hero-name {
-        font-size: clamp(36px, 4vw, 56px);
+      h1,
+      h2,
+      h3 {
+        margin: 0;
         font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        color: var(--text);
-        margin-bottom: 8px;
+        line-height: 1.02;
+        letter-spacing: 0;
       }
-      .hero-role {
-        font-size: clamp(14px, 1.5vw, 18px);
-        font-weight: 500;
-        color: var(--blue);
-        margin-bottom: 20px;
-        font-family: "JetBrains Mono", monospace;
-        letter-spacing: 0.01em;
+      h1 {
+        font-size: clamp(4rem, 11vw, 9rem);
+        max-width: 790px;
       }
-      .hero-tagline {
-        font-size: 16px;
-        color: var(--muted);
-        line-height: 1.7;
-        max-width: 480px;
-        margin-bottom: 40px;
+      .hero-sentence {
+        max-width: 590px;
+        margin: 28px 0 0;
+        font-size: clamp(1.2rem, 2vw, 1.65rem);
+        line-height: 1.45;
       }
-      .hero-actions {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--blue);
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 12px 24px;
-        border-radius: 8px;
-        text-decoration: none;
-        transition:
-          background 0.2s,
-          transform 0.15s;
-      }
-      .btn-primary:hover {
-        background: #2563eb;
-        transform: translateY(-1px);
-      }
-      .btn-outline {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: transparent;
-        color: var(--muted);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 12px 20px;
-        border-radius: 8px;
-        border: 1px solid var(--border);
-        text-decoration: none;
-        transition:
-          border-color 0.2s,
-          color 0.2s,
-          transform 0.15s;
-      }
-      .btn-outline:hover {
-        border-color: rgba(255, 255, 255, 0.2);
-        color: var(--text);
-        transform: translateY(-1px);
-      }
-
-      /* DASHBOARD MOCKUP */
-      .dashboard {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow:
-          0 32px 80px rgba(0, 0, 0, 0.4),
-          0 0 0 1px var(--border);
-        font-family: "JetBrains Mono", monospace;
-        font-size: 11px;
-      }
-      .dash-header {
-        background: #0d1420;
-        border-bottom: 1px solid var(--border);
-        padding: 12px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .dash-dots {
-        display: flex;
-        gap: 6px;
-      }
-      .dash-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-      }
-      .dash-dot.r {
-        background: #ef4444;
-      }
-      .dash-dot.y {
-        background: #f59e0b;
-      }
-      .dash-dot.g {
-        background: #22c55e;
-      }
-      .dash-title {
-        color: var(--muted);
-        font-size: 11px;
-      }
-      .dash-status {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        color: #22c55e;
-        font-size: 10px;
-      }
-      .dash-status::before {
-        content: "";
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: #22c55e;
-      }
-
-      .dash-body {
-        padding: 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .dash-metrics {
+      .hero-meta {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 18px;
+        max-width: 580px;
+        margin-top: 56px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line2);
       }
-      .dash-metric {
-        background: var(--card2);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 10px 12px;
+      .hero-meta span {
+        display: block;
       }
-      .dm-label {
+      .meta-label {
         color: var(--muted);
-        font-size: 9px;
+        font-size: 0.75rem;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-bottom: 4px;
       }
-      .dm-val {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--text);
-        line-height: 1;
-        margin-bottom: 2px;
-      }
-      .dm-val.blue {
-        color: var(--blue);
-      }
-      .dm-val.cyan {
-        color: var(--cyan);
-      }
-      .dm-val.green {
-        color: #22c55e;
-      }
-      .dm-sub {
-        font-size: 9px;
-        color: #22c55e;
-      }
-      .dm-sub.warn {
-        color: #f59e0b;
-      }
-
-      .dash-row {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 8px;
-      }
-
-      .dash-panel {
-        background: var(--card2);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 10px 12px;
-      }
-      .dp-title {
-        color: var(--muted);
-        font-size: 9px;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .dp-badge {
-        background: var(--blue-dim);
-        color: var(--blue);
-        padding: 1px 6px;
-        border-radius: 3px;
-        font-size: 8px;
-      }
-      .dp-badge.cyan {
-        background: var(--cyan-dim);
-        color: var(--cyan);
-      }
-      .dp-badge.green {
-        background: rgba(34, 197, 94, 0.1);
-        color: #22c55e;
-      }
-
-      .api-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 5px;
-      }
-      .api-method {
-        font-size: 9px;
-        font-weight: 600;
-        width: 32px;
-      }
-      .api-method.get {
-        color: #22c55e;
-      }
-      .api-method.post {
-        color: var(--blue);
-      }
-      .api-method.put {
-        color: #f59e0b;
-      }
-      .api-path {
-        color: var(--muted);
-        font-size: 9px;
-        flex: 1;
-        padding: 0 8px;
-      }
-      .api-ms {
-        color: var(--text);
-        font-size: 9px;
-      }
-      .api-bar {
-        height: 2px;
-        background: var(--border);
-        border-radius: 1px;
-        margin-top: 2px;
-        margin-bottom: 6px;
-      }
-      .api-bar-fill {
-        height: 100%;
-        border-radius: 1px;
-      }
-
-      .ai-row {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        margin-bottom: 6px;
-      }
-      .ai-icon {
-        width: 16px;
-        height: 16px;
-        border-radius: 4px;
+      .diagram-wrap {
+        min-height: 520px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 8px;
       }
-      .ai-icon.triage {
-        background: rgba(59, 130, 246, 0.2);
+      .system-diagram {
+        width: min(100%, 520px);
+        height: auto;
       }
-      .ai-icon.rag {
-        background: rgba(6, 182, 212, 0.15);
+      .system-diagram text {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
       }
-      .ai-icon.nlp {
-        background: rgba(168, 85, 247, 0.15);
-      }
-      .ai-label {
-        color: var(--text);
-        font-size: 9px;
-        flex: 1;
-      }
-      .ai-status {
-        font-size: 8px;
-        padding: 2px 6px;
-        border-radius: 3px;
-      }
-      .ai-status.active {
-        background: rgba(34, 197, 94, 0.1);
-        color: #22c55e;
-      }
-      .ai-status.processing {
-        background: rgba(59, 130, 246, 0.15);
-        color: var(--blue);
-      }
-
-      .incident-row {
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 6px;
-        background: var(--card);
-        border-radius: 6px;
-        border-left: 2px solid;
-        margin-bottom: 5px;
-      }
-      .incident-row.critical {
-        border-color: #ef4444;
-      }
-      .incident-row.warning {
-        border-color: #f59e0b;
-      }
-      .incident-row.info {
-        border-color: var(--blue);
-      }
-      .inc-content {
-        flex: 1;
-      }
-      .inc-title {
-        color: var(--text);
-        font-size: 9px;
-        margin-bottom: 1px;
-      }
-      .inc-meta {
-        color: var(--muted);
-        font-size: 8px;
-      }
-      .inc-badge {
-        font-size: 8px;
-        padding: 1px 5px;
-        border-radius: 3px;
-        white-space: nowrap;
-      }
-      .inc-badge.critical {
-        background: rgba(239, 68, 68, 0.15);
-        color: #ef4444;
-      }
-      .inc-badge.warning {
-        background: rgba(245, 158, 11, 0.15);
-        color: #f59e0b;
-      }
-      .inc-badge.resolved {
-        background: rgba(34, 197, 94, 0.1);
-        color: #22c55e;
-      }
-
-      /* ABOUT */
-      .about-grid {
+      .section-divider {
+        width: min(var(--max), calc(100% - 48px));
+        margin: 0 auto;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
-        align-items: start;
-      }
-      .section-label {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--blue);
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 0.76rem;
         text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin-bottom: 12px;
+      }
+      .section-divider:before,
+      .section-divider:after {
+        content: "";
+        height: 1px;
+        background: var(--line2);
+      }
+      .section-head {
+        display: grid;
+        grid-template-columns: 0.36fr 0.64fr;
+        gap: clamp(28px, 6vw, 96px);
+        margin-bottom: clamp(40px, 7vw, 84px);
+      }
+      .section-kicker {
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
       }
       .section-title {
-        font-size: clamp(28px, 3vw, 40px);
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        line-height: 1.15;
-        margin-bottom: 20px;
+        font-size: clamp(2.15rem, 5vw, 4.8rem);
       }
-      .about-text {
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.75;
-        margin-bottom: 16px;
+      .about-layout {
+        display: grid;
+        grid-template-columns: 0.42fr 0.58fr;
+        gap: clamp(36px, 8vw, 110px);
+        align-items: start;
       }
-      .about-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .about-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 20px;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
-      }
-      .about-card:hover {
-        border-color: rgba(59, 130, 246, 0.3);
-        transform: translateX(4px);
-      }
-      .about-card-icon {
-        font-size: 20px;
-        margin-bottom: 8px;
-      }
-      .about-card-title {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 4px;
-      }
-      .about-card-sub {
-        font-size: 12px;
-        color: var(--muted);
-      }
-      .about-card-val {
-        font-size: 20px;
-        font-weight: 700;
+      .pull-quote {
+        margin: 0;
         color: var(--blue);
+        font-size: clamp(2.2rem, 5.2vw, 5.4rem);
+        font-weight: 800;
+        line-height: 1.03;
       }
-
-      /* EXPERIENCE */
-      .exp-timeline {
+      .prose {
+        max-width: 760px;
+      }
+      .prose p,
+      .project-copy p {
+        margin: 0 0 26px;
+        color: var(--muted);
+        font-size: clamp(1.04rem, 1.35vw, 1.22rem);
+      }
+      .experience-list {
         position: relative;
-        padding-left: 24px;
+        display: grid;
+        gap: 72px;
+        padding-left: clamp(36px, 7vw, 92px);
       }
-      .exp-timeline::before {
+      .experience-list:before {
         content: "";
         position: absolute;
-        left: 0;
         top: 8px;
         bottom: 8px;
+        left: 10px;
         width: 1px;
-        background: var(--border);
-      }
-      .exp-item {
-        position: relative;
-        margin-bottom: 48px;
-      }
-      .exp-dot {
-        position: absolute;
-        left: -30px;
-        top: 6px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
         background: var(--blue);
-        border: 2px solid var(--bg);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
       }
-      .exp-date {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 11px;
-        color: var(--blue);
-        margin-bottom: 8px;
-        letter-spacing: 0.06em;
-      }
-      .exp-role {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 4px;
-      }
-      .exp-company {
-        font-size: 14px;
-        color: var(--cyan);
-        margin-bottom: 16px;
-        font-weight: 500;
-      }
-      .exp-bullets {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .exp-bullets li {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-size: 14px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-      .exp-bullets li::before {
-        content: "›";
-        color: var(--blue);
-        font-size: 16px;
-        line-height: 1.4;
-        flex-shrink: 0;
-      }
-
-      /* PROJECTS */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
-      .project-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 28px;
-        transition:
-          border-color 0.25s,
-          transform 0.2s,
-          box-shadow 0.25s;
+      .experience-item {
         position: relative;
-        overflow: hidden;
+        display: grid;
+        grid-template-columns: 0.34fr 0.66fr;
+        gap: clamp(24px, 5vw, 72px);
       }
-      .project-card::before {
+      .experience-item:before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(90deg, var(--blue), var(--cyan));
-        opacity: 0;
-        transition: opacity 0.25s;
+        left: calc(clamp(36px, 7vw, 92px) * -1 - 5px);
+        top: 12px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--blue);
       }
-      .project-card:hover {
-        border-color: rgba(59, 130, 246, 0.25);
-        transform: translateY(-4px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      }
-      .project-card:hover::before {
-        opacity: 1;
-      }
-      .project-card.flagship {
-        grid-column: span 2;
-        background: linear-gradient(135deg, #111827 0%, #0f1a2e 100%);
-        border-color: rgba(59, 130, 246, 0.2);
-      }
-      .project-card.flagship::before {
-        opacity: 0.6;
-      }
-      .project-badge {
-        display: inline-block;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 10px;
-        font-weight: 500;
-        color: var(--blue);
-        background: var(--blue-dim);
-        border: 1px solid rgba(59, 130, 246, 0.2);
-        padding: 3px 10px;
-        border-radius: 4px;
-        margin-bottom: 14px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-      .project-badge.cyan {
-        color: var(--cyan);
-        background: var(--cyan-dim);
-        border-color: rgba(6, 182, 212, 0.2);
-      }
-      .project-badge.green {
-        color: #22c55e;
-        background: rgba(34, 197, 94, 0.1);
-        border-color: rgba(34, 197, 94, 0.2);
-      }
-      .project-badge.purple {
-        color: #a78bfa;
-        background: rgba(167, 139, 250, 0.1);
-        border-color: rgba(167, 139, 250, 0.2);
-      }
-      .project-badge.flagship-badge {
-        color: #f59e0b;
-        background: rgba(245, 158, 11, 0.1);
-        border-color: rgba(245, 158, 11, 0.2);
-      }
-
-      .project-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 6px;
-        letter-spacing: -0.01em;
-      }
-      .project-category {
-        font-size: 12px;
+      .role-date {
         color: var(--muted);
-        margin-bottom: 16px;
+        font-size: 0.82rem;
       }
-
-      .project-meta {
+      .company {
+        font-size: clamp(2rem, 4.2vw, 4.3rem);
+      }
+      .role {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+      .module-breakdown {
+        margin-top: 34px;
+        border: 1px solid var(--line2);
+        padding: 22px;
+      }
+      .module-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 14px;
+      }
+      .module-column {
+        padding: 2px 24px 2px 0;
+      }
+      .module-column + .module-column {
+        border-left: 1px solid var(--line2);
+        padding-left: 24px;
+      }
+      .module-title {
         margin-bottom: 18px;
-      }
-      .project-card.flagship .project-meta {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .pm-label {
-        font-size: 10px;
+        color: var(--blue);
+        font-size: 0.78rem;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+      }
+      .module-column ul,
+      .project-copy ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .module-column li,
+      .project-copy li {
+        margin-bottom: 10px;
         color: var(--muted);
-        margin-bottom: 6px;
-        font-family: "JetBrains Mono", monospace;
       }
-      .pm-content {
-        font-size: 12px;
-        color: var(--text);
-        line-height: 1.5;
+      .projects {
+        display: grid;
+        border-top: 1px solid var(--line2);
       }
-
-      .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 18px;
+      .project-strip {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 0.54fr) minmax(340px, 0.46fr);
+        gap: clamp(36px, 7vw, 88px);
+        padding: clamp(56px, 8vw, 92px) 0;
+        border-bottom: 1px solid var(--line2);
       }
-      .tech-tag {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 10px;
-        font-weight: 500;
-        color: var(--muted);
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid var(--border);
-        padding: 3px 9px;
-        border-radius: 4px;
+      .project-index {
+        position: absolute;
+        top: 30px;
+        left: -8px;
+        z-index: -1;
+        color: rgba(27, 63, 139, 0.08);
+        font-size: clamp(7rem, 16vw, 15rem);
+        font-weight: 400;
+        line-height: 0.8;
       }
-
+      .project-title {
+        font-size: clamp(1.9rem, 3.9vw, 4.15rem);
+      }
+      .project-subtitle {
+        margin: 12px 0 24px;
+        color: var(--blue);
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        line-height: 1.45;
+      }
+      .stack {
+        margin-top: 28px;
+        color: var(--blue);
+        font-size: 0.85rem;
+      }
       .project-links {
         display: flex;
-        gap: 10px;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+        font-size: 0.82rem;
       }
-      .link-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 12px;
-        font-weight: 500;
-        padding: 7px 14px;
-        border-radius: 6px;
-        text-decoration: none;
-        transition: all 0.2s;
-        border: 1px solid var(--border);
-        color: var(--muted);
+      .visual-panel {
+        align-self: start;
       }
-      .link-btn:hover {
-        border-color: rgba(59, 130, 246, 0.4);
+      .visual-label {
+        margin-bottom: 14px;
         color: var(--blue);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
-      .link-btn.primary {
-        background: var(--blue-dim);
-        color: var(--blue);
-        border-color: rgba(59, 130, 246, 0.3);
-      }
-      .link-btn.primary:hover {
-        background: var(--blue);
-        color: #fff;
-      }
-
-      .project-media {
-        margin-bottom: 18px;
-      }
-      .project-preview {
+      .image-stage {
         position: relative;
-        overflow: hidden;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: #0a1020;
+        border: 1px solid var(--line2);
+        background: var(--paper);
         cursor: zoom-in;
-        margin-bottom: 10px;
       }
-      .project-preview img {
+      .image-stage img {
+        width: 100%;
+        aspect-ratio: 16/10;
+        object-fit: cover;
+      }
+      .live-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        padding: 5px 9px;
+        border: 1px solid var(--line2);
+        background: var(--paper);
+        color: var(--blue);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+      .thumb-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .thumb-row.two {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .thumb {
         display: block;
         width: 100%;
-        height: 240px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-      .project-preview:hover img {
-        transform: scale(1.03);
-      }
-      .project-preview-overlay {
-        position: absolute;
-        inset: auto 0 0 0;
-        background: linear-gradient(to top, rgba(3, 7, 18, 0.88), transparent);
-        color: #fff;
-        font-size: 11px;
-        padding: 18px 12px 10px;
-        pointer-events: none;
-      }
-      .project-thumbs {
-        display: flex;
-        gap: 8px;
-        overflow-x: auto;
-        padding-bottom: 4px;
-      }
-      .project-thumbs::-webkit-scrollbar {
-        height: 6px;
-      }
-      .project-thumbs::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 999px;
-      }
-      .project-thumb {
-        width: 88px;
-        height: 58px;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        overflow: hidden;
+        padding: 0;
+        border: 1px solid var(--line2);
         background: transparent;
         cursor: pointer;
-        flex: 0 0 auto;
-        padding: 0;
       }
-      .project-thumb img {
+      .thumb img {
         width: 100%;
-        height: 100%;
+        aspect-ratio: 4/3;
         object-fit: cover;
-        display: block;
+        filter: grayscale(18%);
       }
-      .project-thumb.active {
-        border-color: rgba(59, 130, 246, 0.7);
-        box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.2);
+      .thumb[aria-pressed="true"] {
+        border-color: var(--blue);
       }
-
-      .gallery-modal {
+      .flow-box,
+      .architecture-box,
+      .api-box {
+        border: 1px solid var(--line2);
+        padding: clamp(18px, 3vw, 28px);
+      }
+      .flow-main {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        align-items: stretch;
+      }
+      .flow-node {
+        position: relative;
+        min-height: 78px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line2);
+        padding: 12px;
+        text-align: center;
+        font-size: 0.76rem;
+      }
+      .flow-node:not(:last-child):after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -13px;
+        width: 13px;
+        height: 1px;
+        background: var(--line2);
+      }
+      .flow-async {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line2);
+      }
+      .flow-caption {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+      .api-box {
+        background: var(--ink);
+        color: var(--paper);
+        overflow-x: auto;
+      }
+      .api-box pre {
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1.75;
+      }
+      .api-val {
+        color: #d8d1c4;
+      }
+      .api-method {
+        font-weight: 600;
+      }
+      .arch-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .arch-column,
+      .arch-shared {
+        border: 1px solid var(--line2);
+        padding: 20px;
+      }
+      .arch-title {
+        margin-bottom: 14px;
+        color: var(--blue);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.76rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .arch-column ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+      .arch-shared {
+        position: relative;
+        margin-top: 34px;
+        text-align: center;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+      }
+      .arch-shared:before,
+      .arch-shared:after {
+        content: "";
+        position: absolute;
+        top: -35px;
+        width: 1px;
+        height: 34px;
+        background: var(--line2);
+      }
+      .arch-shared:before {
+        left: 25%;
+      }
+      .arch-shared:after {
+        right: 25%;
+      }
+      .skills-table {
+        border-top: 1px solid var(--line2);
+      }
+      .skill-row {
+        display: grid;
+        grid-template-columns: 0.28fr 0.72fr;
+        gap: clamp(24px, 5vw, 74px);
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line2);
+      }
+      .skill-category {
+        color: var(--blue);
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+      .skill-tools {
+        font-size: clamp(1.15rem, 2vw, 1.7rem);
+        line-height: 1.45;
+      }
+      .contact-links {
+        display: grid;
+        gap: 16px;
+        margin-top: 42px;
+      }
+      .contact-links a {
+        width: fit-content;
+        font-size: clamp(1.7rem, 5vw, 5rem);
+        font-weight: 800;
+        line-height: 1.05;
+      }
+      .based {
+        margin-top: 56px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      footer {
+        width: min(var(--max), calc(100% - 48px));
+        margin: 0 auto;
+        padding: 34px 0 44px;
+        border-top: 1px solid var(--line2);
+        color: var(--muted);
+        font-size: 0.78rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .lightbox {
         position: fixed;
         inset: 0;
-        background: rgba(3, 7, 18, 0.86);
+        z-index: 50;
         display: none;
         align-items: center;
         justify-content: center;
-        z-index: 9999;
-        padding: 24px;
+        padding: 28px;
+        background: rgba(26, 26, 26, 0.88);
       }
-      .gallery-modal.open {
+      .lightbox.open {
         display: flex;
       }
-      .gallery-modal-panel {
-        width: min(1120px, 100%);
-        background: #0d1322;
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      .lightbox img {
+        max-width: min(1120px, 96vw);
+        max-height: 88vh;
+        border: 1px solid rgba(245, 242, 235, 0.46);
+        background: var(--paper);
       }
-      .gallery-modal-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 14px 16px;
-        border-bottom: 1px solid var(--border);
-      }
-      .gallery-modal-title {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--text);
-      }
-      .gallery-modal-controls {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .gallery-modal-btn {
-        background: transparent;
-        color: var(--muted);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        width: 36px;
-        height: 36px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+      .lightbox-close {
+        position: fixed;
+        top: 18px;
+        right: 22px;
+        border: 1px solid rgba(245, 242, 235, 0.46);
+        background: var(--ink);
+        color: var(--paper);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.78rem;
+        padding: 8px 11px;
         cursor: pointer;
       }
-      .gallery-modal-btn:hover {
-        color: var(--text);
-        border-color: rgba(59, 130, 246, 0.3);
-      }
-      .gallery-modal-body {
-        position: relative;
-        overflow: hidden;
-      }
-      .gallery-slides {
-        display: flex;
-        transition: transform 0.3s ease;
-      }
-      .gallery-slide {
-        min-width: 100%;
-      }
-      .gallery-slide img {
-        width: 100%;
-        max-height: 76vh;
-        object-fit: cover;
-        display: block;
-      }
-      .gallery-modal-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 16px;
-        border-top: 1px solid var(--border);
-        color: var(--muted);
-        font-size: 12px;
-      }
-
-      .achievement-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 11px;
-        color: #f59e0b;
-        background: rgba(245, 158, 11, 0.08);
-        border: 1px solid rgba(245, 158, 11, 0.2);
-        padding: 4px 10px;
-        border-radius: 4px;
-        margin-bottom: 14px;
-      }
-
-      /* SKILLS */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-      .skill-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 24px;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
-      }
-      .skill-card:hover {
-        border-color: rgba(59, 130, 246, 0.25);
-        transform: translateY(-2px);
-      }
-      .skill-card-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 18px;
-      }
-      .skill-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-      }
-      .skill-icon.blue {
-        background: var(--blue-dim);
-      }
-      .skill-icon.cyan {
-        background: var(--cyan-dim);
-      }
-      .skill-icon.green {
-        background: rgba(34, 197, 94, 0.1);
-      }
-      .skill-icon.purple {
-        background: rgba(167, 139, 250, 0.1);
-      }
-      .skill-icon.orange {
-        background: rgba(251, 146, 60, 0.1);
-      }
-      .skill-title {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--text);
-      }
-      .skill-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-      }
-      .skill-tag {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 10px;
-        color: var(--muted);
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid var(--border);
-        padding: 4px 9px;
-        border-radius: 4px;
-        transition:
-          color 0.2s,
-          border-color 0.2s;
-      }
-      .skill-card:hover .skill-tag {
-        color: var(--text);
-        border-color: rgba(255, 255, 255, 0.12);
-      }
-
-      /* PHILOSOPHY */
-      #philosophy {
-        background: linear-gradient(
-          135deg,
-          rgba(59, 130, 246, 0.05) 0%,
-          rgba(6, 182, 212, 0.03) 100%
-        );
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-      }
-      .philosophy-inner {
-        max-width: 760px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      .philosophy-quote {
-        font-size: clamp(22px, 3vw, 34px);
-        font-weight: 700;
-        line-height: 1.35;
-        letter-spacing: -0.02em;
-        color: var(--text);
-        margin-bottom: 24px;
-      }
-      .philosophy-quote em {
-        color: var(--blue);
-        font-style: normal;
-      }
-      .philosophy-body {
-        font-size: 16px;
-        color: var(--muted);
-        line-height: 1.75;
-      }
-
-      /* GITHUB */
-      .github-inner {
-        display: grid;
-        grid-template-columns: 1fr 1.6fr;
-        gap: 40px;
-        align-items: start;
-      }
-      .gh-stat-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-        margin-top: 24px;
-      }
-      .gh-stat {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 18px;
-      }
-      .gh-stat-val {
-        font-size: 28px;
-        font-weight: 800;
-        color: var(--blue);
-        line-height: 1;
-        margin-bottom: 4px;
-      }
-      .gh-stat-label {
-        font-size: 12px;
-        color: var(--muted);
-      }
-      .gh-repos {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .gh-repo {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 16px 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
-      }
-      .gh-repo:hover {
-        border-color: rgba(59, 130, 246, 0.3);
-        transform: translateX(4px);
-      }
-      .gh-repo-name {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 3px;
-      }
-      .gh-repo-desc {
-        font-size: 11px;
-        color: var(--muted);
-      }
-      .gh-repo-meta {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .gh-lang {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        font-size: 11px;
-        color: var(--muted);
-      }
-      .lang-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-      }
-      .lang-dot.python {
-        background: #3b82f6;
-      }
-      .lang-dot.js {
-        background: #f59e0b;
-      }
-      .gh-stars {
-        font-size: 11px;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      /* CONTACT */
-      .contact-inner {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
-        align-items: start;
-      }
-      .contact-cta {
-        font-size: 15px;
-        color: var(--muted);
-        line-height: 1.75;
-        margin-bottom: 32px;
-      }
-      .contact-links {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .contact-link {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 16px 20px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        text-decoration: none;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
-      }
-      .contact-link:hover {
-        border-color: rgba(59, 130, 246, 0.3);
-        transform: translateX(4px);
-      }
-      .contact-link-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        background: var(--blue-dim);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        flex-shrink: 0;
-      }
-      .contact-link-label {
-        font-size: 11px;
-        color: var(--muted);
-        margin-bottom: 2px;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-family: "JetBrains Mono", monospace;
-      }
-      .contact-link-val {
-        font-size: 14px;
-        color: var(--text);
-        font-weight: 500;
-      }
-
-      .contact-form-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 32px;
-      }
-      .form-title {
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 24px;
-      }
-      .form-group {
-        margin-bottom: 16px;
-      }
-      .form-label {
-        font-size: 12px;
-        font-weight: 500;
-        color: var(--muted);
-        margin-bottom: 6px;
-        display: block;
-        font-family: "JetBrains Mono", monospace;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-      }
-      .form-input,
-      .form-textarea {
-        width: 100%;
-        padding: 10px 14px;
-        background: var(--bg);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        color: var(--text);
-        font-size: 14px;
-        font-family: "Inter", sans-serif;
-        outline: none;
-        transition: border-color 0.2s;
-      }
-      .form-input:focus,
-      .form-textarea:focus {
-        border-color: rgba(59, 130, 246, 0.4);
-      }
-      .form-textarea {
-        resize: none;
-        min-height: 90px;
-      }
-      .form-btn {
-        width: 100%;
-        padding: 12px;
-        background: var(--blue);
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .form-btn:hover {
-        background: #2563eb;
-      }
-
-      /* FOOTER */
-      footer {
-        padding: 32px 48px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .footer-left {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 12px;
-        color: var(--muted);
-      }
-      .footer-left span {
-        color: var(--blue);
-      }
-      .footer-right {
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      /* SCROLL REVEAL */
       .reveal {
         opacity: 0;
-        transform: translateY(24px);
+        transform: translateY(16px);
         transition:
-          opacity 0.6s ease,
-          transform 0.6s ease;
+          opacity 0.52s ease,
+          transform 0.52s ease;
       }
       .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
-      .reveal-delay-1 {
-        transition-delay: 0.1s;
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
       }
-      .reveal-delay-2 {
-        transition-delay: 0.2s;
-      }
-      .reveal-delay-3 {
-        transition-delay: 0.3s;
-      }
-
-      /* DIVIDER */
-      .section-divider {
-        height: 1px;
-        background: var(--border);
-        max-width: 1200px;
-        margin: 0 auto;
-        margin-left: 48px;
-        margin-right: 48px;
-      }
-
-      @media (max-width: 900px) {
-        nav {
-          padding: 0 20px;
+      @media (max-width: 980px) {
+        .nav-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          padding: 18px 0;
         }
         .nav-links {
-          display: none;
+          flex-wrap: wrap;
         }
-        .container {
-          padding: 0 20px;
-        }
-        .hero-inner,
-        .about-grid,
-        .contact-inner,
-        .github-inner {
+        .hero-grid,
+        .section-head,
+        .about-layout,
+        .experience-item,
+        .project-strip,
+        .skill-row {
           grid-template-columns: 1fr;
         }
-        .projects-grid {
+        .hero {
+          min-height: auto;
+        }
+        .hero-meta {
           grid-template-columns: 1fr;
         }
-        .project-card.flagship {
-          grid-column: span 1;
+        .diagram-wrap {
+          min-height: 360px;
+          justify-content: flex-start;
         }
-        .project-card.flagship .project-meta {
-          grid-template-columns: 1fr 1fr;
+        .experience-list {
+          padding-left: 42px;
         }
-        .skills-grid {
-          grid-template-columns: 1fr 1fr;
+        .experience-item:before {
+          left: -37px;
+        }
+        .project-index {
+          left: 0;
+          top: 34px;
+        }
+        .visual-panel {
+          max-width: 720px;
         }
         footer {
           flex-direction: column;
-          gap: 8px;
-          text-align: center;
-          padding: 24px 20px;
+        }
+      }
+      @media (max-width: 680px) {
+        .container,
+        .section-divider,
+        .nav-inner,
+        footer {
+          width: min(100% - 28px, var(--max));
+        }
+        h1 {
+          font-size: clamp(3.2rem, 18vw, 5.1rem);
+        }
+        section {
+          padding: 64px 0;
+        }
+        .section-divider {
+          gap: 10px;
+          font-size: 0.68rem;
+        }
+        .module-grid,
+        .flow-main,
+        .flow-async,
+        .arch-columns {
+          grid-template-columns: 1fr;
+        }
+        .module-column + .module-column {
+          border-left: 0;
+          border-top: 1px solid var(--line2);
+          padding-left: 0;
+          padding-top: 22px;
+          margin-top: 22px;
+        }
+        .flow-node:not(:last-child):after {
+          top: auto;
+          right: 50%;
+          bottom: -13px;
+          width: 1px;
+          height: 13px;
+        }
+        .arch-shared:before,
+        .arch-shared:after {
+          display: none;
+        }
+        .experience-list {
+          padding-left: 34px;
+        }
+        .experience-item:before {
+          left: -29px;
         }
       }
     </style>
   </head>
   <body>
-    <!-- NAV -->
-    <nav>
-      <div class="nav-logo">Saimon.dev</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact" class="nav-cta">Contact</a>
-      </div>
-    </nav>
-
-    <!-- HERO -->
-    <section id="hero">
-      <div class="container">
-        <div class="hero-inner">
-          <div class="hero-left">
-            <div class="hero-label">Available for opportunities</div>
-            <h1 class="hero-name">MD. Saimon<br />Hasan Emon</h1>
-            <div class="hero-role">Python Developer · AI Systems Developer</div>
-            <p class="hero-tagline">
-              Building production-ready backend systems, AI-powered platforms,
-              and scalable software solutions that solve real operational
-              problems.
-            </p>
-            <div class="hero-actions">
-              <a href="#projects" class="btn-primary">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M4 6h16M4 12h16M4 18h7" />
-                </svg>
-                View Projects
-              </a>
-              <a
-                href="https://github.com/saimonemon46"
-                target="_blank"
-                class="btn-outline"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
-                  />
-                </svg>
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/md-saimon-hasan-emon-17739a324/"
-                target="_blank"
-                class="btn-outline"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                  />
-                </svg>
-                LinkedIn
-              </a>
-              <a
-                href="https://drive.google.com/file/d/1bjt0YgiSXasVL-i5rzNfypx-XtRGsEfF/view?usp=drive_link"
-                class="btn-outline"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
-                  />
-                  <polyline points="14,2 14,8 20,8" />
-                </svg>
-                Resume
-              </a>
-            </div>
-          </div>
-          <div class="hero-right">
-            <!-- DASHBOARD MOCKUP -->
-            <div class="dashboard">
-              <div class="dash-header">
-                <div class="dash-dots">
-                  <div class="dash-dot r"></div>
-                  <div class="dash-dot y"></div>
-                  <div class="dash-dot g"></div>
-                </div>
-                <div class="dash-title">ops-platform · production</div>
-                <div class="dash-status">all systems operational</div>
-              </div>
-              <div class="dash-body">
-                <!-- Metrics Row -->
-                <div class="dash-metrics">
-                  <div class="dash-metric">
-                    <div class="dm-label">API Requests</div>
-                    <div class="dm-val blue">48.2k</div>
-                    <div class="dm-sub">↑ 12% today</div>
-                  </div>
-                  <div class="dash-metric">
-                    <div class="dm-label">DB Queries/s</div>
-                    <div class="dm-val cyan">1,284</div>
-                    <div class="dm-sub">p99: 42ms</div>
-                  </div>
-                  <div class="dash-metric">
-                    <div class="dm-label">Uptime</div>
-                    <div class="dm-val green">99.97%</div>
-                    <div class="dm-sub">30d window</div>
-                  </div>
-                </div>
-
-                <!-- API + AI Row -->
-                <div class="dash-row">
-                  <div class="dash-panel">
-                    <div class="dp-title">
-                      API ENDPOINTS
-                      <span class="dp-badge">LIVE</span>
-                    </div>
-                    <div class="api-row">
-                      <span class="api-method post">POST</span>
-                      <span class="api-path">/incidents/triage</span>
-                      <span class="api-ms">38ms</span>
-                    </div>
-                    <div class="api-bar">
-                      <div
-                        class="api-bar-fill"
-                        style="width: 38%; background: #3b82f6"
-                      ></div>
-                    </div>
-                    <div class="api-row">
-                      <span class="api-method get">GET</span>
-                      <span class="api-path">/users/{id}/dashboard</span>
-                      <span class="api-ms">22ms</span>
-                    </div>
-                    <div class="api-bar">
-                      <div
-                        class="api-bar-fill"
-                        style="width: 22%; background: #22c55e"
-                      ></div>
-                    </div>
-                    <div class="api-row">
-                      <span class="api-method post">POST</span>
-                      <span class="api-path">/ai/predict/symptom</span>
-                      <span class="api-ms">91ms</span>
-                    </div>
-                    <div class="api-bar">
-                      <div
-                        class="api-bar-fill"
-                        style="width: 91%; background: #06b6d4"
-                      ></div>
-                    </div>
-                    <div class="api-row">
-                      <span class="api-method put">PUT</span>
-                      <span class="api-path">/incidents/{id}/sla</span>
-                      <span class="api-ms">15ms</span>
-                    </div>
-                    <div class="api-bar" style="margin-bottom: 0">
-                      <div
-                        class="api-bar-fill"
-                        style="width: 15%; background: #f59e0b"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="dash-panel">
-                    <div class="dp-title">
-                      AI WORKFLOWS
-                      <span class="dp-badge cyan">4 ACTIVE</span>
-                    </div>
-                    <div class="ai-row">
-                      <div class="ai-icon triage">🔍</div>
-                      <span class="ai-label">Incident Triage</span>
-                      <span class="ai-status active">active</span>
-                    </div>
-                    <div class="ai-row">
-                      <div class="ai-icon rag">📚</div>
-                      <span class="ai-label">RAG Pipeline</span>
-                      <span class="ai-status active">active</span>
-                    </div>
-                    <div class="ai-row">
-                      <div class="ai-icon nlp">🩺</div>
-                      <span class="ai-label">Medical NLP</span>
-                      <span class="ai-status processing">running</span>
-                    </div>
-                    <div class="ai-row">
-                      <div class="ai-icon triage">🎓</div>
-                      <span class="ai-label">Academic Predictor</span>
-                      <span class="ai-status active">active</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Incidents -->
-                <div class="dash-panel">
-                  <div class="dp-title">
-                    INCIDENT MONITOR
-                    <span class="dp-badge green">3 OPEN</span>
-                  </div>
-                  <div class="incident-row critical">
-                    <div class="inc-content">
-                      <div class="inc-title">
-                        Auth service latency spike detected
-                      </div>
-                      <div class="inc-meta">
-                        4 minutes ago · P1 · Auth Module
-                      </div>
-                    </div>
-                    <span class="inc-badge critical">CRITICAL</span>
-                  </div>
-                  <div class="incident-row warning">
-                    <div class="inc-content">
-                      <div class="inc-title">
-                        Celery queue depth above threshold
-                      </div>
-                      <div class="inc-meta">
-                        18 minutes ago · P2 · Task Queue
-                      </div>
-                    </div>
-                    <span class="inc-badge warning">WARNING</span>
-                  </div>
-                  <div class="incident-row info">
-                    <div class="inc-content">
-                      <div class="inc-title">
-                        Scheduled DB migration completed
-                      </div>
-                      <div class="inc-meta">
-                        1 hour ago · Alembic · PostgreSQL
-                      </div>
-                    </div>
-                    <span class="inc-badge resolved">RESOLVED</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <nav aria-label="Primary navigation">
+      <div class="nav-inner">
+        <a class="brand" href="#hero">Saimon.systems</a>
+        <div class="nav-links">
+          <a href="#about">01. About</a><a href="#experience">02. Experience</a
+          ><a href="#projects">03. Projects</a><a href="#skills">04. Skills</a
+          ><a href="#contact">05. Contact</a>
         </div>
       </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <div class="about-grid">
-          <div class="reveal">
-            <div class="section-label">// who I am</div>
-            <h2 class="section-title">
-              Engineering at the intersection of systems & AI
-            </h2>
-            <p class="about-text">
-              I'm a Computer Science and Engineering student at IUBAT with a
+    </nav>
+    <main>
+      <section class="hero" id="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Python Developer / AI Systems Developer</p>
+            <h1>MD. Saimon Hasan Emon</h1>
+            <p class="hero-sentence">
+              I design backend systems and AI workflows that turn operational
+              complexity into software people can trust.
+            </p>
+            <div class="hero-meta">
+              <span><span class="meta-label">Base</span>Dhaka, Bangladesh</span
+              ><span
+                ><span class="meta-label">Current focus</span>FastAPI services,
+                RAG pipelines, data-heavy products</span
+              >
+            </div>
+          </div>
+          <div class="diagram-wrap reveal">
+            <svg
+              class="system-diagram"
+              viewBox="0 0 560 520"
+              role="img"
+              aria-label="System architecture diagram"
+            >
+              <defs>
+                <filter id="rough">
+                  <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.9"
+                    numOctaves="1"
+                    seed="7"
+                    result="noise"
+                  />
+                  <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="noise"
+                    scale="1.2"
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                  />
+                </filter>
+              </defs>
+              <g
+                fill="none"
+                stroke="#1B3F8B"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                filter="url(#rough)"
+              >
+                <path d="M124 104 C184 78 238 80 302 120" />
+                <path d="M302 147 C282 194 279 231 300 280" />
+                <path d="M256 306 C202 323 158 356 118 410" />
+                <path d="M340 305 C399 336 428 372 455 423" />
+                <path d="M353 139 C413 127 454 148 488 193" />
+                <path d="M147 431 C232 464 334 462 424 430" />
+                <rect x="44" y="64" width="138" height="74" rx="3" />
+                <rect x="236" y="96" width="146" height="82" rx="3" />
+                <rect x="408" y="178" width="116" height="74" rx="3" />
+                <rect x="230" y="270" width="150" height="84" rx="3" />
+                <rect x="54" y="394" width="150" height="74" rx="3" />
+                <rect x="372" y="402" width="142" height="72" rx="3" />
+                <circle cx="306" cy="220" r="14" />
+                <path d="M292 220 H238" />
+                <path d="M320 220 H407" />
+                <path d="M306 234 V269" />
+                <path d="M306 206 V178" />
+              </g>
+              <g fill="#1A1A1A" font-size="13">
+                <text x="66" y="96">interface</text>
+                <text x="66" y="118">React views</text>
+                <text x="258" y="130">backend</text>
+                <text x="258" y="152">FastAPI / Django</text>
+                <text x="430" y="210">AI layer</text>
+                <text x="430" y="232">RAG / agents</text>
+                <text x="252" y="306">orchestration</text>
+                <text x="252" y="328">queues / jobs</text>
+                <text x="76" y="426">data layer</text>
+                <text x="76" y="448">SQL / vector</text>
+                <text x="394" y="432">observability</text>
+                <text x="394" y="454">logs / SLA</text>
+              </g>
+              <g fill="#1B3F8B" font-family="JetBrains Mono" font-size="11">
+                <text x="70" y="35">system sketch / production path</text>
+                <text x="296" y="224">bus</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <div class="section-divider" id="about"><span>01. About</span></div>
+      <section>
+        <div class="container about-layout">
+          <p class="pull-quote reveal">
+            I build the part of the system that people notice when it fails.
+          </p>
+          <div class="prose reveal">
+            <p>
+              I am a Computer Science and Engineering student at IUBAT with a
               focused track in backend engineering, AI systems, and scalable
               software architecture.
             </p>
-            <p class="about-text">
+            <p>
               My work combines software engineering principles with modern AI
-              technologies to build intelligent systems that operate in
-              real-world environments — from incident management platforms to
-              healthcare AI.
+              workflows: incident management platforms, healthcare triage,
+              academic intelligence, and operational tools that have to survive
+              real users and real data.
             </p>
-            <p class="about-text">
-              I design APIs, architect distributed systems, implement AI
-              workflows, and transform complex operational problems into
-              maintainable software solutions.
+            <p>
+              I care about APIs with clear boundaries, data flows that can be
+              reasoned about, and AI features that sit inside a reliable product
+              instead of floating beside it.
             </p>
           </div>
-          <div class="about-cards reveal reveal-delay-1">
-            <div class="about-card">
-              <div class="about-card-icon">🎓</div>
-              <div class="about-card-val">3.87</div>
-              <div class="about-card-title">CGPA / 4.00</div>
-              <div class="about-card-sub">BSc CSE · IUBAT</div>
-            </div>
-            <div class="about-card">
-              <div class="about-card-icon">💼</div>
-              <div class="about-card-title">Software Developer Intern</div>
-              <div class="about-card-sub">Leotech · Jan 2026 – May 2026</div>
-            </div>
-            <div class="about-card">
-              <div class="about-card-icon">🏆</div>
-              <div class="about-card-title">
-                National AI Buildathon Finalist
-              </div>
-              <div class="about-card-sub">
-                Medical Triage & AI Healthcare Platform
-              </div>
-            </div>
-          </div>
         </div>
+      </section>
+      <div class="section-divider" id="experience">
+        <span>02. Experience</span>
       </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="container">
-        <div class="section-label reveal">// experience</div>
-        <h2 class="section-title reveal">Where I've built</h2>
-        <br /><br />
-        <div class="exp-timeline reveal reveal-delay-1">
-          <div class="exp-item">
-            <div class="exp-dot"></div>
-            <div class="exp-date">Jan 2026 — May 2026</div>
-            <div class="exp-role">Software Developer Intern</div>
-            <div class="exp-company">Leotech • Education ERP Platform</div>
-            <ul class="exp-bullets">
-              <li>
-                Worked on a production-grade Education ERP system, maintaining
-                and enhancing existing frontend, backend, and database
-                components.
-              </li>
-
-              <li>
-                Contributed to the Academic Management Module by implementing
-                and improving workflows related to student admissions,
-                readmissions, student records, and academic information
-                management.
-              </li>
-
-              <li>
-                Maintained Fee Management features including fee creation, fee
-                collection, admission fees, discounts, late fees, partial
-                payments, monthly installment plans, and annual payment
-                processing.
-              </li>
-
-              <li>
-                Diagnosed and resolved issues across the frontend, backend, and
-                SQL layers, improving system stability and operational
-                efficiency in a live production environment.
-              </li>
-
-              <li>
-                Wrote and optimized SQL queries for academic and financial
-                workflows, ensuring accurate transaction processing and reliable
-                data management.
-              </li>
-
-              <li>
-                Collaborated with senior developers on feature enhancements, bug
-                fixes, testing, and deployment support for business-critical
-                educational software.
-              </li>
-            </ul>
+      <section>
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-kicker">Production context</div>
+            <h2 class="section-title">
+              Where correctness mattered more than cleverness.
+            </h2>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="container">
-        <div class="section-label reveal">// featured projects</div>
-        <h2 class="section-title reveal">Systems I've architected</h2>
-        <p
-          style="
-            color: var(--muted);
-            font-size: 15px;
-            margin-top: 8px;
-            margin-bottom: 48px;
-          "
-          class="reveal"
-        >
-          Each project approached as a case study in systems design — problem
-          first, architecture second, execution always.
-        </p>
-
-        <div class="projects-grid">
-          <!-- PROJECT 1: Incident Ops -->
-          <div class="project-card reveal">
-            <div class="project-badge">AI · Operations· In Progress</div>
-            <div class="project-status">🚧 Currently Building</div>
-            <div class="project-media">
-              <div class="project-preview">
-                <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-                  alt="Incident Ops dashboard preview"
-                  data-full="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
-                />
-                <div class="project-preview-overlay">Click to expand</div>
-              </div>
-              <div class="project-thumbs">
-                <button class="project-thumb active" type="button">
-                  <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=80"
-                    alt="Dashboard screenshot"
-                    data-full="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
-                  />
-                </button>
-                <button class="project-thumb" type="button">
-                  <img
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=80"
-                    alt="Monitoring screenshot"
-                    data-full="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
-                  />
-                </button>
-                <button class="project-thumb" type="button">
-                  <img
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=300&q=80"
-                    alt="Analytics screenshot"
-                    data-full="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80"
-                  />
-                </button>
-              </div>
-            </div>
-            <div class="project-title">IncidentOps AI</div>
-            <div class="project-category">
-              AI-Powered Incident Management Platform (In Development)
-            </div>
-            <div class="project-meta">
-              <div class="pm-block">
-                <div class="pm-label">Problem</div>
-                <div class="pm-content">
-                  Manual incident triage creating SLA breaches and untracked
-                  operational failures
-                </div>
-              </div>
-              <div class="pm-block">
-                <div class="pm-label">Solution</div>
-                <div class="pm-content">
-                  Automated AI triage pipeline with RBAC, SLA monitoring, and
-                  audit logging
-                </div>
-              </div>
-              <div class="pm-block">
-                <div class="pm-label">Architecture</div>
-                <div class="pm-content">
-                  FastAPI · Celery · Redis Streams · PostgreSQL · Docker ·
-                  Role-Based Access Control
-                </div>
-              </div>
-              <div class="pm-block">
-                <div class="pm-label">Key Features</div>
-                <div class="pm-content">
-                  RBAC, SLA Monitoring, AI Prioritization, Audit Logs, Async
-                  Processing (Currently Building)
-                </div>
-              </div>
-            </div>
-            <div class="tech-stack">
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Redis</span>
-              <span class="tech-tag">Celery</span>
-              <span class="tech-tag">Docker</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://github.com/saimonemon46/Incident-ops-system.git"
-                class="link-btn primary"
-                >GitHub →</a
-              >
-              <a
-                href="https://github.com/saimonemon46/Incident-ops-system.git"
-                class="link-btn"
-                >In Development</a
-              >
-            </div>
-          </div>
-
-          <!-- PROJECT 2: Medical Triage -->
-          <div class="project-card reveal reveal-delay-1">
-            <div class="achievement-pill">
-              🏆 National AI Buildathon Finalist
-            </div>
-            <div class="project-badge cyan">AI · Healthcare</div>
-            <div class="project-media">
-              <div class="project-preview">
-                <img
-                  src="assets\MediSA\1.png"
-                  alt="Medical triage interface preview"
-                  data-full="assets\MediSA\1.png"
-                />
-                <div class="project-preview-overlay">Click to expand</div>
-              </div>
-              <div class="project-thumbs">
-                <button class="project-thumb active" type="button">
-                  <img
-                    src="assets\MediSA\2.png"
-                    alt="Patient triage screen"
-                    data-full="assets\MediSA\2.png"
-                  />
-                </button>
-                <button class="project-thumb" type="button">
-                  <img
-                    src="assets\MediSA\3.png"
-                    alt="Doctor recommendation screen"
-                    data-full="assets\MediSA\3.png"
-                  />
-                </button>
-
-                <button class="project-thumb" type="button">
-                  <img
-                    src="assets\MediSA\5.png"
-                    alt="Report dashboard screenshot"
-                    data-full="assets\MediSA\5.png"
-                  />
-                </button>
-                <button class="project-thumb" type="button">
-                  <img
-                    src="assets\MediSA\6.png"
-                    alt="Report dashboard screenshot"
-                    data-full="assets\MediSA\6.png"
-                  />
-                </button>
-
-                <button class="project-thumb" type="button">
-                  <img
-                    src="assets\MediSA\7.png"
-                    alt="Report dashboard screenshot"
-                    data-full="assets\MediSA\7.png"
-                  />
-                </button>
-              </div>
-            </div>
-            <div class="project-title">
-              Medical Triage & Doctor Recommendation (MediSA)
-            </div>
-            <div class="project-category">AI Healthcare Platform</div>
-            <div class="project-meta">
-              <div class="pm-block">
-                <div class="pm-label">Problem</div>
-                <div class="pm-content">
-                  Patients lacking access to preliminary diagnosis and
-                  appropriate specialist routing
-                </div>
-              </div>
-              <div class="pm-block">
-                <div class="pm-label">Solution</div>
-                <div class="pm-content">
-                  RAG-powered symptom analysis with disease prediction and
-                  intelligent doctor matching
-                </div>
-              </div>
-              <div class="pm-block">
-                <div class="pm-label">Architecture</div>
-                <div class="pm-content">
-                  LangChain · FAISS vector store · RAG pipeline · MySQL DB
-                </div>
-              </div>
-              <div class="pm-block">
-                <div class="pm-label">Key Features</div>
-                <div class="pm-content">
-                  Disease Prediction, Doctor Recommendation, Medical Report
-                  Generation
-                </div>
-              </div>
-            </div>
-            <div class="tech-stack">
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">LangGraph</span>
-              <span class="tech-tag">FAISS</span>
-              <span class="tech-tag">RAG</span>
-              <span class="tech-tag">MySQL</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://github.com/saimonemon46/MediSA.git"
-                class="link-btn primary"
-                >GitHub →</a
-              >
-              <a href="#" class="link-btn">Live Demo</a>
-            </div>
-          </div>
-
-          <!-- PROJECT 3: SmartPark AI -->
-          <div class="project-card reveal">
-            <div class="project-badge amber">AI · IoT · Multi-Agent</div>
-
-            <div class="project-media">
-              <div class="project-preview">
-                <img
-                  src="assets\Smart_parking\img1.png"
-                  alt="SmartPark AI Dashboard"
-                  data-full="assets\Smart_parking\img1.png"
-                />
-                <div class="project-preview-overlay">Click to expand</div>
-              </div>
-
-              <div class="project-thumbs">
-                <button class="project-thumb active" type="button">
-                  <img
-                    src="assets\Smart_parking\img2.png"
-                    alt="SmartPark Dashboard"
-                    data-full="assets\Smart_parking\img2.png"
-                  />
-                </button>
-
-                <button class="project-thumb" type="button">
-                  <img
-                    src="assets\Smart_parking\img3.png"
-                    alt="Agent Pipeline"
-                    data-full="assets\Smart_parking\img3.png"
-                  />
-                </button>
-
-                <button class="project-thumb" type="button">
-                  <img
-                    src="assets\Smart_parking\img4.png"
-                    alt="Occupancy Forecast"
-                    data-full="assets\Smart_parking\img4.png"
-                  />
-                </button>
-              </div>
-            </div>
-
-            <div class="project-title">SmartPark AI</div>
-
-            <div class="project-category">
-              Multi-Agent Intelligent Parking Management System
-            </div>
-
-            <div class="project-meta">
-              <div class="pm-block">
-                <div class="pm-label">Problem</div>
-                <div class="pm-content">
-                  Drivers waste time searching for parking while parking
-                  facilities struggle to efficiently manage occupancy and
-                  vehicle allocation.
-                </div>
-              </div>
-
-              <div class="pm-block">
-                <div class="pm-label">Solution</div>
-                <div class="pm-content">
-                  AI-powered parking platform that monitors availability,
-                  predicts occupancy trends, automatically assigns parking
-                  spots, and notifies drivers in real time.
-                </div>
-              </div>
-
-              <div class="pm-block">
-                <div class="pm-label">Architecture</div>
-                <div class="pm-content">
-                  FastAPI · Multi-Agent Workflow · Machine Learning Forecasting
-                  · Real-Time Dashboard · PostgreSQL
-                </div>
-              </div>
-
-              <div class="pm-block">
-                <div class="pm-label">Key Features</div>
-                <div class="pm-content">
-                  Occupancy prediction, Smart spot allocation, Live parking map,
-                  Vehicle tracking, Activity logging, Driver notifications
-                </div>
-              </div>
-            </div>
-
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Machine Learning</span>
-              <span class="tech-tag">LLM Agents</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-
-            <div class="project-links">
-              <a
-                href="https://github.com/saimonemon46/Live_Parking_Agent.git"
-                class="link-btn primary"
-                >GitHub →</a
-              >
-              <a
-                href="https://live-parking-agent-pov65sms8-saimonemon46s-projects.vercel.app/"
-                class="link-btn"
-                >Live Link</a
-              >
-            </div>
-          </div>
-
-          <!-- PROJECT 4: Flagship -->
-          <div class="project-card flagship reveal reveal-delay-1">
-            <div class="project-badge flagship-badge">⭐ Flagship Project</div>
-            <div class="project-badge purple" style="margin-left: 8px">
-              AI · Education . In Progress
-            </div>
-            <div class="project-media">
-              <div class="project-preview">
-                <img
-                  src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=1200&q=80"
-                  alt="Academic intelligence dashboard preview"
-                  data-full="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=1600&q=80"
-                />
-                <div class="project-preview-overlay">Click to expand</div>
-              </div>
-              <div class="project-thumbs">
-                <button class="project-thumb active" type="button">
-                  <img
-                    src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=300&q=80"
-                    alt="Analytics dashboard screenshot"
-                    data-full="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=1600&q=80"
-                  />
-                </button>
-                <button class="project-thumb" type="button">
-                  <img
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80"
-                    alt="Student insights screenshot"
-                    data-full="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
-                  />
-                </button>
-                <button class="project-thumb" type="button">
-                  <img
-                    src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=300&q=80"
-                    alt="AI assistant interface screenshot"
-                    data-full="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1600&q=80"
-                  />
-                </button>
-              </div>
-            </div>
-            <div class="project-title">
-              AI-Powered Academic Intelligence System
-            </div>
-            <div class="project-category">
-              Educational Analytics & Student Success Platform
-            </div>
-            <div class="project-meta">
-              <div class="pm-block">
-                <div class="pm-label">Problem</div>
-                <div class="pm-content">
-                  Educational institutions unable to identify at-risk students
-                  early enough to intervene effectively
-                </div>
-              </div>
-              <div class="pm-block">
-                <div class="pm-label">Solution</div>
-                <div class="pm-content">
-                  End-to-end intelligence platform combining predictive ML with
-                  an LLM assistant for academic teams
-                </div>
-              </div>
-              <div class="pm-block">
-                <div class="pm-label">Architecture</div>
-                <div class="pm-content">
-                  Predictive models · LLM academic assistant · real-time risk
-                  engine · analytics dashboard
-                </div>
-              </div>
-            </div>
-            <div class="tech-stack">
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">React.Js</span>
-              <span class="tech-tag">LangGraph</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Scikit-Learn</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Docker</span>
-            </div>
-            <div
-              style="
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-                margin-bottom: 18px;
-              "
-            >
-              <span
-                style="
-                  font-size: 12px;
-                  color: var(--muted);
-                  background: rgba(255, 255, 255, 0.04);
-                  border: 1px solid var(--border);
-                  padding: 5px 12px;
-                  border-radius: 6px;
-                "
-                >Student Success Prediction</span
-              >
-              <span
-                style="
-                  font-size: 12px;
-                  color: var(--muted);
-                  background: rgba(255, 255, 255, 0.04);
-                  border: 1px solid var(--border);
-                  padding: 5px 12px;
-                  border-radius: 6px;
-                "
-                >At-Risk Detection</span
-              >
-              <span
-                style="
-                  font-size: 12px;
-                  color: var(--muted);
-                  background: rgba(255, 255, 255, 0.04);
-                  border: 1px solid var(--border);
-                  padding: 5px 12px;
-                  border-radius: 6px;
-                "
-                >LLM Academic Assistant</span
-              >
-              <span
-                style="
-                  font-size: 12px;
-                  color: var(--muted);
-                  background: rgba(255, 255, 255, 0.04);
-                  border: 1px solid var(--border);
-                  padding: 5px 12px;
-                  border-radius: 6px;
-                "
-                >AI Insights Dashboard</span
-              >
-            </div>
-            <div class="project-links">
-              <a
-                href="https://github.com/saimonemon46/UniMind.git"
-                class="link-btn primary"
-                >GitHub →</a
-              >
-              <a href="#" class="link-btn">Case Study</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="container">
-        <div class="section-label reveal">// technical expertise</div>
-        <h2 class="section-title reveal">Engineering toolkit</h2>
-        <br /><br />
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <div class="skill-card-header">
-              <div class="skill-icon blue">⚙️</div>
-              <div class="skill-title">Backend Engineering</div>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag">FastAPI</span>
-              <span class="skill-tag">REST APIs</span>
-              <span class="skill-tag">Authentication</span>
-              <span class="skill-tag">RBAC</span>
-              <span class="skill-tag">Async Processing</span>
-            </div>
-          </div>
-          <div class="skill-card reveal reveal-delay-1">
-            <div class="skill-card-header">
-              <div class="skill-icon cyan">🤖</div>
-              <div class="skill-title">AI Engineering</div>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag">LangChain</span>
-              <span class="skill-tag">LangGraph</span>
-              <span class="skill-tag">RAG</span>
-              <span class="skill-tag">NLP</span>
-              <span class="skill-tag">TensorFlow</span>
-              <span class="skill-tag">Scikit-Learn</span>
-            </div>
-          </div>
-          <div class="skill-card reveal reveal-delay-2">
-            <div class="skill-card-header">
-              <div class="skill-icon green">🗄️</div>
-              <div class="skill-title">Databases</div>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag">PostgreSQL</span>
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">Redis</span>
-              <span class="skill-tag">FAISS</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-header">
-              <div class="skill-icon purple">🚀</div>
-              <div class="skill-title">DevOps</div>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">Docker Compose</span>
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">Celery</span>
-              <span class="skill-tag">Alembic</span>
-            </div>
-          </div>
-          <div class="skill-card reveal reveal-delay-1">
-            <div class="skill-card-header">
-              <div class="skill-icon orange">🎨</div>
-              <div class="skill-title">Frontend</div>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">HTML</span>
-              <span class="skill-tag">CSS</span>
-              <span class="skill-tag">JavaScript</span>
-            </div>
-          </div>
-          <div class="skill-card reveal reveal-delay-2">
-            <div class="skill-card-header">
-              <div class="skill-icon blue">📐</div>
-              <div class="skill-title">Architecture</div>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag">Distributed Systems</span>
-              <span class="skill-tag">Microservices</span>
-              <span class="skill-tag">Event-Driven</span>
-              <span class="skill-tag">API Design</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- GITHUB -->
-    <section id="github">
-      <div class="container">
-        <div class="github-inner">
-          <div class="reveal">
-            <div class="section-label">// open source</div>
-            <h2 class="section-title">GitHub</h2>
-            <p
-              style="
-                color: var(--muted);
-                font-size: 15px;
-                margin-top: 12px;
-                line-height: 1.7;
-              "
-            >
-              My repositories reflect a consistent focus on backend systems, AI
-              integrations, and production-grade software architecture.
-            </p>
-            <div class="gh-stat-grid">
-              <div class="gh-stat reveal">
-                <div class="gh-stat-val">12+</div>
-                <div class="gh-stat-label">Public Repositories</div>
-              </div>
-              <div class="gh-stat reveal reveal-delay-1">
-                <div class="gh-stat-val">5</div>
-                <div class="gh-stat-label">AI-Powered Projects</div>
-              </div>
-              <div class="gh-stat reveal reveal-delay-2">
-                <div class="gh-stat-val">Python</div>
-                <div class="gh-stat-label">Primary Language</div>
-              </div>
-              <div class="gh-stat reveal reveal-delay-3">
-                <div class="gh-stat-val">2025</div>
-                <div class="gh-stat-label">Active Since</div>
-              </div>
-            </div>
-          </div>
-          <div class="gh-repos reveal reveal-delay-1">
-            <div class="gh-repo">
+          <div class="experience-list reveal">
+            <article class="experience-item">
+              <div class="role-date">January 2026 - May 2026</div>
               <div>
-                <div class="gh-repo-name">incident-ops-system</div>
-                <div class="gh-repo-desc">
-                  AI-powered incident management with RBAC & SLA monitoring
+                <h3 class="company">Leotech</h3>
+                <div class="role">
+                  Software Developer Intern / PHP, MySQL, JavaScript
                 </div>
-              </div>
-              <div class="gh-repo-meta">
-                <span class="gh-lang"
-                  ><span class="lang-dot python"></span>Python</span
-                >
-              </div>
-            </div>
-            <div class="gh-repo">
-              <div>
-                <div class="gh-repo-name">medical-triage-ai</div>
-                <div class="gh-repo-desc">
-                  Healthcare platform with RAG, FAISS, and doctor recommendation
+                <div class="project-copy">
+                  <p>
+                    Most intern experience is greenfield: you build something
+                    new in isolation. At Leotech I was dropped into a production
+                    codebase that real students and staff depended on daily for
+                    admissions, records, and fee processing. My job was not to
+                    build from scratch but to read code written by other
+                    developers, understand it well enough to improve it, and do
+                    that without breaking what was already running.
+                  </p>
+                  <p>
+                    I owned the Fee Management module end to end: fee
+                    collection, discounts, partial payments, installment plans,
+                    and annual processing. A bad SQL query here did not just
+                    fail a test, it could corrupt a student's payment record.
+                    That pressure changes how carefully you work. I also
+                    diagnosed and fixed bugs across the full stack: PHP backend,
+                    SQL queries, and frontend.
+                  </p>
                 </div>
-              </div>
-              <div class="gh-repo-meta">
-                <span class="gh-lang"
-                  ><span class="lang-dot python"></span>Python</span
-                >
-              </div>
-            </div>
-            <div class="gh-repo">
-              <div>
-                <div class="gh-repo-name">predictwise</div>
-                <div class="gh-repo-desc">
-                  Containerized ML inference platform with multi-model support
-                </div>
-              </div>
-              <div class="gh-repo-meta">
-                <span class="gh-lang"
-                  ><span class="lang-dot python"></span>Python</span
-                >
-              </div>
-            </div>
-            <div class="gh-repo">
-              <div>
-                <div class="gh-repo-name">academic-intelligence-system</div>
-                <div class="gh-repo-desc">
-                  Student success prediction with LLM academic assistant
-                </div>
-              </div>
-              <div class="gh-repo-meta">
-                <span class="gh-lang"
-                  ><span class="lang-dot python"></span>Python</span
-                >
-              </div>
-            </div>
-            <a
-              href="https://github.com/saimonemon46?tab=repositories"
-              target="_blank"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 12px;
-                border: 1px dashed var(--border);
-                border-radius: 10px;
-                color: var(--muted);
-                text-decoration: none;
-                font-size: 13px;
-                transition: all 0.2s;
-              "
-              onmouseover="
-                this.style.borderColor = 'rgba(59,130,246,0.3)';
-                this.style.color = 'var(--blue)';
-              "
-              onmouseout="
-                this.style.borderColor = 'var(--border)';
-                this.style.color = 'var(--muted)';
-              "
-            >
-              View all repositories on GitHub →
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- PHILOSOPHY -->
-    <section id="philosophy">
-      <div class="container">
-        <div class="philosophy-inner reveal">
-          <div class="section-label" style="text-align: center; display: block">
-            // engineering philosophy
-          </div>
-          <br />
-          <div class="philosophy-quote">
-            Anyone can call an API.<br />The real challenge is
-            <em>designing reliable systems</em> that last.
-          </div>
-          <p class="philosophy-body">
-            My focus is on creating maintainable architectures, scalable
-            workflows, and intelligent applications that provide measurable
-            value. I care about software that works in production — not just in
-            demos.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <div class="contact-inner">
-          <div class="reveal">
-            <div class="section-label">// contact</div>
-            <h2 class="section-title">Let's build something together</h2>
-            <p class="contact-cta" style="margin-top: 16px">
-              Interested in building scalable software, AI platforms, or backend
-              systems? I'm open to opportunities, collaborations, and
-              interesting conversations.
-            </p>
-            <div class="contact-links">
-              <a href="mailto:saimon@example.com" class="contact-link">
-                <div class="contact-link-icon">✉️</div>
-                <div>
-                  <div class="contact-link-label">Email</div>
-                  <div class="contact-link-val">saimon@example.com</div>
-                </div>
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                class="contact-link"
-              >
-                <div class="contact-link-icon">💼</div>
-                <div>
-                  <div class="contact-link-label">LinkedIn</div>
-                  <div class="contact-link-val">
-                    linkedin.com/in/saimonhasan
+                <div class="module-breakdown">
+                  <div class="visual-label">Modules Owned</div>
+                  <div class="module-grid">
+                    <div class="module-column">
+                      <div class="module-title">Academic Management</div>
+                      <ul>
+                        <li>Admissions</li>
+                        <li>Student Records</li>
+                        <li>Re-admissions</li>
+                      </ul>
+                    </div>
+                    <div class="module-column">
+                      <div class="module-title">Fee Management</div>
+                      <ul>
+                        <li>Collection & Discounts</li>
+                        <li>Partial Payments</li>
+                        <li>Installment Plans</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </a>
-              <a href="https://github.com" target="_blank" class="contact-link">
-                <div class="contact-link-icon">🐙</div>
-                <div>
-                  <div class="contact-link-label">GitHub</div>
-                  <div class="contact-link-val">github.com/saimonhasan</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <div class="section-divider" id="projects"><span>03. Projects</span></div>
+      <section>
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-kicker">Selected systems</div>
+            <h2 class="section-title">
+              Projects explained like engineering decisions.
+            </h2>
+          </div>
+          <div class="projects">
+            <article class="project-strip reveal" id="project-01">
+              <div class="project-copy">
+                <div class="project-index">01</div>
+                <h3 class="project-title">MediSA</h3>
+                <div class="project-subtitle">
+                  Medical Triage & Doctor Recommendation
                 </div>
-              </a>
-              <div class="contact-link" style="cursor: default">
-                <div class="contact-link-icon">📍</div>
-                <div>
-                  <div class="contact-link-label">Location</div>
-                  <div class="contact-link-val">Dhaka, Bangladesh</div>
+                <p>
+                  Most patients in Bangladesh describe symptoms in plain
+                  language to a general doctor who then decides if a specialist
+                  is needed: a process that is slow, inconsistent, and often
+                  wrong. MediSA replicates that triage logic in software:
+                  Collects symptoms through dynamic interactive conversations,
+                  runs it through a RAG pipeline backed by FAISS vector search,
+                  predicts the likely condition, and routes the patient to the
+                  right specialist category.
+                </p>
+                <p>
+                  I chose RAG over a fine-tuned model because the medical
+                  knowledge base needed to stay updatable without retraining.
+                  FAISS handles the vector retrieval locally, keeping the system
+                  self-contained and fast. MediSA also generates a structured
+                  medical summary the doctor can actually use before the
+                  appointment. Recognized as a National Finalist at MillionX AI
+                  Buildathon, selected from 400+ teams.
+                </p>
+                <div class="stack">
+                  FastAPI / LangChain / LangGraph / FAISS / RAG pipeline / MySQL
+                  / HTML / CSS / JS
                 </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/saimonemon46/MediSA"
+                    target="_blank"
+                    rel="noreferrer"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+              <div class="visual-panel" data-gallery>
+                <div class="visual-label">Interface</div>
+                <div class="image-stage" data-lightbox-trigger>
+                  <img
+                    src="assets/MediSA/1.png"
+                    alt="MediSA interface hero screenshot"
+                    data-hero-image
+                  />
+                </div>
+                <div class="thumb-row">
+                  <button
+                    class="thumb"
+                    type="button"
+                    aria-pressed="false"
+                    data-thumb="assets/MediSA/2.png"
+                  >
+                    <img
+                      src="assets/MediSA/2.png"
+                      alt="MediSA patient triage screen"
+                    /></button
+                  ><button
+                    class="thumb"
+                    type="button"
+                    aria-pressed="false"
+                    data-thumb="assets/MediSA/3.png"
+                  >
+                    <img
+                      src="assets/MediSA/3.png"
+                      alt="MediSA doctor recommendation screen"
+                    /></button
+                  ><button
+                    class="thumb"
+                    type="button"
+                    aria-pressed="false"
+                    data-thumb="assets/MediSA/5.png"
+                  >
+                    <img src="assets/MediSA/5.png" alt="MediSA report screen" />
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="project-strip reveal" id="project-02">
+              <div class="project-copy">
+                <div class="project-index">02</div>
+                <h3 class="project-title">Incident Ops System</h3>
+                <div class="project-subtitle">
+                  AI Incident Management Platform / Active development
+                </div>
+                <p>
+                  On-call teams waste time manually reading alerts, deciding
+                  severity, and figuring out who owns the problem; meanwhile the
+                  SLA clock is running. Incident Ops automates the first
+                  response: incoming incidents get semantically classified,
+                  prioritized by severity, and routed to the right team based on
+                  role.
+                </p>
+                <p>
+                  I used Celery with Redis as the task queue rather than
+                  handling async work in FastAPI directly, because SLA timers
+                  need to keep running even if the API restarts. That separation
+                  of concerns matters in a system where missing a deadline has
+                  consequences. RBAC ensures the right people see the right
+                  things. Every action is logged for audit.
+                </p>
+                <div class="stack">
+                  FastAPI / React / PostgreSQL / Redis / Celery / Docker
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/saimonemon46/Incident-ops-system"
+                    target="_blank"
+                    rel="noreferrer"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+              <div class="visual-panel">
+                <div class="visual-label">System Flow</div>
+                <div class="flow-box">
+                  <div class="flow-main">
+                    <div class="flow-node">Incoming Alert</div>
+                    <div class="flow-node">AI Classifier</div>
+                    <div class="flow-node">Priority Engine</div>
+                    <div class="flow-node">RBAC Router</div>
+                    <div class="flow-node">Assigned Team</div>
+                  </div>
+                  <div class="flow-async">
+                    <div class="flow-node">Celery Workers</div>
+                    <div class="flow-node">Redis Queue</div>
+                  </div>
+                  <div class="flow-caption">
+                    Parallel async layer for SLA timers, classification jobs,
+                    and notifications.
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="project-strip reveal" id="project-03">
+              <div class="project-copy">
+                <div class="project-index">03</div>
+                <h3 class="project-title">SmartPark AI</h3>
+                <div class="project-subtitle">
+                  Multi-Agent Parking Management
+                </div>
+                <p>
+                  Drivers circle looking for parking while half the spots in a
+                  lot sit empty because there is no system connecting supply to
+                  demand in real time. SmartPark closes that gap using a
+                  multi-agent architecture where each agent has one job: one
+                  monitors and predicts occupancy using ML forecasting, another
+                  handles automatic slot assignment, and a third sends drivers
+                  real-time notifications.
+                </p>
+                <p>
+                  I split the work across agents rather than one monolithic
+                  service because each concern scales and fails independently.
+                  If notifications go down, parking assignment keeps working.
+                  Operators get a live map and full activity log. Deployed
+                  publicly on Vercel.
+                </p>
+                <div class="stack">
+                  Python / FastAPI / Machine Learning / LLM Agents / PostgreSQL
+                  / JavaScript
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/saimonemon46/Live_Parking_Agent"
+                    target="_blank"
+                    rel="noreferrer"
+                    >GitHub</a
+                  ><a
+                    href="https://live-parking-agent-pov65sms8-saimonemon46s-projects.vercel.app"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Live demo</a
+                  >
+                </div>
+              </div>
+              <div class="visual-panel" data-gallery>
+                <div class="visual-label">Live Interface</div>
+                <div class="image-stage" data-lightbox-trigger>
+                  <span class="live-badge">Live</span
+                  ><img
+                    src="assets/Smart_parking/img1.png"
+                    alt="SmartPark live parking map"
+                    data-hero-image
+                  />
+                </div>
+                <div class="thumb-row two">
+                  <button
+                    class="thumb"
+                    type="button"
+                    aria-pressed="false"
+                    data-thumb="assets/Smart_parking/img2.png"
+                  >
+                    <img
+                      src="assets/Smart_parking/img2.png"
+                      alt="SmartPark dashboard screenshot"
+                    /></button
+                  ><button
+                    class="thumb"
+                    type="button"
+                    aria-pressed="false"
+                    data-thumb="assets/Smart_parking/img3.png"
+                  >
+                    <img
+                      src="assets/Smart_parking/img3.png"
+                      alt="SmartPark agent pipeline screenshot"
+                    />
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="project-strip reveal" id="project-04">
+              <div class="project-copy">
+                <div class="project-index">04</div>
+                <h3 class="project-title">PredictWise</h3>
+                <div class="project-subtitle">
+                  Multi-Model ML Prediction API
+                </div>
+                <p>
+                  Most ML demos tie the model directly to the serving layer:
+                  swap the model and you are rewriting the API. PredictWise
+                  separates those concerns: different Scikit-learn models plug
+                  into the same FastAPI serving layer without touching the API
+                  contract.
+                </p>
+                <p>
+                  I containerized it with Docker so the inference environment is
+                  identical across machines, which matters when model behavior
+                  can silently change with library version differences. Smaller
+                  project in scope: the focus here was getting the architecture
+                  right, not the model count.
+                </p>
+                <div class="stack">FastAPI / Scikit-learn / Docker</div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/saimonemon46/PredictWise"
+                    target="_blank"
+                    rel="noreferrer"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+              <div class="visual-panel">
+                <div class="visual-label">API Response</div>
+                <div class="api-box">
+                  <pre><code><span class="api-method">POST</span> /predict
+Content-Type: application/json
+
+{
+  <span class="api-key">"model"</span>: <span class="api-val">"student_success_classifier"</span>,
+  <span class="api-key">"features"</span>: {
+    <span class="api-key">"attendance_rate"</span>: <span class="api-val">0.86</span>,
+    <span class="api-key">"previous_score"</span>: <span class="api-val">74</span>,
+    <span class="api-key">"study_hours"</span>: <span class="api-val">11</span>
+  }
+}
+
+{
+  <span class="api-key">"model_name"</span>: <span class="api-val">"student_success_classifier"</span>,
+  <span class="api-key">"prediction"</span>: <span class="api-val">"pass"</span>,
+  <span class="api-key">"confidence_score"</span>: <span class="api-val">0.91</span>
+}</code></pre>
+                </div>
+              </div>
+            </article>
+            <article class="project-strip reveal" id="project-05">
+              <div class="project-copy">
+                <div class="project-index">05</div>
+                <h3 class="project-title">UniMind</h3>
+                <div class="project-subtitle">
+                  AI Academic Intelligence System / Active development
+                </div>
+                <p>
+                  Universities usually find out a student is struggling when
+                  they fail an exam; by then the semester is mostly gone.
+                  UniMind surfaces that risk weeks earlier: ML models trained on
+                  academic patterns flag at-risk students before the failure
+                  happens, and an LLM-powered assistant helps academic staff
+                  understand what the data is saying and what actions to take.
+                </p>
+                <p>
+                  I split the backend across FastAPI and Django by concern:
+                  FastAPI handles the ML inference and prediction endpoints
+                  where speed matters, Django manages the admin workflows and
+                  data models where structure and built-in tooling matter more.
+                  Currently in active development.
+                </p>
+                <div class="stack">
+                  FastAPI / Django / React / LangGraph / PostgreSQL /
+                  Scikit-learn / Docker
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/saimonemon46/UniMind"
+                    target="_blank"
+                    rel="noreferrer"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+              <div class="visual-panel">
+                <div class="visual-label">Architecture</div>
+                <div class="architecture-box">
+                  <div class="arch-columns">
+                    <div class="arch-column">
+                      <div class="arch-title">FastAPI layer</div>
+                      <ul>
+                        <li>ML Inference</li>
+                        <li>Prediction API</li>
+                        <li>Risk Scoring</li>
+                      </ul>
+                    </div>
+                    <div class="arch-column">
+                      <div class="arch-title">Django layer</div>
+                      <ul>
+                        <li>Admin Workflows</li>
+                        <li>Data Models</li>
+                        <li>Staff Portal</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="arch-shared">PostgreSQL + LangGraph</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <div class="section-divider" id="skills"><span>04. Skills</span></div>
+      <section>
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-kicker">Specification</div>
+            <h2 class="section-title">
+              Tools I reach for when systems need shape.
+            </h2>
+          </div>
+          <div class="skills-table reveal">
+            <div class="skill-row">
+              <div class="skill-category">Backend</div>
+              <div class="skill-tools">
+                FastAPI, Django, REST APIs, authentication, RBAC, async
+                processing, API design, PHP
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-category">AI</div>
+              <div class="skill-tools">
+                LangChain, LangGraph, RAG, NLP, FAISS, TensorFlow, Scikit-learn,
+                LLM agents
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-category">Databases</div>
+              <div class="skill-tools">
+                PostgreSQL, MySQL, Redis, vector search, SQL optimization, data
+                modeling
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-category">DevOps</div>
+              <div class="skill-tools">
+                Docker, Docker Compose, Git, Celery, Alembic, deployment
+                support, production debugging
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-category">Frontend</div>
+              <div class="skill-tools">
+                React, JavaScript, HTML, CSS, responsive interfaces, dashboard
+                UI implementation
               </div>
             </div>
           </div>
-          <div class="contact-form-card reveal reveal-delay-1">
-            <div class="form-title">Send a message</div>
-            <div class="form-group">
-              <label class="form-label">Name</label>
-              <input type="text" class="form-input" placeholder="Your name" />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email</label>
-              <input
-                type="email"
-                class="form-input"
-                placeholder="your@email.com"
-              />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea
-                class="form-textarea"
-                placeholder="What are you building?"
-              ></textarea>
-            </div>
-            <button class="form-btn">Send Message →</button>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
+      </section>
+      <div class="section-divider" id="contact"><span>05. Contact</span></div>
+      <section>
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-kicker">Next conversation</div>
+            <h2 class="section-title">
+              For backend systems, AI platforms, and careful product
+              engineering.
+            </h2>
+          </div>
+          <div class="contact-links reveal">
+            <a href="mailto:saimon@example.com">saimon@example.com</a
+            ><a
+              href="https://github.com/saimonemon46"
+              target="_blank"
+              rel="noreferrer"
+              >github.com/saimonemon46</a
+            ><a href="https://linkedin.com" target="_blank" rel="noreferrer"
+              >linkedin.com/in/saimonhasan</a
+            >
+          </div>
+          <p class="based reveal">Based in Dhaka. Open to remote.</p>
+        </div>
+      </section>
+    </main>
     <footer>
-      <div class="footer-left">
-        <span>Saimon.dev</span> · MD. Saimon Hasan Emon · Python & AI Systems
-        Developer
-      </div>
-      <div class="footer-right">
-        Built with precision · Dhaka, Bangladesh · 2026
-      </div>
+      <span>MD. Saimon Hasan Emon / Python & AI Systems Developer</span
+      ><span>Built with HTML, CSS, and restraint.</span>
     </footer>
-
-    <div class="gallery-modal" id="galleryModal">
-      <div class="gallery-modal-panel">
-        <div class="gallery-modal-header">
-          <div class="gallery-modal-title" id="modalTitle">Project Gallery</div>
-          <div class="gallery-modal-controls">
-            <button
-              class="gallery-modal-btn"
-              id="modalPrev"
-              aria-label="Previous image"
-            >
-              ←
-            </button>
-            <button
-              class="gallery-modal-btn"
-              id="modalNext"
-              aria-label="Next image"
-            >
-              →
-            </button>
-            <button
-              class="gallery-modal-btn"
-              id="modalClose"
-              aria-label="Close gallery"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-        <div class="gallery-modal-body">
-          <div class="gallery-slides" id="modalSlides"></div>
-        </div>
-        <div class="gallery-modal-footer">
-          <span id="modalCounter">1 / 1</span>
-          <span>Scroll through screenshots</span>
-        </div>
-      </div>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" id="lightboxClose">
+        Close</button
+      ><img src="" alt="Expanded project screenshot" id="lightboxImage" />
     </div>
-
     <script>
-      // Scroll reveal
       const reveals = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("visible");
-              observer.unobserve(e.target);
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
             }
           });
         },
-        { threshold: 0.1 },
+        { threshold: 0.12 },
       );
-      reveals.forEach((r) => observer.observe(r));
-
-      // Hero elements visible immediately
+      reveals.forEach((item) => observer.observe(item));
       document
         .querySelectorAll("#hero .reveal")
-        .forEach((el) => el.classList.add("visible"));
-
-      // Active nav link
-      const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll(".nav-links a");
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach((s) => {
-          if (window.scrollY >= s.offsetTop - 100) current = s.id;
-        });
-        navLinks.forEach((a) => {
-          a.style.color =
-            a.getAttribute("href") === "#" + current ? "var(--text)" : "";
+        .forEach((item) => item.classList.add("visible"));
+      document.querySelectorAll("[data-gallery]").forEach((gallery) => {
+        const hero = gallery.querySelector("[data-hero-image]");
+        const thumbs = gallery.querySelectorAll("[data-thumb]");
+        thumbs.forEach((thumb) => {
+          thumb.addEventListener("click", () => {
+            hero.src = thumb.dataset.thumb;
+            thumbs.forEach((item) =>
+              item.setAttribute("aria-pressed", "false"),
+            );
+            thumb.setAttribute("aria-pressed", "true");
+          });
         });
       });
-
-      // Project gallery behavior
-      const modal = document.getElementById("galleryModal");
-      const modalSlides = document.getElementById("modalSlides");
-      const modalTitle = document.getElementById("modalTitle");
-      const modalCounter = document.getElementById("modalCounter");
-      const modalPrev = document.getElementById("modalPrev");
-      const modalNext = document.getElementById("modalNext");
-      const modalClose = document.getElementById("modalClose");
-      let currentGalleryIndex = 0;
-      let currentGalleryImages = [];
-
-      function openGallery(card) {
-        const preview = card.querySelector(".project-preview img");
-        const title = card.querySelector(".project-title").textContent;
-        const images = Array.from(
-          card.querySelectorAll(".project-thumb img"),
-        ).map((img) => img.dataset.full || img.src);
-        currentGalleryImages = images;
-        currentGalleryIndex = 0;
-
-        modalTitle.textContent = title;
-        modalSlides.innerHTML = "";
-        images.forEach((src) => {
-          const slide = document.createElement("div");
-          slide.className = "gallery-slide";
-          slide.innerHTML = `<img src="${src}" alt="${title} screenshot">`;
-          modalSlides.appendChild(slide);
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const lightboxClose = document.getElementById("lightboxClose");
+      document
+        .querySelectorAll("[data-lightbox-trigger]")
+        .forEach((trigger) => {
+          trigger.addEventListener("click", () => {
+            const image = trigger.querySelector("img");
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightbox.classList.add("open");
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+          });
         });
-
-        modalCounter.textContent = `1 / ${images.length}`;
-        modalSlides.style.transform = "translateX(0%)";
-        modal.classList.add("open");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeGallery() {
-        modal.classList.remove("open");
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImage.src = "";
         document.body.style.overflow = "";
       }
-
-      function updateGalleryPosition() {
-        if (!currentGalleryImages.length) return;
-        modalSlides.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
-        modalCounter.textContent = `${currentGalleryIndex + 1} / ${currentGalleryImages.length}`;
-      }
-
-      document.querySelectorAll(".project-preview").forEach((preview) => {
-        preview.addEventListener("click", () => {
-          openGallery(preview.closest(".project-card"));
-        });
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
       });
-
-      document.querySelectorAll(".project-thumb").forEach((button) => {
-        button.addEventListener("click", () => {
-          const card = button.closest(".project-card");
-          const preview = card.querySelector(".project-preview img");
-          const selectedImg = button.querySelector("img");
-          const thumbs = card.querySelectorAll(".project-thumb");
-
-          thumbs.forEach((tb) => tb.classList.remove("active"));
-          button.classList.add("active");
-          preview.src = selectedImg.dataset.full || selectedImg.src;
-          preview.setAttribute("alt", selectedImg.getAttribute("alt"));
-        });
-      });
-
-      modalPrev.addEventListener("click", () => {
-        if (currentGalleryIndex > 0) {
-          currentGalleryIndex -= 1;
-          updateGalleryPosition();
-        }
-      });
-
-      modalNext.addEventListener("click", () => {
-        if (currentGalleryIndex < currentGalleryImages.length - 1) {
-          currentGalleryIndex += 1;
-          updateGalleryPosition();
-        }
-      });
-
-      modalClose.addEventListener("click", closeGallery);
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeGallery();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (!modal.classList.contains("open")) return;
-        if (e.key === "Escape") closeGallery();
-        if (e.key === "ArrowLeft" && currentGalleryIndex > 0) {
-          currentGalleryIndex -= 1;
-          updateGalleryPosition();
-        }
-        if (
-          e.key === "ArrowRight" &&
-          currentGalleryIndex < currentGalleryImages.length - 1
-        ) {
-          currentGalleryIndex += 1;
-          updateGalleryPosition();
-        }
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && lightbox.classList.contains("open"))
+          closeLightbox();
       });
     </script>
   </body>

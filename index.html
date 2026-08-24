@@ -177,13 +177,48 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        perspective: 1200px;
+        transform-style: preserve-3d;
       }
       .system-diagram {
         width: min(100%, 520px);
         height: auto;
+        animation: float3d 7s ease-in-out infinite;
+        transform-style: preserve-3d;
+        transition: transform 0.25s ease-out, filter 0.3s ease;
+      }
+      .system-diagram:hover {
+        animation-play-state: paused;
+        filter: drop-shadow(20px 30px 35px rgba(27, 63, 139, 0.28));
       }
       .system-diagram text {
         font-family: "JetBrains Mono", ui-monospace, monospace;
+      }
+      @keyframes float3d {
+        0%, 100% {
+          transform: perspective(1000px) rotateX(10deg) rotateY(-14deg) rotateZ(2deg) translateY(0px);
+          filter: drop-shadow(15px 25px 22px rgba(27, 63, 139, 0.15));
+        }
+        50% {
+          transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) rotateZ(-1deg) translateY(-14px);
+          filter: drop-shadow(25px 35px 32px rgba(27, 63, 139, 0.24));
+        }
+      }
+      .pulse-path {
+        stroke-dasharray: 12 8;
+        animation: pulseDash 3s linear infinite;
+      }
+      @keyframes pulseDash {
+        to {
+          stroke-dashoffset: -40;
+        }
+      }
+      .pulse-node {
+        animation: nodeGlow 2.5s ease-in-out infinite alternate;
+      }
+      @keyframes nodeGlow {
+        0% { fill: rgba(245, 242, 235, 0.2); stroke: var(--blue); }
+        100% { fill: rgba(27, 63, 139, 0.12); stroke: #2a5bd7; }
       }
       .section-divider {
         width: min(var(--max), calc(100% - 48px));
@@ -794,6 +829,37 @@
         border: 1px solid rgba(245, 242, 235, 0.46);
         background: var(--paper);
       }
+      /* Cursor Spotlight Overlay */
+      .cursor-spotlight {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 90;
+        background: radial-gradient(600px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(27, 63, 139, 0.07), transparent 75%);
+        transition: opacity 0.3s ease;
+      }
+      /* Particle Canvas */
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      #hero-particles {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.85;
+      }
+      .hero-grid {
+        position: relative;
+        z-index: 2;
+      }
+
       .lightbox-close {
         position: fixed;
         top: 18px;
@@ -950,6 +1016,7 @@
     </style>
   </head>
   <body>
+    <div class="cursor-spotlight"></div>
     <nav aria-label="Primary navigation">
       <div class="nav-inner">
         <a class="brand" href="#hero">Saimon.systems</a>
@@ -965,6 +1032,7 @@
     </nav>
     <main>
       <section class="hero" id="hero">
+        <canvas id="hero-particles"></canvas>
         <div class="container hero-grid">
           <div class="hero-copy reveal">
             <p class="eyebrow">Python Developer / AI Systems Developer</p>
@@ -1014,19 +1082,19 @@
                 stroke-linejoin="round"
                 filter="url(#rough)"
               >
-                <path d="M124 104 C184 78 238 80 302 120" />
-                <path d="M302 147 C282 194 279 231 300 280" />
-                <path d="M256 306 C202 323 158 356 118 410" />
-                <path d="M340 305 C399 336 428 372 455 423" />
-                <path d="M353 139 C413 127 454 148 488 193" />
-                <path d="M147 431 C232 464 334 462 424 430" />
-                <rect x="44" y="64" width="138" height="74" rx="3" />
-                <rect x="236" y="96" width="146" height="82" rx="3" />
-                <rect x="408" y="178" width="116" height="74" rx="3" />
-                <rect x="230" y="270" width="150" height="84" rx="3" />
-                <rect x="54" y="394" width="150" height="74" rx="3" />
-                <rect x="372" y="402" width="142" height="72" rx="3" />
-                <circle cx="306" cy="220" r="14" />
+                <path class="pulse-path" d="M124 104 C184 78 238 80 302 120" />
+                <path class="pulse-path" d="M302 147 C282 194 279 231 300 280" />
+                <path class="pulse-path" d="M256 306 C202 323 158 356 118 410" />
+                <path class="pulse-path" d="M340 305 C399 336 428 372 455 423" />
+                <path class="pulse-path" d="M353 139 C413 127 454 148 488 193" />
+                <path class="pulse-path" d="M147 431 C232 464 334 462 424 430" />
+                <rect class="pulse-node" x="44" y="64" width="138" height="74" rx="3" />
+                <rect class="pulse-node" x="236" y="96" width="146" height="82" rx="3" />
+                <rect class="pulse-node" x="408" y="178" width="116" height="74" rx="3" />
+                <rect class="pulse-node" x="230" y="270" width="150" height="84" rx="3" />
+                <rect class="pulse-node" x="54" y="394" width="150" height="74" rx="3" />
+                <rect class="pulse-node" x="372" y="402" width="142" height="72" rx="3" />
+                <circle class="pulse-node" cx="306" cy="220" r="14" />
                 <path d="M292 220 H238" />
                 <path d="M320 220 H407" />
                 <path d="M306 234 V269" />
@@ -1819,6 +1887,141 @@ Content-Type: application/json
         if (event.key === "Escape" && lightbox.classList.contains("open"))
           closeLightbox();
       });
+      // 3D Card Tilt Interaction
+      const interactiveCards = document.querySelectorAll(
+        ".image-stage, .flow-box, .module-breakdown, .experience-item, .credential-strip"
+      );
+      interactiveCards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -5;
+          const rotateY = ((x - centerX) / centerX) * 5;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
+          card.style.boxShadow = `${-rotateY * 1.5}px ${rotateX * 1.5}px 24px rgba(27, 63, 139, 0.12)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)";
+          card.style.boxShadow = "";
+        });
+      });
+
+      // Hero 3D Parallax Mouse Tracking
+      const heroSec = document.querySelector(".hero");
+      const sysDiagram = document.querySelector(".system-diagram");
+      if (heroSec && sysDiagram) {
+        heroSec.addEventListener("mousemove", (e) => {
+          const rect = heroSec.getBoundingClientRect();
+          const moveX = (e.clientX - rect.width / 2) / (rect.width / 2);
+          const moveY = (e.clientY - rect.height / 2) / (rect.height / 2);
+          sysDiagram.style.transform = `perspective(1000px) rotateX(${(10 - moveY * 6).toFixed(2)}deg) rotateY(${(-14 + moveX * 10).toFixed(2)}deg) translateZ(${(moveY * 12).toFixed(2)}px)`;
+        });
+        heroSec.addEventListener("mouseleave", () => {
+          sysDiagram.style.transform = "";
+        });
+      }
+
+      // 3D Neural Particle Network System
+      (function () {
+        const canvas = document.getElementById("hero-particles");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let width = (canvas.width = canvas.offsetWidth);
+        let height = (canvas.height = canvas.offsetHeight);
+
+        const particles = [];
+        const particleCount = 45;
+        let mouseX = -1000, mouseY = -1000;
+
+        window.addEventListener("resize", () => {
+          width = canvas.width = canvas.offsetWidth;
+          height = canvas.height = canvas.offsetHeight;
+        });
+
+        const hero = document.getElementById("hero");
+        if (hero) {
+          hero.addEventListener("mousemove", (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+          });
+          hero.addEventListener("mouseleave", () => {
+            mouseX = -1000;
+            mouseY = -1000;
+          });
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8,
+            radius: Math.random() * 2 + 1,
+          });
+        }
+
+        function animate() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(27, 63, 139, 0.35)";
+            ctx.fill();
+
+            for (let j = i + 1; j < particles.length; j++) {
+              const p2 = particles[j];
+              const dx = p.x - p2.x;
+              const dy = p.y - p2.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+
+              if (dist < 130) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.strokeStyle = `rgba(27, 63, 139, ${0.18 * (1 - dist / 130)})`;
+                ctx.lineWidth = 0.8;
+                ctx.stroke();
+              }
+            }
+
+            const mdx = p.x - mouseX;
+            const mdy = p.y - mouseY;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+            if (mdist < 160) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(mouseX, mouseY);
+              ctx.strokeStyle = `rgba(27, 63, 139, ${0.35 * (1 - mdist / 160)})`;
+              ctx.lineWidth = 1.2;
+              ctx.stroke();
+            }
+          }
+
+          requestAnimationFrame(animate);
+        }
+        animate();
+      })();
+
+      // Ambient Cursor Spotlight Follower
+      window.addEventListener("mousemove", (e) => {
+        document.documentElement.style.setProperty("--mouse-x", e.clientX + "px");
+        document.documentElement.style.setProperty("--mouse-y", e.clientY + "px");
+      });
+
     </script>
     <a
       class="whatsapp-float"

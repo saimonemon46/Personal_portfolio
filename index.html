@@ -374,16 +374,32 @@
         border: 1px solid var(--line2);
         background: var(--paper);
         cursor: zoom-in;
+        max-height: 420px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+      .image-stage::-webkit-scrollbar {
+        width: 6px;
+      }
+      .image-stage::-webkit-scrollbar-track {
+        background: var(--paper);
+      }
+      .image-stage::-webkit-scrollbar-thumb {
+        background: var(--blue);
+        border-radius: 3px;
       }
       .image-stage img {
         width: 100%;
-        aspect-ratio: 16/10;
-        object-fit: cover;
+        height: auto;
+        display: block;
       }
       .live-badge {
-        position: absolute;
+        position: sticky;
         top: 12px;
-        right: 12px;
+        float: right;
+        margin-right: 12px;
+        margin-bottom: -30px;
         padding: 5px 9px;
         border: 1px solid var(--line2);
         background: var(--paper);
@@ -391,6 +407,8 @@
         font-family: "JetBrains Mono", ui-monospace, monospace;
         font-size: 0.7rem;
         text-transform: uppercase;
+        z-index: 10;
+        pointer-events: none;
       }
       .thumb-row {
         display: grid;
@@ -958,7 +976,7 @@
             <div class="hero-meta">
               <span><span class="meta-label">Base</span>Dhaka, Bangladesh</span
               ><span
-                ><span class="meta-label">Current focus</span>FastAPI services,
+                ><span class="meta-label">Current focus</span>Laravel, FastAPI services,
                 RAG pipelines, data-heavy products</span
               >
             </div>
@@ -1074,6 +1092,26 @@
             </h2>
           </div>
           <div class="experience-list reveal">
+            <article class="experience-item">
+              <div class="role-date">August 18, 2026 - Present</div>
+              <div>
+                <div class="company-line">
+                  <h3 class="company">Imjol</h3>
+                  <span class="text-cert-link" style="color: var(--muted); text-transform: uppercase;">Uttara, Dhaka</span>
+                </div>
+                <div class="role">
+                  Software Engineer / Laravel, PHP, Next.js, React, Node.js, PostgreSQL, MySQL
+                </div>
+                <div class="project-copy">
+                  <p>
+                    Currently working as a Software Engineer at Imjol, having joined on August 18, 2026. Developing robust full-stack web applications and services utilizing Laravel, PHP, Next.js, React, and Node.js, powered by PostgreSQL and MySQL database solutions.
+                  </p>
+                  <p style="font-size: 0.88rem; color: var(--muted); font-family: 'JetBrains Mono', monospace;">
+                    Location: House 23, Road 13, Sector 11, Uttara, Dhaka
+                  </p>
+                </div>
+              </div>
+            </article>
             <article class="experience-item">
               <div class="role-date">January 2026 - May 2026</div>
               <div>
@@ -1740,9 +1778,11 @@ Content-Type: application/json
       document.querySelectorAll("[data-gallery]").forEach((gallery) => {
         const hero = gallery.querySelector("[data-hero-image]");
         const thumbs = gallery.querySelectorAll("[data-thumb]");
+        const stage = gallery.querySelector(".image-stage");
         thumbs.forEach((thumb) => {
           thumb.addEventListener("click", () => {
             hero.src = thumb.dataset.thumb;
+            if (stage) stage.scrollTop = 0;
             thumbs.forEach((item) =>
               item.setAttribute("aria-pressed", "false"),
             );

@@ -523,23 +523,27 @@
                 </div>
               </div>
 
-              <!-- Static Code & Flow Panel -->
-              <div class="simulator-box">
-                <div class="simulator-header">
-                  <span>rabbitmq_media_worker.py</span>
-                  <span class="sim-mode-tag" style="color: var(--accent-emerald);">WORKER POOL ACTIVE</span>
+              <!-- Interactive Screenshot Gallery: Distributed Media Processing (RabbitMQ & MinIO) -->
+              <div class="gallery-box" data-gallery>
+                <div class="gallery-header">
+                  <span>Distributed Pipeline &bull; Infrastructure Console</span>
+                  <span class="gallery-badge" style="color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08);">2 VERIFIED SCREENS</span>
                 </div>
-                <div class="sim-console-output" style="height: 220px; font-size: 0.72rem;">
-                  <div style="color: #64748b;">[RabbitMQ Connection] Connected to amqp://guest:****@rabbitmq:5672/</div>
-                  <div>[*] Queue 'media_jobs' declared with durable=True</div>
-                  <div style="color: #38bdf8;">[API Gateway] POST /upload - File 'lecture_1080p.mp4' (248MB) received</div>
-                  <div style="color: #f59e0b;">[MinIO S3] Uploaded raw blob to bucket 'raw-media' in 184ms</div>
-                  <div>[RabbitMQ] Published job_id=e7b42c9f to exchange 'media_exchange'</div>
-                  <div style="color: #10b981;">[Worker #2] Consumed job_id=e7b42c9f from 'media_jobs'</div>
-                  <div>[Worker #2] Processing video encoding (H.264/AAC transcoding)...</div>
-                  <div style="color: #10b981;">[MinIO S3] Uploaded processed artifact to bucket 'processed-media'</div>
-                  <div style="color: #10b981;">[PostgreSQL] Job status updated to COMPLETED. Basic_ack sent to broker.</div>
-                  <div style="color: #94a3b8; margin-top: 8px;">&bull; 0 memory leaks observed across continuous worker cycles.</div>
+                <div class="image-stage" data-lightbox-trigger title="Click to view full resolution">
+                  <img src="assets/media_processing/rabbitmq.png" alt="RabbitMQ Message Broker Queue Management Dashboard" data-hero-image />
+                  <span class="stage-zoom-hint">🔍 Click image to expand • Scroll down to view full details</span>
+                </div>
+                <div class="thumb-row" style="grid-template-columns: repeat(2, 1fr); gap: 6px;">
+                  <button class="thumb" type="button" aria-pressed="true" data-thumb="assets/media_processing/rabbitmq.png" title="RabbitMQ Queue Broker Dashboard">
+                    <img src="assets/media_processing/rabbitmq.png" alt="RabbitMQ Message Broker Queue Management Dashboard" />
+                  </button>
+                  <button class="thumb" type="button" aria-pressed="false" data-thumb="assets/media_processing/minio.png" title="MinIO S3 Object Storage Console">
+                    <img src="assets/media_processing/minio.png" alt="MinIO S3 Object Storage Console" />
+                  </button>
+                </div>
+                <div class="gallery-footer" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.7rem; color: #94a3b8;">
+                  <span>Queue Broker: <span style="color: var(--accent-emerald);">RabbitMQ Active</span></span>
+                  <span>Blob Storage: <span style="color: var(--accent-blue);">MinIO S3 Connected</span></span>
                 </div>
               </div>
             </div>
@@ -1456,11 +1460,43 @@ Bare-Metal Real-Time Media & Recording Cluster (GitHub: saimonemon46/Jitsi_SelfH
 - Provisioned 10 Gbps network capacity (1.3–2.0 Gbps outbound); studio-grade 1080p MP4 recording on NVMe buffers.</pre>
 
   <!-- ==========================================================================
-       IMAGE LIGHTBOX MODAL
+       IMAGE LIGHTBOX MODAL (Full Resolution & Scrollable)
        ========================================================================== -->
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Expanded screenshot preview">
-    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close preview">Close [Esc] &times;</button>
-    <img id="lightboxImage" src="" alt="Expanded screenshot" />
+    <div class="lightbox-overlay" id="lightboxOverlay" title="Click outside to close"></div>
+    <div class="lightbox-container" id="lightboxContainer">
+      <header class="lightbox-header">
+        <div class="lightbox-info">
+          <div class="lightbox-title-wrap">
+            <span class="lightbox-title" id="lightboxTitle">Screenshot Preview</span>
+            <span class="lightbox-counter" id="lightboxCounter">1 / 1</span>
+          </div>
+          <span class="lightbox-hint">🖱️ Scroll down to inspect full screenshot • Click outside or [Esc] to exit</span>
+        </div>
+        <div class="lightbox-actions">
+          <button class="lightbox-nav-btn" id="lightboxPrevBtn" type="button" aria-label="Previous screenshot" title="Previous screenshot (Left Arrow)">
+            &larr; Prev
+          </button>
+          <button class="lightbox-nav-btn" id="lightboxNextBtn" type="button" aria-label="Next screenshot" title="Next screenshot (Right Arrow)">
+            Next &rarr;
+          </button>
+          <button class="lightbox-toggle-btn" id="lightboxZoomToggle" type="button" aria-label="Toggle zoom scale" title="Toggle between Fit Width and 100% Full Scale">
+            <span id="lightboxZoomIcon">🔍</span> <span id="lightboxZoomLabel">Full Scale</span>
+          </button>
+          <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close preview" title="Close preview [Esc]">
+            Close [Esc] &times;
+          </button>
+        </div>
+      </header>
+
+      <div class="lightbox-viewport" id="lightboxViewport" tabindex="0">
+        <div class="lightbox-canvas" id="lightboxCanvas">
+          <div class="lightbox-img-wrapper" id="lightboxImgWrapper">
+            <img id="lightboxImage" src="" alt="Expanded screenshot" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- JavaScript -->

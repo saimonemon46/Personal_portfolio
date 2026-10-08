@@ -377,7 +377,7 @@
           <div class="section-kicker">High-Concurrency Architectures</div>
           <h2 class="section-title">Architected for failure. Verified under load.</h2>
           <p class="section-intro">
-            Interactive breakdowns of clinical AI triage engines, asynchronous distributed media pipelines, autonomous multi-agent dispatchers, and bare-metal media clusters.
+            Interactive breakdowns of high-concurrency payment ledger engines, clinical AI triage systems, asynchronous distributed media pipelines, and bare-metal media clusters.
           </p>
         </div>
 
@@ -615,77 +615,78 @@
             </div>
           </article>
 
-          <!-- SYSTEM 04: Incident Ops Distributed Platform -->
-          <article class="system-card reveal" id="system-incident">
+          <!-- SYSTEM 04: ZeroDrift High-Concurrency Payment Ledger Core -->
+          <article class="system-card reveal" id="system-ledgercore">
             <div class="system-card-header">
               <div class="system-badge-group">
                 <span class="system-index">04</span>
-                <span class="system-tier-tag">Distributed Triage • Celery & Redis</span>
+                <span class="system-tier-tag">Fintech Systems • Clean Architecture</span>
               </div>
-              <span class="mono" style="font-size: 0.76rem; color: var(--accent-emerald);">-55% Ticket Noise • 85% PyTest Coverage</span>
+              <span class="mono" style="font-size: 0.76rem; color: var(--accent-emerald);">1,000+ QPS Locust • Zero Deadlocks • 100% Core Verification</span>
             </div>
 
-            <h3 class="system-title">Incident Ops: Distributed Alert Triage Platform</h3>
-            <div class="system-tagline">Event-driven asynchronous incident classification, deduplication, and SLA management.</div>
+            <h3 class="system-title">ZeroDrift: High-Concurrency Payment &amp; Ledger Core</h3>
+            <div class="system-tagline">Enterprise double-entry financial transaction engine built with Clean Architecture, canonical lock ordering, and zero balance drift.</div>
 
             <div class="system-layout">
               <div class="system-info">
                 <p>
-                  During major outages, on-call engineers are inundated with duplicate error alerts, causing SLA breaches and response paralysis. Incident Ops decouples ingestion from triage: incoming errors are ingested through a sub-10ms gateway, semantically clustered using vector embeddings, and routed to the correct on-call teams.
+                  Financial platforms (like bKash or Pathao Pay) face severe race conditions, balance drift, and deadlocks during high-traffic flash sales and bilateral transfers. ZeroDrift models an enterprise double-entry transaction core from first principles, enforcing strict mathematical balance conservation (&sum; Debits + &sum; Credits = 0) and sub-15ms transaction finality under intense concurrent load.
                 </p>
 
                 <div class="system-breakdown">
                   <div class="breakdown-row">
-                    <span class="breakdown-label">Async Queues</span>
-                    <span class="breakdown-value">Celery worker pool powered by Redis brokers. SLA timer escalations continue running even if web API workers are rebooted or redeployed.</span>
+                    <span class="breakdown-label">Deadlock Free</span>
+                    <span class="breakdown-value">Canonical Global Lock Ordering (min(ID<sub>A</sub>, ID<sub>B</sub>) &rarr; max(ID<sub>A</sub>, ID<sub>B</sub>)) with row-level pessimistic locking (<code>SELECT ... FOR UPDATE</code>) completely eliminates Coffman circular waits.</span>
                   </div>
                   <div class="breakdown-row">
-                    <span class="breakdown-label">Vector Search</span>
-                    <span class="breakdown-value">FAISS semantic vector indexing clusters duplicate error traces, reducing ticket noise by <strong>55%</strong>.</span>
+                    <span class="breakdown-label">Zero Drift</span>
+                    <span class="breakdown-value">Strict double-entry bookkeeping enforces mathematical balance conservation with zero-drift decimal precision, transaction state machines, and continuous invariant auditing.</span>
                   </div>
                   <div class="breakdown-row">
-                    <span class="breakdown-label">Caching Strategy</span>
-                    <span class="breakdown-value">Redis Cache-Aside with randomized TTL jitter prevents cache stampedes during burst traffic (1,000 QPS).</span>
+                    <span class="breakdown-label">Idempotency &amp; CB</span>
+                    <span class="breakdown-value">Atomic UUIDv4 check-and-set protocol prevents duplicate charges on mobile network retries; 3-State Circuit Breaker (Closed &rarr; Open &rarr; Half-Open) fails fast in &lt;1ms during downstream outages.</span>
                   </div>
                   <div class="breakdown-row">
-                    <span class="breakdown-label">CI/CD & Tests</span>
-                    <span class="breakdown-value">85% automated test coverage with PyTest and HTTPX running in GitHub Actions before every pull request merge.</span>
+                    <span class="breakdown-label">Verified Load</span>
+                    <span class="breakdown-value">Benchmarked under <strong>1,000+ QPS via Locust load tests</strong> (0% error rate, sub-15ms latency), 50-thread concurrent race tests, and OS <code>SIGTERM</code> worker queue draining.</span>
                   </div>
                 </div>
 
                 <div class="system-stack">
-                  FastAPI / Celery / Redis / PostgreSQL / Docker Compose / FAISS / PyTest / Alembic
+                  Python 3.12 / FastAPI / PostgreSQL / Redis / Docker / Locust / PyTest / Clean Architecture / Pydantic v2
                 </div>
 
                 <div class="system-links">
-                  <a class="system-link-btn" href="https://github.com/saimonemon46/Incident-ops-system" target="_blank" rel="noreferrer">
-                    GitHub: Incident-ops-system &rarr;
+                  <a class="system-link-btn" href="https://github.com/saimonemon46/ZeroDrift-High-Concurrency-Payment-Ledger-Core" target="_blank" rel="noreferrer">
+                    GitHub: ZeroDrift-Payment-Ledger-Core &rarr;
                   </a>
                 </div>
               </div>
 
-              <!-- Static Code & PyTest Terminal Panel -->
-              <div class="simulator-box">
-                <div class="simulator-header">
-                  <span>pytest_test_suite_runner.py</span>
-                  <span class="sim-mode-tag" style="color: #10b981;">ALL 42 PASSED (0.84s)</span>
+              <!-- Interactive Screenshot Gallery: ZeroDrift LedgerCore (4 screens) -->
+              <div class="gallery-box" data-gallery>
+                <div class="gallery-header">
+                  <span>ZeroDrift LedgerCore &bull; Verification &amp; Benchmark Suite</span>
+                  <span class="gallery-badge" style="color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08);">4 VERIFIED SCREENS</span>
                 </div>
-                <div class="sim-console-output" style="height: 220px; font-size: 0.72rem;">
-                  <div style="color: #64748b;">rootdir: /app, configfile: pytest.ini</div>
-                  <div>test_concurrency.py::test_idempotent_charge <span style="color:#10b981;">PASSED [ 14%]</span></div>
-                  <div>test_concurrency.py::test_pessimistic_lock_ordering <span style="color:#10b981;">PASSED [ 28%]</span></div>
-                  <div>test_concurrency.py::test_deadlock_absence_under_bidirectional <span style="color:#10b981;">PASSED [ 42%]</span></div>
-                  <div>test_cache.py::test_redis_cache_aside_with_ttl_jitter <span style="color:#10b981;">PASSED [ 57%]</span></div>
-                  <div>test_vector.py::test_faiss_semantic_clustering_dedup <span style="color:#10b981;">PASSED [ 71%]</span></div>
-                  <div>test_celery.py::test_async_sla_escalation_recovery <span style="color:#10b981;">PASSED [ 85%]</span></div>
-                  <div>test_api.py::test_token_bucket_rate_limiter_burst <span style="color:#10b981;">PASSED [100%]</span></div>
-                  <div style="margin-top: 12px; color: #10b981; font-weight: 700;">
-                    ================== 42 passed in 0.84s (85.2% Code Coverage) ==================
-                  </div>
-                  <div style="color: #94a3b8; margin-top: 6px;">
-                    &bull; Zero race conditions detected.<br>
-                    &bull; Docker Compose multi-service network validated.
-                  </div>
+                <div class="image-stage" data-lightbox-trigger title="Click to view full resolution">
+                  <img src="assets/ledgercore/locust_load_test_report.png" alt="Locust Load Benchmark - 1000+ QPS Zero Failure Rate" data-hero-image />
+                  <span class="stage-zoom-hint">🔍 Click image to expand • Scroll down to view full details</span>
+                </div>
+                <div class="thumb-row" style="grid-template-columns: repeat(4, 1fr); gap: 6px;">
+                  <button class="thumb" type="button" aria-pressed="true" data-thumb="assets/ledgercore/locust_load_test_report.png" title="Locust Load Benchmark">
+                    <img src="assets/ledgercore/locust_load_test_report.png" alt="Locust Load Benchmark Report" />
+                  </button>
+                  <button class="thumb" type="button" aria-pressed="false" data-thumb="assets/ledgercore/system_verification_dashboard.png" title="System Verification Dashboard">
+                    <img src="assets/ledgercore/system_verification_dashboard.png" alt="System Verification Dashboard" />
+                  </button>
+                  <button class="thumb" type="button" aria-pressed="false" data-thumb="assets/ledgercore/swagger_docs.png" title="Swagger OpenAPI Documentation">
+                    <img src="assets/ledgercore/swagger_docs.png" alt="Swagger OpenAPI Documentation" />
+                  </button>
+                  <button class="thumb" type="button" aria-pressed="false" data-thumb="assets/ledgercore/test_coverage_report.png" title="PyTest Test Coverage Report">
+                    <img src="assets/ledgercore/test_coverage_report.png" alt="PyTest Test Coverage Report" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -1363,12 +1364,12 @@
             <li>Selected as <strong>National Finalist at MillionX AI Buildathon</strong> (Top 40 of 400+ teams nationwide) and presented at <strong>ICADI 2026 (IEEE International)</strong>.</li>
           </ul>
 
-          <p style="margin-top: 8px;"><strong>Incident Ops: Scalable Distributed Incident Management Platform</strong> &bull; <a href="https://github.com/saimonemon46/Incident-ops-system" target="_blank">GitHub</a></p>
+          <p style="margin-top: 8px;"><strong>ZeroDrift: High-Concurrency Payment &amp; Ledger Core</strong> &bull; <a href="https://github.com/saimonemon46/ZeroDrift-High-Concurrency-Payment-Ledger-Core" target="_blank">GitHub</a></p>
           <ul>
-            <li>Architected an event-driven incident triage platform capable of ingesting high-frequency error logs and dispatching asynchronous alerts via <strong>Celery workers and Redis broker</strong>.</li>
-            <li>Engineered a vector search pipeline using <strong>FAISS</strong> to cluster duplicate incident tickets, reducing duplicate ticket noise by <strong>55%</strong>.</li>
-            <li>Implemented Redis <strong>Cache-Aside</strong> with TTL jitter, decreasing database load by <strong>60%</strong> during simulated burst traffic (1,000 QPS).</li>
-            <li>Built an automated test suite with <strong>PyTest and HTTPX</strong> achieving <strong>85% code coverage</strong> on GitHub Actions CI/CD.</li>
+            <li>Engineered an enterprise double-entry financial ledger core in <strong>Python 3.12 and FastAPI</strong> using Clean/Hexagonal Architecture to model mission-critical bKash/fintech transactions.</li>
+            <li>Eliminated Coffman circular-wait deadlocks during bilateral transfers via <strong>Canonical Global Lock Ordering</strong> (&min;(ID<sub>A</sub>, ID<sub>B</sub>) &rarr; &max;(ID<sub>A</sub>, ID<sub>B</sub>)) with PostgreSQL row-level pessimistic locking (<code>SELECT ... FOR UPDATE</code>).</li>
+            <li>Enforced strict mathematical balance conservation (&sum; Debits + &sum; Credits = 0) with zero-drift decimal precision, transaction state machines, and atomic check-and-set idempotency keys preventing double-spending on mobile network drops.</li>
+            <li>Benchmarked under <strong>1,000+ QPS via Locust load tests</strong> (0% error rate, sub-15ms P95 latency) and built a 3-state Circuit Breaker failing fast in &lt;1ms during downstream outages.</li>
           </ul>
 
           <p style="margin-top: 8px;"><strong>SmartPark AI: Autonomous Multi-Agent Dispatch</strong> &bull; <a href="https://github.com/saimonemon46/Live_Parking_Agent" target="_blank">GitHub</a> &bull; <a href="https://live-parking-agent.vercel.app/" target="_blank">Live Demo</a></p>
@@ -1438,9 +1439,10 @@ MediSA: Ambient Clinical AI Triage Engine (GitHub: saimonemon46/MediSA)
 - Grounded clinical RAG system with FastAPI, LangChain, and local FAISS vector search triaging colloquial symptoms in sub-80ms.
 - Selected as National Finalist at MillionX AI Buildathon (Top 40 of 400+) and presented at ICADI 2026 (IEEE International).
 
-Incident Ops: Distributed Incident Management Platform (GitHub: saimonemon46/Incident-ops-system)
-- Architected event-driven triage platform with Celery workers, Redis broker, and FAISS vector deduplication (-55% ticket noise).
-- Built Redis Cache-Aside with TTL jitter handling 1,000 QPS burst load; 85% PyTest coverage on GitHub Actions CI/CD.
+ZeroDrift: High-Concurrency Payment & Ledger Core (GitHub: saimonemon46/ZeroDrift-High-Concurrency-Payment-Ledger-Core)
+- Enterprise double-entry financial ledger in Python 3.12 & FastAPI with Clean Architecture, enforcing mathematical balance conservation (Σ Debits + Σ Credits = 0).
+- Canonical Global Lock Ordering (min(A,B) -> max(A,B)) with PostgreSQL pessimistic row locks eliminating Coffman deadlocks under heavy concurrent transfers.
+- Atomic idempotency check-and-set preventing double-spending; 3-state Circuit Breaker failing fast in <1ms; benchmarked at 1,000+ QPS on Locust (0% error rate).
 
 SmartPark AI: Autonomous Multi-Agent Dispatch (GitHub: saimonemon46/Live_Parking_Agent | Live Demo: https://live-parking-agent.vercel.app/)
 - Autonomous multi-agent parking allocation system with occupancy forecasting (ML), automatic slot assignment, and real-time live map dashboard deployed publicly on Vercel.

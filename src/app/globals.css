@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Editorial Paper Theme (saimonemon.vercel.app Default Light) */
+  --theme-mode: 'paper';
+  --bg-primary: #f6f4ee;
+  --bg-secondary: #eeeae0;
+  --bg-card: #fbf9f4;
+  --bg-card-subtle: #f0ece1;
+  --text-main: #18191f;
+  --text-muted: #5e606a;
+  --text-dim: #8b8d97;
+  --line-subtle: rgba(24, 25, 31, 0.1);
+  --line-bold: rgba(24, 25, 31, 0.22);
+  --accent-blue: #163e91;
+  --accent-blue-light: #2b5cd4;
+  --accent-blue-glow: rgba(22, 62, 145, 0.15);
+  --accent-amber: #c46200;
+  --accent-emerald: #0b7a55;
+  --code-bg: #14161f;
+  --code-text: #e6e8ee;
+
+  --bg-base: var(--bg-primary);
+  --border-subtle: var(--line-subtle);
+  --border-bright: var(--line-bold);
+}
+
+.dark {
+  /* Night Shift - Terminal Obsidian Theme (saimonemon.vercel.app Dark Mode) */
+  --theme-mode: 'night';
+  --bg-primary: #0b0f19;
+  --bg-secondary: #111726;
+  --bg-card: #151d30;
+  --bg-card-subtle: #1c263e;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --line-subtle: rgba(255, 255, 255, 0.08);
+  --line-bold: rgba(255, 255, 255, 0.18);
+  --accent-blue: #3b82f6;
+  --accent-blue-light: #60a5fa;
+  --accent-blue-glow: rgba(59, 130, 246, 0.22);
+  --accent-amber: #f59e0b;
+  --accent-emerald: #10b981;
+  --code-bg: #07090f;
+  --code-text: #e2e8f0;
+
+  --bg-base: var(--bg-primary);
+  --border-subtle: var(--line-subtle);
+  --border-bright: var(--line-bold);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Subtle blueprint grid overlay */
+.blueprint-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(24, 25, 31, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 25, 31, 0.04) 1px, transparent 1px);
+}
+
+.dark .blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.blueprint-grid-dense {
+  background-size: 16px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(22, 62, 145, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 62, 145, 0.04) 1px, transparent 1px);
+}
+
+.dark .blueprint-grid-dense {
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+}
+
+/* Flow line animation for architecture diagrams */
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 6 6;
+  animation: dashFlow 2s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(94, 96, 106, 0.3);
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(94, 96, 106, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Lucrative Motion Effects */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(59, 130, 246, 0.15) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+@keyframes beamScan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-beam-scan {
+  animation: beamScan 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+

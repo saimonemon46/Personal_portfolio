@@ -53,12 +53,7 @@ export function Hero() {
           >
             {/* Eyebrow & Status */}
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2.5 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-[#eeeae0] dark:bg-[#151d30] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] text-[#18191f] dark:text-slate-300 shadow-sm hover:border-emerald-500/40 transition-colors">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                <span className="w-2 h-2 rounded-full bg-emerald-500 -ml-3.5" />
-                <span>Open for Engineering Roles</span>
-              </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono bg-[#163e91]/10 dark:bg-blue-500/10 text-[#163e91] dark:text-blue-400 border border-[#163e91]/20 dark:border-blue-500/20 font-medium">
+              <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#163e91]/10 dark:bg-blue-500/10 text-[#163e91] dark:text-blue-400 border border-[#163e91]/20 dark:border-blue-500/20 font-medium shadow-xs">
                 Ex-Leotech • Imjol
               </span>
             </motion.div>

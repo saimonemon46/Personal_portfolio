@@ -1,8 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Code2 } from "lucide-react";
+import {
+  Code2,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  ArrowRight,
+  ExternalLink,
+  BookOpen,
+} from "lucide-react";
 
 export interface DsaPatternItem {
   number: string;
@@ -19,7 +29,7 @@ export const patternsData: DsaPatternItem[] = [
     categories: ["core"],
     invariant:
       "Maintain converging or fast-slow pointer invariants to eliminate nested loops in sorted sequences in O(N).",
-    exemplar: "LC 11, LC 15 (3Sum), LC 42 (Rain Water)",
+    exemplar: "LC 11 (Container), LC 15 (3Sum), LC 42 (Rain Water)",
   },
   {
     number: "02",
@@ -147,57 +157,111 @@ type FilterType = "all" | "core" | "concurrency" | "dp-graph";
 
 export function DsaPatterns() {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const filteredPatterns =
     activeFilter === "all"
       ? patternsData
       : patternsData.filter((p) => p.categories.includes(activeFilter));
 
+  const activePattern = filteredPatterns[activeIndex] || filteredPatterns[0];
+
   const filterButtons: { label: string; value: FilterType; count: number }[] = [
     { label: "All Patterns", value: "all", count: 16 },
     { label: "Core High-Frequency", value: "core", count: 8 },
     { label: "Concurrency & Systems", value: "concurrency", count: 6 },
-    { label: "Graphs & Dynamic Programming", value: "dp-graph", count: 7 },
+    { label: "Graphs & DP", value: "dp-graph", count: 7 },
   ];
 
+  // Reset index when filter changes
+  const handleFilterChange = (filter: FilterType) => {
+    setActiveFilter(filter);
+    setActiveIndex(0);
+  };
+
+  // Auto-advance pattern every 7 seconds
+  useEffect(() => {
+    if (!isAutoPlaying || isHovered) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
+    }
+
+    timerRef.current = setInterval(() => {
+      setDirection(1);
+      setActiveIndex((prev) => (prev + 1) % filteredPatterns.length);
+    }, 7000);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isAutoPlaying, isHovered, filteredPatterns.length]);
+
+  const goToPattern = (idx: number) => {
+    setDirection(idx > activeIndex ? 1 : -1);
+    setActiveIndex(idx);
+  };
+
+  const handlePrev = () => {
+    setDirection(-1);
+    setActiveIndex((prev) => (prev > 0 ? prev - 1 : filteredPatterns.length - 1));
+  };
+
+  const handleNext = () => {
+    setDirection(1);
+    setActiveIndex((prev) => (prev + 1) % filteredPatterns.length);
+  };
+
   return (
-    <section id="dsa" className="scroll-mt-20 py-20 lg:py-28 relative border-t border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] transition-colors">
+    <section id="dsa" className="scroll-mt-20 py-16 sm:py-20 lg:py-24 relative border-t border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="max-w-2xl mb-10"
-        >
-          <div className="text-xs font-mono font-semibold tracking-wider text-[#163e91] dark:text-blue-400 uppercase flex items-center gap-1.5">
-            <Code2 className="w-3.5 h-3.5 text-[#163e91] dark:text-blue-400" />
-            <span>03 / Algorithmic Rigor</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6 pb-6 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08]">
+          <div>
+            <div className="text-xs font-mono font-semibold tracking-wider text-[#163e91] dark:text-blue-400 uppercase flex items-center gap-1.5">
+              <Code2 className="w-3.5 h-3.5 text-[#163e91] dark:text-blue-400" />
+              <span>03 / Algorithmic Rigor</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-[#18191f] dark:text-[#f1f5f9] tracking-tight mt-1">
+              Data Structures &amp; Patterns
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-[#5e606a] dark:text-slate-400 max-w-2xl font-sans">
+              Interactive animated showcase of 16 algorithmic invariant patterns mastered across 125+ problems. Not syntax grinding, but invariants that power production systems.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#18191f] dark:text-[#f1f5f9] tracking-tight mt-1">
-            Data Structures &amp; Patterns
-          </h2>
-          <p className="mt-2 text-base text-[#5e606a] dark:text-slate-400 font-sans">
-            Disciplined problem solving and deep pattern recognition. Not grinding random syntax, but mastering the algorithmic invariants that power efficient data structures.
-          </p>
-        </motion.div>
 
-        {/* Master Radar Box Container (Matching reference design) */}
-        <div className="rounded-2xl bg-white/70 dark:bg-[#111726]/80 border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] p-5 sm:p-7 shadow-xs dark:shadow-xl">
+          <Link
+            href="/notes"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-semibold text-[#18191f] dark:text-slate-200 bg-[#eeeae0] hover:bg-[#e4decb] dark:bg-[#151d30] dark:hover:bg-[#1c263e] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] hover:border-blue-500/40 transition-all self-start md:self-auto group shadow-sm"
+          >
+            <span>View All 16 DSA Notes</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#163e91] dark:text-blue-400 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
+        {/* Master Showcase Box */}
+        <div
+          className="rounded-2xl bg-[#fbf9f4] dark:bg-[#151d30] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] p-5 sm:p-7 shadow-xs dark:shadow-xl"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           {/* Top Radar Stats & Profile Links Pills */}
-          <div className="flex flex-wrap items-center gap-2.5 pb-6 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08]">
-            <div className="px-3.5 py-1.5 rounded-md text-xs font-mono bg-[#eeeae0] dark:bg-[#151d30] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] text-[#5e606a] dark:text-slate-300">
-              Total DSA Solved:{" "}
+          <div className="flex flex-wrap items-center gap-2 pb-6 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08]">
+            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#eeeae0] dark:bg-[#111726] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#5e606a] dark:text-slate-300">
+              Total Solved:{" "}
               <strong className="text-[#163e91] dark:text-blue-400 font-bold">125+ Problems</strong>
             </div>
 
-            <div className="px-3.5 py-1.5 rounded-md text-xs font-mono bg-[#eeeae0] dark:bg-[#151d30] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] text-[#5e606a] dark:text-slate-300">
+            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#eeeae0] dark:bg-[#111726] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#5e606a] dark:text-slate-300">
               GeeksforGeeks:{" "}
-              <strong className="text-[#163e91] dark:text-blue-400 font-bold">75 Solved (220 Score)</strong>
+              <strong className="text-[#163e91] dark:text-blue-400 font-bold">75 (220 Score)</strong>
             </div>
 
-            <div className="px-3.5 py-1.5 rounded-md text-xs font-mono bg-[#eeeae0] dark:bg-[#151d30] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] text-[#5e606a] dark:text-slate-300">
+            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#eeeae0] dark:bg-[#111726] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#5e606a] dark:text-slate-300">
               LeetCode:{" "}
               <strong className="text-[#163e91] dark:text-blue-400 font-bold">50+ Solved</strong>
             </div>
@@ -206,46 +270,46 @@ export function DsaPatterns() {
               href="https://leetcode.com/u/saimonemon46/"
               target="_blank"
               rel="noreferrer"
-              className="px-3.5 py-1.5 rounded-md text-xs font-mono font-medium text-[#163e91] dark:text-blue-400 bg-white dark:bg-[#151d30] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-[#163e91] dark:border-blue-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
+              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#163e91] dark:text-blue-400 bg-white dark:bg-[#111726] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-[#163e91]/60 dark:border-blue-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
             >
               <span>LeetCode Profile</span>
-              <span className="font-bold">→</span>
+              <ExternalLink className="w-3 h-3" />
             </a>
 
             <a
               href="https://www.geeksforgeeks.org/profile/saimon46?tab=activity"
               target="_blank"
               rel="noreferrer"
-              className="px-3.5 py-1.5 rounded-md text-xs font-mono font-medium text-[#0b7a55] dark:text-emerald-400 bg-white dark:bg-[#151d30] hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 border border-[#0b7a55] dark:border-emerald-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
+              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#0b7a55] dark:text-emerald-400 bg-white dark:bg-[#111726] hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 border border-[#0b7a55]/60 dark:border-emerald-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
             >
-              <span>GeeksforGeeks Profile</span>
-              <span className="font-bold">→</span>
+              <span>GFG Profile</span>
+              <ExternalLink className="w-3 h-3" />
             </a>
 
             <a
               href="https://github.com/saimonemon46/LeetCode-Practice"
               target="_blank"
               rel="noreferrer"
-              className="px-3.5 py-1.5 rounded-md text-xs font-mono font-medium text-[#b45309] dark:text-amber-400 bg-white dark:bg-[#151d30] hover:bg-amber-50/50 dark:hover:bg-amber-900/20 border border-[#b45309] dark:border-amber-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
+              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#b45309] dark:text-amber-400 bg-white dark:bg-[#111726] hover:bg-amber-50/50 dark:hover:bg-amber-900/20 border border-[#b45309]/60 dark:border-amber-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
             >
-              <span>DSA Code Repo (GitHub)</span>
-              <span className="font-bold">→</span>
+              <span>Code Repo</span>
+              <ExternalLink className="w-3 h-3" />
             </a>
           </div>
 
-          {/* Pattern Category Filter Buttons */}
-          <div className="pt-6 pb-6 flex flex-wrap items-center gap-2">
+          {/* Filter Tabs (Category Switcher) */}
+          <div className="pt-5 pb-5 flex flex-wrap items-center gap-2">
             {filterButtons.map((btn) => {
               const isActive = activeFilter === btn.value;
               return (
                 <button
                   key={btn.value}
                   type="button"
-                  onClick={() => setActiveFilter(btn.value)}
-                  className={`px-3.5 py-1.5 rounded-md text-xs font-mono transition-all cursor-pointer ${
+                  onClick={() => handleFilterChange(btn.value)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                     isActive
-                      ? "bg-[#0c2461] dark:bg-blue-600 text-white font-bold shadow-sm ring-1 ring-blue-900/20 dark:ring-white/20"
-                      : "bg-[#eeeae0] dark:bg-[#151d30] text-[#18191f] dark:text-slate-300 hover:text-[#0c2461] dark:hover:text-white border border-[rgba(24,25,31,0.14)] dark:border-white/[0.08] hover:border-[rgba(24,25,31,0.3)] dark:hover:border-white/[0.2]"
+                      ? "bg-[#163e91] text-white dark:bg-blue-600 dark:text-white font-bold shadow-xs"
+                      : "bg-[#eeeae0] dark:bg-[#111726] text-[#5e606a] dark:text-slate-400 hover:text-[#18191f] dark:hover:text-slate-200 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]"
                   }`}
                 >
                   {btn.label} ({btn.count})
@@ -254,45 +318,143 @@ export function DsaPatterns() {
             })}
           </div>
 
-          {/* 3-Column Filterable Cards Grid (Full 16 Patterns) */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <AnimatePresence>
-              {filteredPatterns.map((pattern) => (
-                <motion.div
-                  layout
+          {/* Compact Pattern Selector Tabs Bar (like Featured Projects tabs) */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2 mb-6">
+            {filteredPatterns.map((pattern, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <button
                   key={pattern.number}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.2 }}
-                  whileHover={{ y: -3 }}
-                  className="rounded-xl bg-white dark:bg-[#151d30] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] hover:border-[#163e91] dark:hover:border-blue-400 hover:shadow-md transition-all p-5 flex flex-col justify-between shadow-2xs group"
+                  type="button"
+                  onClick={() => goToPattern(idx)}
+                  className={`relative p-2.5 rounded-lg border text-left transition-all duration-200 flex flex-col justify-between cursor-pointer group ${
+                    isActive
+                      ? "bg-white dark:bg-[#111726] border-[#163e91] dark:border-blue-500 shadow-sm ring-1 ring-[#163e91]/20 dark:ring-blue-500/30"
+                      : "bg-[#eeeae0]/50 hover:bg-[#eeeae0] dark:bg-[#111726]/40 dark:hover:bg-[#111726] border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] hover:border-[rgba(24,25,31,0.2)] dark:hover:border-white/[0.14]"
+                  }`}
                 >
-                  <div>
-                    {/* Pattern Badge */}
-                    <div className="text-[11px] font-mono font-bold tracking-wider text-[#b45309] dark:text-amber-400 mb-1.5 uppercase">
-                      PATTERN {pattern.number}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeDsaPatternIndicator"
+                      className="absolute inset-0 rounded-lg bg-[#163e91]/[0.03] dark:bg-blue-500/[0.06] border-2 border-[#163e91] dark:border-blue-500 pointer-events-none"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                  <span
+                    className={`text-[10px] font-mono font-bold ${
+                      isActive
+                        ? "text-[#163e91] dark:text-blue-400"
+                        : "text-[#5e606a] dark:text-slate-400"
+                    }`}
+                  >
+                    P.{pattern.number}
+                  </span>
+                  <span className="text-xs font-semibold text-[#18191f] dark:text-slate-200 truncate mt-1">
+                    {pattern.name}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Featured Active Pattern Card */}
+          <div className="rounded-xl bg-white dark:bg-[#111726] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] p-6 sm:p-8 shadow-xs relative overflow-hidden">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={activePattern.number}
+                custom={direction}
+                initial={{ opacity: 0, x: direction * 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -direction * 20 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col lg:flex-row lg:items-center justify-between gap-8"
+              >
+                {/* Left Side: Invariant & Details */}
+                <div className="lg:max-w-2xl">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-mono font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 uppercase">
+                      PATTERN {activePattern.number} / 16
+                    </span>
+                    <span className="text-xs font-mono text-[#5e606a] dark:text-slate-400">
+                      Algorithmic Invariant
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#18191f] dark:text-[#f1f5f9] tracking-tight">
+                    {activePattern.name}
+                  </h3>
+
+                  {/* Core Invariant Quote */}
+                  <div className="mt-4 p-4 rounded-xl bg-[#fbf9f4] dark:bg-[#151d30] border-l-4 border-[#163e91] dark:border-blue-500 border-y border-r border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]">
+                    <div className="text-[11px] font-mono uppercase tracking-wider text-[#163e91] dark:text-blue-400 font-semibold mb-1">
+                      Invariant Definition
                     </div>
-
-                    {/* Pattern Name */}
-                    <h3 className="text-base sm:text-lg font-display font-bold text-[#18191f] dark:text-[#f1f5f9] group-hover:text-[#163e91] dark:group-hover:text-blue-400 transition-colors">
-                      {pattern.name}
-                    </h3>
-
-                    {/* Invariant Description */}
-                    <p className="mt-2 text-xs sm:text-sm text-[#5e606a] dark:text-slate-300 font-sans leading-relaxed">
-                      {pattern.invariant}
+                    <p className="text-sm sm:text-base text-[#18191f] dark:text-slate-200 font-sans leading-relaxed">
+                      &ldquo;{activePattern.invariant}&rdquo;
                     </p>
                   </div>
 
-                  {/* Exemplar Pill */}
-                  <div className="mt-4 p-2.5 rounded-lg bg-[#eef2f6] dark:bg-[#0c1220] border border-slate-200/60 dark:border-white/[0.05] text-[11px] font-mono text-[#163e91] dark:text-blue-300 font-medium truncate">
-                    {pattern.exemplar}
+                  {/* Exemplar Problems Pill */}
+                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-mono text-[#5e606a] dark:text-slate-400 font-semibold">
+                      Exemplar Problems:
+                    </span>
+                    <span className="px-3 py-1 rounded-md bg-[#eeeae0] dark:bg-[#151d30] text-xs font-mono font-semibold text-[#163e91] dark:text-blue-300 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]">
+                      {activePattern.exemplar}
+                    </span>
                   </div>
-                </motion.div>
-              ))}
+                </div>
+
+                {/* Right Side: Navigation & Actions */}
+                <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-6 pt-6 lg:pt-0 border-t lg:border-t-0 lg:border-l border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] lg:pl-8">
+                  <div className="space-y-2">
+                    <div className="text-xs font-mono uppercase tracking-wider text-[#5e606a] dark:text-slate-400">
+                      Deep Dive Notes
+                    </div>
+                    <Link
+                      href="/notes"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-semibold text-white bg-[#163e91] hover:bg-[#122f6d] dark:bg-blue-600 dark:hover:bg-blue-500 transition-all shadow-md shadow-blue-600/20 group"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>Read Full Notes →</span>
+                    </Link>
+                  </div>
+
+                  {/* Navigation Controls */}
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={handlePrev}
+                      className="w-9 h-9 rounded-lg bg-[#eeeae0] hover:bg-[#e4decb] dark:bg-[#151d30] dark:hover:bg-[#1c263e] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#18191f] dark:text-slate-200 transition-all cursor-pointer"
+                      aria-label="Previous pattern"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <span className="text-xs font-mono text-[#5e606a] dark:text-slate-400 px-2 font-semibold">
+                      {activePattern.number} / {filteredPatterns.length}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleNext}
+                      className="w-9 h-9 rounded-lg bg-[#eeeae0] hover:bg-[#e4decb] dark:bg-[#151d30] dark:hover:bg-[#1c263e] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#18191f] dark:text-slate-200 transition-all cursor-pointer"
+                      aria-label="Next pattern"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                      className="w-9 h-9 rounded-lg bg-[#eeeae0] hover:bg-[#e4decb] dark:bg-[#151d30] dark:hover:bg-[#1c263e] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#5e606a] dark:text-slate-400 hover:text-[#18191f] dark:hover:text-slate-200 transition-all cursor-pointer ml-1"
+                      aria-label={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
+                      title={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
+                    >
+                      {isAutoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

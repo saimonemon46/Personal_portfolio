@@ -16,13 +16,13 @@ export function ExperienceTimeline() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-2xl mb-14"
         >
-          <div className="text-xs font-mono font-semibold tracking-wider text-[#163e91] dark:text-blue-400 uppercase">
+          <div className="text-xs font-mono font-semibold tracking-wider text-[#B66A3C] dark:text-[#E28754] uppercase">
             02 / Experience
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#18191f] dark:text-[#f1f5f9] tracking-tight mt-1">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#29251F] dark:text-[#F5F1E8] tracking-tight mt-1">
             Work Experience
           </h2>
-          <p className="mt-2 text-base text-[#5e606a] dark:text-slate-400">
+          <p className="mt-2 text-base text-[#777168] dark:text-slate-400">
             Battle-tested engineering on active production systems, optimizing relational query paths and maintaining high availability.
           </p>
         </motion.div>
@@ -42,8 +42,8 @@ export function ExperienceTimeline() {
               <div
                 className={`absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full border-2 ${
                   exp.isCurrent
-                    ? "bg-[#163e91] dark:bg-blue-500 border-blue-300 ring-4 ring-blue-500/25"
-                    : "bg-[#f6f4ee] dark:bg-[#0b0f19] border-stone-400 dark:border-slate-500 group-hover:border-[#163e91] dark:group-hover:border-blue-400"
+                    ? "bg-[#B66A3C] dark:bg-blue-500 border-blue-300 ring-4 ring-blue-500/25"
+                    : "bg-[#F5F1E8] dark:bg-[#161412] border-stone-400 dark:border-slate-500 group-hover:border-[#B66A3C] dark:group-hover:border-blue-400"
                 } transition-colors`}
               >
                 {exp.isCurrent && (
@@ -52,12 +52,12 @@ export function ExperienceTimeline() {
               </div>
 
               {/* Card Container */}
-              <div className="rounded-xl bg-[#fbf9f4] dark:bg-[#151d30] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] hover:border-[rgba(24,25,31,0.22)] dark:hover:border-blue-500/40 transition-all p-6 sm:p-8 shadow-sm dark:shadow-xl group-hover:shadow-md dark:group-hover:shadow-2xl">
+              <div className="rounded-xl bg-[#FFFCF6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] hover:border-[rgba(24,25,31,0.22)] dark:hover:border-[#B66A3C]/40 transition-all p-6 sm:p-8 shadow-sm dark:shadow-xl group-hover:shadow-md dark:group-hover:shadow-2xl">
                 {/* Header Row: Company, Role, Period */}
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] pb-4 mb-5">
                   <div>
                     <div className="flex items-center gap-3">
-                      <h3 className="text-xl sm:text-2xl font-display font-bold text-[#18191f] dark:text-[#f1f5f9]">
+                      <h3 className="text-xl sm:text-2xl font-display font-bold text-[#29251F] dark:text-[#F5F1E8]">
                         {exp.company}
                       </h3>
                       {exp.isCurrent && (
@@ -67,14 +67,14 @@ export function ExperienceTimeline() {
                         </span>
                       )}
                     </div>
-                    <div className="text-sm font-semibold text-[#163e91] dark:text-blue-400 mt-0.5">
+                    <div className="text-sm font-semibold text-[#B66A3C] dark:text-[#E28754] mt-0.5">
                       {exp.role}
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap sm:flex-col sm:items-end text-xs font-mono text-[#5e606a] dark:text-slate-400 gap-x-4 gap-y-1">
+                  <div className="flex flex-wrap sm:flex-col sm:items-end text-xs font-mono text-[#777168] dark:text-slate-400 gap-x-4 gap-y-1">
                     <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-[#163e91] dark:text-blue-400" />
+                      <Calendar className="w-3.5 h-3.5 text-[#B66A3C] dark:text-[#E28754]" />
                       {exp.period}
                     </span>
                     <span className="flex items-center gap-1.5">
@@ -98,15 +98,15 @@ export function ExperienceTimeline() {
                 )}
 
                 {/* Summary */}
-                <p className="text-sm sm:text-base text-[#5e606a] dark:text-slate-300 leading-relaxed mb-5 font-sans">
+                <p className="text-sm sm:text-base text-[#777168] dark:text-slate-300 leading-relaxed mb-5 font-sans">
                   {exp.summary}
                 </p>
 
                 {/* Bullet Points */}
-                <ul className="space-y-2 mb-6 text-xs sm:text-sm text-[#5e606a] dark:text-slate-300/90 list-disc list-inside">
+                <ul className="space-y-2 mb-6 text-xs sm:text-sm text-[#777168] dark:text-slate-300/90 list-disc list-inside">
                   {exp.achievements.map((item, aIdx) => (
                     <li key={aIdx} className="leading-relaxed">
-                      <span className="text-[#18191f] dark:text-slate-200">{item}</span>
+                      <span className="text-[#29251F] dark:text-slate-200">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -117,7 +117,7 @@ export function ExperienceTimeline() {
                     {exp.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded text-xs font-mono bg-[#f0ece1] dark:bg-[#111726] text-[#18191f] dark:text-slate-300 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] hover:border-[#163e91]/30 dark:hover:border-blue-400/30 transition-colors"
+                        className="px-2.5 py-1 rounded text-xs font-mono bg-[#EAE3D6] dark:bg-[#1E1B18] text-[#29251F] dark:text-slate-300 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] hover:border-[#B66A3C]/30 dark:hover:border-blue-400/30 transition-colors"
                       >
                         {tech}
                       </span>
@@ -129,7 +129,7 @@ export function ExperienceTimeline() {
                       href={exp.certificateUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-mono text-[#163e91] dark:text-blue-400 hover:text-[#163e91]/80 dark:hover:text-blue-300 transition-colors group/link"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-[#B66A3C] dark:text-[#E28754] hover:text-[#B66A3C]/80 dark:hover:text-[#F0A175] transition-colors group/link"
                     >
                       <span>Completion Certificate</span>
                       <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />

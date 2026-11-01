@@ -89,15 +89,15 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
               onClick={() => goToProject(idx)}
               className={`relative text-left p-3.5 sm:p-4 rounded-xl border transition-all duration-300 flex items-start gap-3.5 group ${
                 isActive
-                  ? "bg-[#fbf9f4] dark:bg-[#151d30] border-[#163e91] dark:border-blue-500 shadow-md shadow-blue-500/5 ring-1 ring-[#163e91]/20 dark:ring-blue-500/30"
-                  : "bg-[#fbf9f4]/60 hover:bg-[#fbf9f4] dark:bg-[#151d30]/50 dark:hover:bg-[#151d30] border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] hover:border-[rgba(24,25,31,0.18)] dark:hover:border-white/[0.16]"
+                  ? "bg-[#FFFCF6] dark:bg-[#25211D] border-[#B66A3C] dark:border-[#E28754] shadow-md shadow-blue-500/5 ring-1 ring-[#B66A3C]/20 dark:ring-[#E28754]/30"
+                  : "bg-[#FFFCF6]/60 hover:bg-[#FFFCF6] dark:bg-[#25211D]/50 dark:hover:bg-[#25211D] border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] hover:border-[rgba(24,25,31,0.18)] dark:hover:border-white/[0.16]"
               }`}
             >
               {/* Active Tab Floating Highlight Indicator */}
               {isActive && (
                 <motion.div
                   layoutId="activeFeaturedIndicator"
-                  className="absolute inset-0 rounded-xl bg-[#163e91]/[0.03] dark:bg-blue-500/[0.06] border-2 border-[#163e91] dark:border-blue-500 pointer-events-none"
+                  className="absolute inset-0 rounded-xl bg-[#B66A3C]/[0.03] dark:bg-blue-500/[0.06] border-2 border-[#B66A3C] dark:border-[#E28754] pointer-events-none"
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 />
               )}
@@ -106,8 +106,8 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
               <div
                 className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-mono font-bold flex-shrink-0 transition-colors ${
                   isActive
-                    ? "bg-[#163e91] text-white dark:bg-blue-600 dark:text-white"
-                    : "bg-[#f0ece1] text-[#5e606a] dark:bg-[#111726] dark:text-slate-400 group-hover:text-[#18191f] dark:group-hover:text-white"
+                    ? "bg-[#B66A3C] text-white dark:bg-[#B66A3C] dark:text-white"
+                    : "bg-[#EAE3D6] text-[#777168] dark:bg-[#1E1B18] dark:text-slate-400 group-hover:text-[#29251F] dark:group-hover:text-white"
                 }`}
               >
                 0{idx + 1}
@@ -119,17 +119,17 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                   <h3
                     className={`text-sm font-display font-bold truncate transition-colors ${
                       isActive
-                        ? "text-[#163e91] dark:text-blue-400"
-                        : "text-[#18191f] dark:text-[#f1f5f9]"
+                        ? "text-[#B66A3C] dark:text-[#E28754]"
+                        : "text-[#29251F] dark:text-[#F5F1E8]"
                     }`}
                   >
                     {proj.title.split(":")[0]}
                   </h3>
                   {isActive && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#163e91] dark:bg-blue-400 animate-pulse flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B66A3C] dark:bg-blue-400 animate-pulse flex-shrink-0" />
                   )}
                 </div>
-                <p className="text-[11px] font-mono text-[#5e606a] dark:text-slate-400 truncate mt-0.5">
+                <p className="text-[11px] font-mono text-[#777168] dark:text-slate-400 truncate mt-0.5">
                   {proj.honorBadge || proj.tierTag || proj.category}
                 </p>
               </div>
@@ -139,12 +139,12 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
       </div>
 
       {/* Main Animated Showcase Container */}
-      <div className="rounded-2xl bg-[#fbf9f4] dark:bg-[#151d30] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] shadow-md dark:shadow-2xl overflow-hidden relative">
+      <div className="rounded-2xl bg-[#FFFCF6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] shadow-md dark:shadow-2xl overflow-hidden relative">
         {/* Top Controls Bar */}
-        <div className="px-5 py-3 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] bg-[#f0ece1]/50 dark:bg-[#111726]/60 flex items-center justify-between text-xs font-mono">
+        <div className="px-5 py-3 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] bg-[#EAE3D6]/50 dark:bg-[#1E1B18]/60 flex items-center justify-between text-xs font-mono">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-semibold text-[#163e91] dark:text-blue-400">
+            <span className="font-semibold text-[#B66A3C] dark:text-[#E28754]">
               FEATURED ARCHITECTURE 0{activeIndex + 1} / 0{projects.length}
             </span>
           </div>
@@ -154,7 +154,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
             <button
               type="button"
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="p-1.5 rounded-md hover:bg-[#eeeae0] dark:hover:bg-[#1c263e] text-[#5e606a] dark:text-slate-400 hover:text-[#18191f] dark:hover:text-white transition-colors"
+              className="p-1.5 rounded-md hover:bg-[#EAE3D6] dark:hover:bg-[#1E1B18] text-[#777168] dark:text-slate-400 hover:text-[#29251F] dark:hover:text-white transition-colors"
               title={isAutoPlaying ? "Pause Auto-play" : "Start Auto-play"}
               aria-label={isAutoPlaying ? "Pause Auto-play" : "Start Auto-play"}
             >
@@ -166,7 +166,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
             <button
               type="button"
               onClick={handlePrev}
-              className="p-1.5 rounded-md hover:bg-[#eeeae0] dark:hover:bg-[#1c263e] text-[#5e606a] dark:text-slate-400 hover:text-[#18191f] dark:hover:text-white transition-colors"
+              className="p-1.5 rounded-md hover:bg-[#EAE3D6] dark:hover:bg-[#1E1B18] text-[#777168] dark:text-slate-400 hover:text-[#29251F] dark:hover:text-white transition-colors"
               title="Previous Architecture"
               aria-label="Previous Architecture"
             >
@@ -175,7 +175,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
             <button
               type="button"
               onClick={handleNext}
-              className="p-1.5 rounded-md hover:bg-[#eeeae0] dark:hover:bg-[#1c263e] text-[#5e606a] dark:text-slate-400 hover:text-[#18191f] dark:hover:text-white transition-colors"
+              className="p-1.5 rounded-md hover:bg-[#EAE3D6] dark:hover:bg-[#1E1B18] text-[#777168] dark:text-slate-400 hover:text-[#29251F] dark:hover:text-white transition-colors"
               title="Next Architecture"
               aria-label="Next Architecture"
             >
@@ -200,7 +200,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                 <div>
                   {/* Badges ribbon */}
                   <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-[#163e91]/10 text-[#163e91] dark:bg-blue-500/10 dark:text-blue-400 border border-[#163e91]/20 dark:border-blue-500/20">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-[#B66A3C]/10 text-[#B66A3C] dark:bg-[#B66A3C]/15 dark:text-[#E28754] border border-[#B66A3C]/20 dark:border-[#E28754]/20">
                       {activeProject.tierTag || activeProject.category}
                     </span>
                     {activeProject.honorBadge && (
@@ -212,10 +212,10 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                   </div>
 
                   {/* Title & Tagline */}
-                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#18191f] dark:text-[#f1f5f9] tracking-tight leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#29251F] dark:text-[#F5F1E8] tracking-tight leading-snug">
                     {activeProject.title}
                   </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm font-mono text-[#163e91] dark:text-blue-300">
+                  <p className="mt-1.5 text-xs sm:text-sm font-mono text-[#B66A3C] dark:text-[#F0A175]">
                     {activeProject.tagline}
                   </p>
 
@@ -224,12 +224,12 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                     {activeProject.metrics.slice(0, 4).map((m, mIdx) => (
                       <div
                         key={mIdx}
-                        className="p-2 rounded-lg bg-[#f0ece1]/70 dark:bg-[#111726]/80 border border-[rgba(24,25,31,0.06)] dark:border-white/[0.05]"
+                        className="p-2 rounded-lg bg-[#EAE3D6]/70 dark:bg-[#1E1B18]/80 border border-[rgba(24,25,31,0.06)] dark:border-white/[0.05]"
                       >
-                        <div className="text-[10px] font-mono uppercase text-[#5e606a] dark:text-slate-400 truncate">
+                        <div className="text-[10px] font-mono uppercase text-[#777168] dark:text-slate-400 truncate">
                           {m.label}
                         </div>
-                        <div className="text-sm font-display font-bold text-[#18191f] dark:text-[#f1f5f9] mt-0.5 truncate">
+                        <div className="text-sm font-display font-bold text-[#29251F] dark:text-[#F5F1E8] mt-0.5 truncate">
                           {m.value}
                         </div>
                       </div>
@@ -238,13 +238,13 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
 
                   {/* Compact Case Study Breakdown Matrix (3 core invariants) */}
                   {activeProject.caseStudyBreakdown && (
-                    <div className="mt-4 rounded-xl bg-[#f0ece1]/60 dark:bg-[#111726]/70 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] divide-y divide-[rgba(24,25,31,0.06)] dark:divide-white/[0.06] overflow-hidden">
+                    <div className="mt-4 rounded-xl bg-[#EAE3D6]/60 dark:bg-[#1E1B18]/70 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] divide-y divide-[rgba(24,25,31,0.06)] dark:divide-white/[0.06] overflow-hidden">
                       {activeProject.caseStudyBreakdown.slice(0, 3).map((item, cIdx) => (
                         <div key={cIdx} className="p-2.5 sm:p-3 flex items-start gap-2.5 text-xs">
-                          <span className="font-mono uppercase font-bold text-[#163e91] dark:text-blue-400 flex-shrink-0 w-28 sm:w-32">
+                          <span className="font-mono uppercase font-bold text-[#B66A3C] dark:text-[#E28754] flex-shrink-0 w-28 sm:w-32">
                             {item.label}
                           </span>
-                          <span className="text-[#18191f]/90 dark:text-slate-300 font-sans leading-relaxed line-clamp-2">
+                          <span className="text-[#29251F]/90 dark:text-slate-300 font-sans leading-relaxed line-clamp-2">
                             {item.value}
                           </span>
                         </div>
@@ -257,7 +257,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                     {activeProject.stack.slice(0, 6).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#f0ece1] dark:bg-[#111726] text-[#18191f] dark:text-slate-300 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]"
+                        className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#EAE3D6] dark:bg-[#1E1B18] text-[#29251F] dark:text-slate-300 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]"
                       >
                         {tech}
                       </span>
@@ -269,7 +269,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                 <div className="mt-6 pt-4 border-t border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] flex flex-wrap items-center gap-3">
                   <Link
                     href={`/work/${activeProject.slug}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-semibold text-white bg-[#163e91] hover:bg-[#122f6d] dark:bg-blue-600 dark:hover:bg-blue-500 transition-all shadow-md shadow-blue-600/20 group"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-semibold text-white bg-[#B66A3C] hover:bg-[#96532B] dark:bg-[#B66A3C] dark:hover:bg-[#CC7B4A] transition-all shadow-md shadow-[#B66A3C]/20 group"
                   >
                     <span>Full Case Study Breakdown</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -280,7 +280,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                       href={activeProject.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono text-[#18191f] dark:text-slate-200 bg-[#f0ece1] hover:bg-[#e6e0d2] dark:bg-[#111726] dark:hover:bg-[#1c263e] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono text-[#29251F] dark:text-slate-200 bg-[#EAE3D6] hover:bg-[#e6e0d2] dark:bg-[#1E1B18] dark:hover:bg-[#1E1B18] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] transition-colors"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
                       <span>Repository</span>
@@ -315,14 +315,14 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
 
               {/* Right Column: Screenshot Viewer & Thumbnail Strip (5 cols) */}
               <div className="lg:col-span-5 flex flex-col">
-                <div className="rounded-xl overflow-hidden bg-[#eeeae0] dark:bg-[#070A0F] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] shadow-sm">
+                <div className="rounded-xl overflow-hidden bg-[#EAE3D6] dark:bg-[#070A0F] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] shadow-sm">
                   {/* Console Titlebar */}
-                  <div className="px-3.5 py-2 bg-[#f0ece1] dark:bg-[#070A0F]/90 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-[#5e606a] dark:text-slate-400">
+                  <div className="px-3.5 py-2 bg-[#EAE3D6] dark:bg-[#070A0F]/90 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-[#777168] dark:text-slate-400">
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-red-500/80 inline-block" />
                       <span className="w-2 h-2 rounded-full bg-amber-500/80 inline-block" />
                       <span className="w-2 h-2 rounded-full bg-emerald-500/80 inline-block" />
-                      <span className="truncate max-w-[150px] pl-1 font-semibold text-[#18191f] dark:text-slate-300">
+                      <span className="truncate max-w-[150px] pl-1 font-semibold text-[#29251F] dark:text-slate-300">
                         {currentScreenshot?.title || activeProject.title}
                       </span>
                     </div>
@@ -330,7 +330,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                     <button
                       type="button"
                       onClick={() => setLightboxOpen(true)}
-                      className="flex items-center gap-1 text-[#163e91] dark:text-blue-400 hover:underline"
+                      className="flex items-center gap-1 text-[#B66A3C] dark:text-[#E28754] hover:underline"
                     >
                       <ZoomIn className="w-3 h-3" />
                       <span>Expand</span>
@@ -361,7 +361,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
 
                   {/* Thumbnail Strip (Quick Switching) */}
                   {activeProject.screenshots.length > 1 && (
-                    <div className="p-2.5 bg-[#fbf9f4] dark:bg-[#0d1322] border-t border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] flex items-center gap-2 overflow-x-auto">
+                    <div className="p-2.5 bg-[#FFFCF6] dark:bg-[#0d1322] border-t border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] flex items-center gap-2 overflow-x-auto">
                       {activeProject.screenshots.map((s, sIdx) => {
                         const isSelected = sIdx === activeThumbIdx;
                         return (
@@ -371,7 +371,7 @@ export function AnimatedFeaturedShowcase({ projects }: AnimatedFeaturedShowcaseP
                             onClick={() => setActiveThumbIdx(sIdx)}
                             className={`relative aspect-[16/10] w-14 sm:w-16 rounded overflow-hidden flex-shrink-0 border-2 transition-all ${
                               isSelected
-                                ? "border-[#163e91] dark:border-blue-400 ring-2 ring-[#163e91]/20 dark:ring-blue-500/30 scale-105"
+                                ? "border-[#B66A3C] dark:border-blue-400 ring-2 ring-[#B66A3C]/20 dark:ring-[#E28754]/30 scale-105"
                                 : "border-transparent opacity-60 hover:opacity-100"
                             }`}
                             title={s.title}

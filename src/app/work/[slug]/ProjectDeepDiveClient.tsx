@@ -23,14 +23,14 @@ export function ProjectDeepDiveClient({ project }: ProjectDeepDiveClientProps) {
       <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-white/[0.08] mb-6">
         <div>
           <h2 className="text-lg font-display font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-            <Eye className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+            <Eye className="w-4 h-4 text-blue-500 dark:text-[#E28754]" />
             <span>Interactive Verification Gallery</span>
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
             Verified production screens, consoles, and benchmark outputs.
           </p>
         </div>
-        <span className="text-xs font-mono px-2.5 py-1 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+        <span className="text-xs font-mono px-2.5 py-1 rounded bg-blue-500/10 text-blue-600 dark:text-[#E28754] border border-blue-500/20">
           {project.screenshots.length} Screens
         </span>
       </div>
@@ -57,7 +57,7 @@ export function ProjectDeepDiveClient({ project }: ProjectDeepDiveClientProps) {
 
       {/* Caption for active screenshot */}
       <div className="mt-3 text-xs font-mono text-slate-600 dark:text-slate-300 flex items-center justify-between">
-        <span className="font-semibold text-blue-600 dark:text-blue-300">{currentScreenshot.title}</span>
+        <span className="font-semibold text-blue-600 dark:text-[#F0A175]">{currentScreenshot.title}</span>
         <span className="text-slate-500 dark:text-slate-400">{currentScreenshot.caption}</span>
       </div>
 

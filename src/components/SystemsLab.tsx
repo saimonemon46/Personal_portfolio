@@ -24,19 +24,19 @@ export function SystemsLab() {
     <div className="mt-20 pt-16 border-t border-[rgba(24,25,31,0.12)] dark:border-white/[0.08]">
       {/* Lab Header */}
       <div className="mb-10">
-        <div className="text-xs font-mono font-semibold tracking-wider text-[#163e91] dark:text-blue-400 uppercase">
+        <div className="text-xs font-mono font-semibold tracking-wider text-[#B66A3C] dark:text-[#E28754] uppercase">
           Systems Lab &amp; Specialized Engineering
         </div>
-        <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#18191f] dark:text-[#f1f5f9] tracking-tight mt-1">
+        <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#29251F] dark:text-[#F5F1E8] tracking-tight mt-1">
           Applied AI, Distributed Kernels &amp; Research Repositories
         </h3>
-        <p className="mt-2 text-sm sm:text-base text-[#5e606a] dark:text-slate-400 max-w-3xl font-sans">
+        <p className="mt-2 text-sm sm:text-base text-[#777168] dark:text-slate-400 max-w-3xl font-sans">
           Focused open-source implementations covering autonomous multi-agent dispatchers, Federated Learning, ML recommendation APIs, and agentic workflows.
         </p>
       </div>
 
       {/* Featured Lab Card: SmartPark AI */}
-      <div className="rounded-2xl bg-[#fbf9f4] dark:bg-[#151d30] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] p-6 sm:p-8 shadow-sm dark:shadow-xl mb-8">
+      <div className="rounded-2xl bg-[#FFFCF6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] p-6 sm:p-8 shadow-sm dark:shadow-xl mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
@@ -61,7 +61,7 @@ export function SystemsLab() {
                 </a>
                 <Link
                   href={`/work/${smartPark.slug}`}
-                  className="text-[#163e91] dark:text-blue-400 hover:underline flex items-center gap-1"
+                  className="text-[#B66A3C] dark:text-[#E28754] hover:underline flex items-center gap-1"
                 >
                   <span>Case Study</span>
                   <ArrowRight className="w-3 h-3" />
@@ -70,7 +70,7 @@ export function SystemsLab() {
                   href="https://github.com/saimonemon46/Live_Parking_Agent"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[#5e606a] dark:text-slate-400 hover:text-[#18191f] dark:hover:text-white flex items-center gap-1"
+                  className="text-[#777168] dark:text-slate-400 hover:text-[#29251F] dark:hover:text-white flex items-center gap-1"
                 >
                   <GithubIcon className="w-3 h-3" />
                   <span>GitHub</span>
@@ -78,11 +78,11 @@ export function SystemsLab() {
               </div>
             </div>
 
-            <h4 className="text-xl sm:text-2xl font-display font-bold text-[#18191f] dark:text-[#f1f5f9]">
+            <h4 className="text-xl sm:text-2xl font-display font-bold text-[#29251F] dark:text-[#F5F1E8]">
               SmartPark AI: Autonomous Multi-Agent Dispatch
             </h4>
 
-            <p className="text-sm text-[#5e606a] dark:text-slate-300 leading-relaxed font-sans">
+            <p className="text-sm text-[#777168] dark:text-slate-300 leading-relaxed font-sans">
               Multi-agent parking allocation system with occupancy forecasting (ML), automatic slot assignment, and real-time live map dashboard deployed publicly on Vercel. Independent agent failure domains ensure uninterrupted slot assignment even if notification or external integration workers degrade.
             </p>
 
@@ -90,7 +90,7 @@ export function SystemsLab() {
               {smartPark.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded text-xs font-mono bg-[#eeeae0] dark:bg-[#1c263e] text-[#18191f] dark:text-slate-200 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.08]"
+                  className="px-2.5 py-1 rounded text-xs font-mono bg-[#EAE3D6] dark:bg-[#1E1B18] text-[#29251F] dark:text-slate-200 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.08]"
                 >
                   {tech}
                 </span>
@@ -100,9 +100,9 @@ export function SystemsLab() {
 
           {/* SmartPark Live Screenshot Gallery */}
           <div className="lg:col-span-5">
-            <div className="rounded-xl bg-[#eeeae0]/80 dark:bg-[#111726] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] p-3.5 shadow-sm">
+            <div className="rounded-xl bg-[#EAE3D6]/80 dark:bg-[#1E1B18] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] p-3.5 shadow-sm">
               <div className="flex items-center justify-between pb-2 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] mb-2.5">
-                <span className="text-xs font-mono font-semibold text-[#18191f] dark:text-slate-200">
+                <span className="text-xs font-mono font-semibold text-[#29251F] dark:text-slate-200">
                   SmartPark AI Live Interface
                 </span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 font-bold">
@@ -165,11 +165,11 @@ export function SystemsLab() {
         {labProjects.map((p) => (
           <article
             key={p.slug}
-            className="rounded-xl bg-[#fbf9f4] dark:bg-[#151d30] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] p-5 shadow-sm hover:border-[#163e91]/30 dark:hover:border-blue-500/30 transition-all flex flex-col justify-between"
+            className="rounded-xl bg-[#FFFCF6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] p-5 shadow-sm hover:border-[#B66A3C]/30 dark:hover:border-blue-500/30 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-[#163e91]/5 dark:bg-white/[0.05] text-[#163e91] dark:text-blue-400 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]">
+                <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-[#B66A3C]/5 dark:bg-white/[0.05] text-[#B66A3C] dark:text-[#E28754] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]">
                   {p.tierTag || p.category}
                 </span>
 
@@ -178,7 +178,7 @@ export function SystemsLab() {
                     href={p.githubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-xs font-mono text-[#5e606a] dark:text-slate-400 hover:text-[#18191f] dark:hover:text-white flex items-center gap-1"
+                    className="text-xs font-mono text-[#777168] dark:text-slate-400 hover:text-[#29251F] dark:hover:text-white flex items-center gap-1"
                   >
                     <span>GitHub</span>
                     <ArrowRight className="w-3 h-3" />
@@ -186,11 +186,11 @@ export function SystemsLab() {
                 )}
               </div>
 
-              <h4 className="text-base font-display font-bold text-[#18191f] dark:text-[#f1f5f9] mt-2">
+              <h4 className="text-base font-display font-bold text-[#29251F] dark:text-[#F5F1E8] mt-2">
                 {p.title}
               </h4>
 
-              <p className="mt-2 text-xs text-[#5e606a] dark:text-slate-300 leading-relaxed font-sans line-clamp-3">
+              <p className="mt-2 text-xs text-[#777168] dark:text-slate-300 leading-relaxed font-sans line-clamp-3">
                 {p.description}
               </p>
             </div>
@@ -199,7 +199,7 @@ export function SystemsLab() {
               {p.stack.slice(0, 4).map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#eeeae0] dark:bg-[#1c263e] text-[#18191f] dark:text-slate-300"
+                  className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#EAE3D6] dark:bg-[#1E1B18] text-[#29251F] dark:text-slate-300"
                 >
                   {tech}
                 </span>

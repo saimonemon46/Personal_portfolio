@@ -3,24 +3,24 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Editorial Paper Theme (saimonemon.vercel.app Default Light) */
-  --theme-mode: 'paper';
-  --bg-primary: #f6f4ee;
-  --bg-secondary: #eeeae0;
-  --bg-card: #fbf9f4;
-  --bg-card-subtle: #f0ece1;
-  --text-main: #18191f;
-  --text-muted: #5e606a;
-  --text-dim: #8b8d97;
-  --line-subtle: rgba(24, 25, 31, 0.1);
-  --line-bold: rgba(24, 25, 31, 0.22);
-  --accent-blue: #163e91;
-  --accent-blue-light: #2b5cd4;
-  --accent-blue-glow: rgba(22, 62, 145, 0.15);
-  --accent-amber: #c46200;
-  --accent-emerald: #0b7a55;
-  --code-bg: #14161f;
-  --code-text: #e6e8ee;
+  /* Warm Blueprint Palette (Warm Ivory & Burnished Copper) */
+  --theme-mode: 'warm-blueprint';
+  --bg-primary: #F5F1E8;       /* Main background */
+  --bg-secondary: #EAE3D6;     /* Secondary surface */
+  --bg-card: #FFFCF6;          /* Card background */
+  --bg-card-subtle: #F0EAE0;   /* Subtle surface */
+  --text-main: #29251F;        /* Primary text */
+  --text-muted: #777168;       /* Secondary text */
+  --text-dim: #9E9689;
+  --line-subtle: #DCD3C5;      /* Borders */
+  --line-bold: #BAAEA0;
+  --accent-blue: #B66A3C;      /* Primary accent (Burnished Copper) */
+  --accent-blue-light: #CC7B4A;
+  --accent-blue-glow: rgba(182, 106, 60, 0.16);
+  --accent-amber: #A58A62;     /* Secondary accent (Muted Bronze) */
+  --accent-emerald: #356D52;   /* Forest Moss */
+  --code-bg: #1F1B18;
+  --code-text: #F5F1E8;
 
   --bg-base: var(--bg-primary);
   --border-subtle: var(--line-subtle);
@@ -28,24 +28,24 @@
 }
 
 .dark {
-  /* Night Shift - Terminal Obsidian Theme (saimonemon.vercel.app Dark Mode) */
+  /* Warm Blueprint — Night (Roasted Espresso & Radiant Copper) */
   --theme-mode: 'night';
-  --bg-primary: #0b0f19;
-  --bg-secondary: #111726;
-  --bg-card: #151d30;
-  --bg-card-subtle: #1c263e;
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-  --line-subtle: rgba(255, 255, 255, 0.08);
-  --line-bold: rgba(255, 255, 255, 0.18);
-  --accent-blue: #3b82f6;
-  --accent-blue-light: #60a5fa;
-  --accent-blue-glow: rgba(59, 130, 246, 0.22);
-  --accent-amber: #f59e0b;
-  --accent-emerald: #10b981;
-  --code-bg: #07090f;
-  --code-text: #e2e8f0;
+  --bg-primary: #161412;       /* Dark Background */
+  --bg-secondary: #1E1B18;     /* Dark Secondary surface */
+  --bg-card: #25211D;          /* Dark Card background */
+  --bg-card-subtle: #2E2924;   /* Dark Subtle surface */
+  --text-main: #F5F1E8;        /* Dark Primary text */
+  --text-muted: #A8A093;       /* Dark Secondary text */
+  --text-dim: #736C61;
+  --line-subtle: rgba(245, 241, 232, 0.09);
+  --line-bold: rgba(245, 241, 232, 0.18);
+  --accent-blue: #E28754;      /* Dark Primary accent (Radiant Copper) */
+  --accent-blue-light: #F0A175;
+  --accent-blue-glow: rgba(226, 135, 84, 0.2);
+  --accent-amber: #C9AE85;     /* Dark Secondary accent (Antique Bronze) */
+  --accent-emerald: #52A374;
+  --code-bg: #0F0E0C;
+  --code-text: #F5F1E8;
 
   --bg-base: var(--bg-primary);
   --border-subtle: var(--line-subtle);
@@ -64,27 +64,27 @@ body {
 .blueprint-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(24, 25, 31, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(24, 25, 31, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(41, 37, 31, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 37, 31, 0.04) 1px, transparent 1px);
 }
 
 .dark .blueprint-grid {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(245, 241, 232, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 241, 232, 0.035) 1px, transparent 1px);
 }
 
 .blueprint-grid-dense {
   background-size: 16px 16px;
   background-image: 
-    linear-gradient(to right, rgba(22, 62, 145, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(22, 62, 145, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(182, 106, 60, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(182, 106, 60, 0.05) 1px, transparent 1px);
 }
 
 .dark .blueprint-grid-dense {
   background-image: 
-    linear-gradient(to right, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(226, 135, 84, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 135, 84, 0.05) 1px, transparent 1px);
 }
 
 /* Flow line animation for architecture diagrams */

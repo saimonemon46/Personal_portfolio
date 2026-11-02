@@ -25,9 +25,9 @@ export function ProofStrip() {
   ];
 
   return (
-    <section className="border-y border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] bg-[#FFFCF6]/80 dark:bg-[#1E1B18]/80 backdrop-blur-sm py-8 relative transition-colors overflow-hidden">
+    <section className="border-y border-[#D9D2C3] dark:border-[#394139] bg-[#FFFCF5]/90 dark:bg-[#1F2520]/90 backdrop-blur-sm py-8 relative transition-colors overflow-hidden">
       {/* Top subtle animated gradient lightbeam */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#B66A3C]/30 dark:via-blue-500/40 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#A4472D]/30 dark:via-[#E3A56E]/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
@@ -39,21 +39,21 @@ export function ProofStrip() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -2 }}
-              className="flex flex-col justify-center border-l-2 border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] pl-4 sm:pl-6 transition-all hover:border-[#B66A3C] dark:hover:border-blue-500/80 group cursor-default"
+              className="flex flex-col justify-center border-l-2 border-[#D9D2C3] dark:border-[#394139] pl-4 sm:pl-6 transition-all hover:border-[#A4472D] dark:hover:border-[#E3A56E] group cursor-default"
             >
               <div
                 className={`text-2xl sm:text-3xl lg:text-4xl font-display font-bold tracking-tight ${
                   metric.highlight
-                    ? "text-emerald-700 dark:text-emerald-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-300"
-                    : "text-[#29251F] dark:text-[#F5F1E8] group-hover:text-[#B66A3C] dark:group-hover:text-blue-400"
+                    ? "text-[#A4472D] dark:text-[#E3A56E]"
+                    : "text-[#20251F] dark:text-[#F1EDE3] group-hover:text-[#A4472D] dark:group-hover:text-[#E3A56E]"
                 } transition-colors`}
               >
                 {metric.value}
               </div>
-              <div className="text-xs sm:text-sm font-semibold text-[#29251F] dark:text-[#F5F1E8] mt-1">
+              <div className="text-xs sm:text-sm font-semibold text-[#20251F] dark:text-[#F1EDE3] mt-1">
                 {metric.label}
               </div>
-              <div className="text-[11px] sm:text-xs font-mono text-[#777168] dark:text-slate-400 mt-0.5">
+              <div className="text-[11px] sm:text-xs font-mono text-[#626A60] dark:text-[#B2B7AB] mt-0.5">
                 {metric.subtext}
               </div>
             </motion.div>

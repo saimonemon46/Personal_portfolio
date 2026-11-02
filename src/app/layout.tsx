@@ -88,7 +88,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[#F5F1E8] dark:bg-[#161412] text-[#29251F] dark:text-[#F5F1E8] font-sans antialiased selection:bg-[#B66A3C]/20 dark:selection:bg-blue-600/30 selection:text-[#29251F] dark:selection:text-[#F5F1E8] transition-colors duration-200">
+      <body className="min-h-screen bg-[#F4F0E6] dark:bg-[#151916] text-[#20251F] dark:text-[#F1EDE3] font-sans antialiased selection:bg-[#A4472D]/20 dark:selection:bg-[#E3A56E]/20 selection:text-[#20251F] dark:selection:text-[#F1EDE3] transition-colors duration-200">
         <ThemeProvider>
           {children}
           <FloatingActions />

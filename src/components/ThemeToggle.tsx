@@ -18,7 +18,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     return (
       <button
         type="button"
-        className={`w-9 h-9 rounded-md flex items-center justify-center bg-[#EAE3D6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.12] text-[#777168] dark:text-slate-400 ${className}`}
+        className={`w-9 h-9 rounded-md flex items-center justify-center bg-[#EEE9DE] dark:bg-[#1F2520] border border-[#D9D2C3] dark:border-[#394139] text-[#626A60] dark:text-[#B2B7AB] ${className}`}
         aria-label="Toggle light or dark theme"
       >
         <Moon className="w-4 h-4 opacity-50" />
@@ -34,12 +34,12 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to Editorial Paper light theme" : "Switch to Night Shift obsidian theme"}
       title={isDark ? "Switch to Editorial Paper light mode" : "Switch to Night Shift dark mode"}
-      className={`relative w-9 h-9 rounded-md flex items-center justify-center bg-[#EAE3D6] hover:bg-[#DCD3C5] dark:bg-[#25211D] dark:hover:bg-[#1E1B18] border border-[rgba(24,25,31,0.12)] hover:border-[rgba(24,25,31,0.25)] dark:border-white/[0.12] dark:hover:border-[#B66A3C]/40 text-[#29251F] dark:text-[#F5F1E8] transition-all shadow-sm ${className}`}
+      className={`relative w-9 h-9 rounded-md flex items-center justify-center bg-[#EEE9DE] hover:bg-[#D9D2C3] dark:bg-[#1F2520] dark:hover:bg-[#252D27] border border-[#D9D2C3] hover:border-[#A4472D]/40 dark:border-[#394139] dark:hover:border-[#E3A56E]/40 text-[#20251F] dark:text-[#F1EDE3] transition-all shadow-xs cursor-pointer ${className}`}
     >
       {isDark ? (
-        <Sun className="w-4 h-4 text-amber-400 animate-in fade-in zoom-in duration-200" />
+        <Sun className="w-4 h-4 text-[#E3A56E] animate-in fade-in zoom-in duration-200" />
       ) : (
-        <Moon className="w-4 h-4 text-[#29251F] animate-in fade-in zoom-in duration-200" />
+        <Moon className="w-4 h-4 text-[#20251F] animate-in fade-in zoom-in duration-200" />
       )}
     </button>
   );

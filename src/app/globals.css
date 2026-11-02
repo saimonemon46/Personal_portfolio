@@ -3,37 +3,39 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Warm Blueprint Palette (Warm Ivory & Burnished Copper) */
-  --theme-mode: 'warm-blueprint';
-  --bg-primary: #F5F1E8;       /* Main background */
-  --bg-secondary: #EAE3D6;     /* Secondary surface */
-  --bg-card: #FFFCF6;          /* Card background */
-  --bg-card-subtle: #F0EAE0;   /* Subtle surface */
-  --text-main: #29251F;        /* Primary text */
-  --text-muted: #777168;       /* Secondary text */
-  --text-dim: #9E9689;
-  --line-subtle: #DCD3C5;      /* Borders */
-  --line-bold: #BAAEA0;
-  --accent-blue: #B66A3C;      /* Primary accent (Burnished Copper) */
-  --accent-blue-light: #CC7B4A;
-  --accent-blue-glow: rgba(182, 106, 60, 0.16);
-  --accent-amber: #A58A62;     /* Secondary accent (Muted Bronze) */
-  --accent-emerald: #356D52;   /* Forest Moss */
-  --code-bg: #1F1B18;
-  --code-text: #F5F1E8;
-
-  /* Standard Specification Semantic Tokens */
-  --color-bg: #F4F0E6;
-  --color-surface: #FFFCF5;
-  --color-surface-muted: #EEE9DE;
-  --color-text: #20251F;
-  --color-text-muted: #626A60;
-  --color-accent: #A4472D;
+  /* Warm Neutral Palette (Technical Editorial) */
+  --theme-mode: 'technical-editorial';
+  
+  /* Canvas & Surfaces */
+  --color-bg: #F4F0E6;         /* Main page canvas */
+  --color-surface: #FFFCF5;    /* Cards, panels, surfaces */
+  --color-surface-muted: #EEE9DE; /* Alternate section or inset */
+  --color-text: #20251F;       /* Primary text */
+  --color-text-muted: #626A60; /* Secondary copy */
+  --color-accent: #A4472D;     /* Terracotta primary accent */
   --color-accent-hover: #873A26;
-  --color-border: #D9D2C3;
-  --color-focus: #245C9C;
+  --color-border: #D9D2C3;     /* Dividers and card borders */
+  --color-focus: #245C9C;      /* Visible keyboard focus */
   --color-success: #28664F;
   --color-warning: #8A5A17;
+
+  /* Aliases for backwards compatibility */
+  --bg-primary: #F4F0E6;
+  --bg-secondary: #EEE9DE;
+  --bg-card: #FFFCF5;
+  --bg-card-subtle: #EEE9DE;
+  --text-main: #20251F;
+  --text-muted: #626A60;
+  --text-dim: #8E948C;
+  --line-subtle: #D9D2C3;
+  --line-bold: #BAAEA0;
+  --accent-blue: #A4472D;
+  --accent-blue-light: #C25638;
+  --accent-blue-glow: rgba(164, 71, 45, 0.14);
+  --accent-amber: #A58A62;
+  --accent-emerald: #28664F;
+  --code-bg: #1F1B18;
+  --code-text: #F4F0E6;
 
   --bg-base: var(--bg-primary);
   --border-subtle: var(--line-subtle);
@@ -41,37 +43,39 @@
 }
 
 .dark {
-  /* Warm Blueprint — Night (Roasted Espresso & Radiant Copper) */
-  --theme-mode: 'night';
-  --bg-primary: #161412;       /* Dark Background */
-  --bg-secondary: #1E1B18;     /* Dark Secondary surface */
-  --bg-card: #25211D;          /* Dark Card background */
-  --bg-card-subtle: #2E2924;   /* Dark Subtle surface */
-  --text-main: #F5F1E8;        /* Dark Primary text */
-  --text-muted: #A8A093;       /* Dark Secondary text */
-  --text-dim: #736C61;
-  --line-subtle: rgba(245, 241, 232, 0.09);
-  --line-bold: rgba(245, 241, 232, 0.18);
-  --accent-blue: #E28754;      /* Dark Primary accent (Radiant Copper) */
-  --accent-blue-light: #F0A175;
-  --accent-blue-glow: rgba(226, 135, 84, 0.2);
-  --accent-amber: #C9AE85;     /* Dark Secondary accent (Antique Bronze) */
-  --accent-emerald: #52A374;
-  --code-bg: #0F0E0C;
-  --code-text: #F5F1E8;
+  /* Warm Neutral Palette — Dark (Roasted Obsidian & Warm Amber) */
+  --theme-mode: 'night-editorial';
 
-  /* Standard Specification Semantic Tokens */
-  --color-bg: #151916;
-  --color-surface: #1F2520;
-  --color-surface-muted: #252D27;
-  --color-text: #F1EDE3;
-  --color-text-muted: #B2B7AB;
-  --color-accent: #E3A56E;
+  /* Canvas & Surfaces */
+  --color-bg: #151916;         /* Main page canvas */
+  --color-surface: #1F2520;    /* Cards, panels, surfaces */
+  --color-surface-muted: #252D27; /* Alternate section or inset */
+  --color-text: #F1EDE3;       /* Primary text */
+  --color-text-muted: #B2B7AB; /* Secondary copy */
+  --color-accent: #E3A56E;     /* Warm Amber primary accent */
   --color-accent-hover: #F0B981;
-  --color-border: #394139;
-  --color-focus: #9DC7FF;
+  --color-border: #394139;     /* Dividers and card borders */
+  --color-focus: #9DC7FF;      /* Visible keyboard focus */
   --color-success: #8EC5A5;
   --color-warning: #E6BD76;
+
+  /* Aliases for backwards compatibility */
+  --bg-primary: #151916;
+  --bg-secondary: #252D27;
+  --bg-card: #1F2520;
+  --bg-card-subtle: #252D27;
+  --text-main: #F1EDE3;
+  --text-muted: #B2B7AB;
+  --text-dim: #736C61;
+  --line-subtle: #394139;
+  --line-bold: #4A544A;
+  --accent-blue: #E3A56E;
+  --accent-blue-light: #F0B981;
+  --accent-blue-glow: rgba(227, 165, 110, 0.18);
+  --accent-amber: #E6BD76;
+  --accent-emerald: #8EC5A5;
+  --code-bg: #0E120F;
+  --code-text: #F1EDE3;
 
   --bg-base: var(--bg-primary);
   --border-subtle: var(--line-subtle);
@@ -103,14 +107,14 @@ body {
 .blueprint-grid-dense {
   background-size: 16px 16px;
   background-image: 
-    linear-gradient(to right, rgba(182, 106, 60, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(182, 106, 60, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(164, 71, 45, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(164, 71, 45, 0.05) 1px, transparent 1px);
 }
 
 .dark .blueprint-grid-dense {
   background-image: 
-    linear-gradient(to right, rgba(226, 135, 84, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(226, 135, 84, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(227, 165, 110, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(227, 165, 110, 0.05) 1px, transparent 1px);
 }
 
 /* Flow line animation for architecture diagrams */
@@ -181,7 +185,7 @@ body {
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(59, 130, 246, 0.15) 50%,
+    rgba(164, 71, 45, 0.12) 50%,
     rgba(255, 255, 255, 0) 100%
   );
   background-size: 200% 100%;

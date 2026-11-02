@@ -98,7 +98,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#F5F1E8]/92 dark:bg-[#161412]/92 backdrop-blur-md border-b border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] shadow-sm dark:shadow-black/40"
+          ? "bg-[#F4F0E6]/92 dark:bg-[#151916]/92 backdrop-blur-md border-b border-[#D9D2C3] dark:border-[#394139] shadow-xs dark:shadow-black/40"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -106,17 +106,17 @@ export function Navbar() {
         {/* Brand identity with "S" Logo */}
         <Link
           href="/"
-          className="group flex items-center gap-3 text-[#29251F] dark:text-[#F5F1E8] hover:text-[#B66A3C] dark:hover:text-[#E28754] transition-colors"
+          className="group flex items-center gap-3 text-[#20251F] dark:text-[#F1EDE3] hover:text-[#A4472D] dark:hover:text-[#E3A56E] transition-colors"
         >
-          <div className="flex items-center justify-center w-9 h-9 rounded-md bg-[#B66A3C]/10 dark:bg-[#25211D] border border-[#B66A3C]/30 dark:border-[#E28754]/30 group-hover:border-[#B66A3C]/60 dark:group-hover:border-blue-500/60 transition-colors text-[#B66A3C] dark:text-[#E28754] font-mono text-base font-extrabold shadow-sm shadow-[#B66A3C]/10">
+          <div className="flex items-center justify-center w-9 h-9 rounded-md bg-[#A4472D]/10 dark:bg-[#1F2520] border border-[#A4472D]/30 dark:border-[#E3A56E]/30 group-hover:border-[#A4472D]/60 dark:group-hover:border-[#E3A56E]/60 transition-colors text-[#A4472D] dark:text-[#E3A56E] font-mono text-base font-extrabold shadow-xs">
             S
           </div>
           <div className="flex flex-col">
             <span className="font-display font-semibold tracking-tight text-sm sm:text-base leading-tight">
               Saimon Emon
             </span>
-            <span className="font-mono text-[10px] text-[#777168] dark:text-slate-400 group-hover:text-[#B66A3C] dark:group-hover:text-blue-400 transition-colors flex items-center gap-1">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="font-mono text-[10px] text-[#626A60] dark:text-[#B2B7AB] group-hover:text-[#A4472D] dark:group-hover:text-[#E3A56E] transition-colors flex items-center gap-1">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#28664F] animate-pulse"></span>
               saimon.systems
             </span>
           </div>
@@ -137,13 +137,13 @@ export function Navbar() {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`transition-colors py-1 relative ${
                   isActive
-                    ? "text-[#B66A3C] dark:text-[#E28754] font-bold"
-                    : "text-[#777168] hover:text-[#29251F] dark:text-slate-300 dark:hover:text-white"
+                    ? "text-[#A4472D] dark:text-[#E3A56E] font-bold"
+                    : "text-[#626A60] hover:text-[#20251F] dark:text-[#B2B7AB] dark:hover:text-[#F1EDE3]"
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B66A3C] dark:bg-blue-500 rounded-full" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#A4472D] dark:bg-[#E3A56E] rounded-full" />
                 )}
               </Link>
             );
@@ -157,9 +157,9 @@ export function Navbar() {
           <a
             href="/resume.pdf"
             download="Saimon_Hasan_Emon_Resume.pdf"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-mono font-medium text-[#29251F] dark:text-slate-200 bg-[#EAE3D6] hover:bg-[#DCD3C5] dark:bg-[#25211D] dark:hover:bg-[#1E1B18] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.12] hover:border-[#B66A3C]/50 dark:hover:border-blue-500/50 hover:text-[#B66A3C] dark:hover:text-[#E28754] transition-all shadow-sm"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-mono font-medium text-[#20251F] dark:text-[#F1EDE3] bg-[#EEE9DE] hover:bg-[#D9D2C3] dark:bg-[#1F2520] dark:hover:bg-[#252D27] border border-[#D9D2C3] dark:border-[#394139] hover:border-[#A4472D]/50 dark:hover:border-[#E3A56E]/50 hover:text-[#A4472D] dark:hover:text-[#E3A56E] transition-all shadow-xs"
           >
-            <FileDown className="w-3.5 h-3.5 text-[#B66A3C] dark:text-[#E28754]" />
+            <FileDown className="w-3.5 h-3.5 text-[#A4472D] dark:text-[#E3A56E]" />
             <span>Resume ↓</span>
           </a>
         </div>
@@ -174,7 +174,7 @@ export function Navbar() {
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation"
-            className="p-2 rounded-md bg-[#EAE3D6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] text-[#29251F] dark:text-slate-300 cursor-pointer"
+            className="p-2 rounded-md bg-[#EEE9DE] dark:bg-[#1F2520] border border-[#D9D2C3] dark:border-[#394139] text-[#20251F] dark:text-[#F1EDE3] cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -185,7 +185,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation"
-          className="md:hidden bg-[#FFFCF6]/98 dark:bg-[#161412]/98 backdrop-blur-xl border-b border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] px-4 pt-3 pb-6 space-y-3"
+          className="md:hidden bg-[#FFFCF5]/98 dark:bg-[#151916]/98 backdrop-blur-xl border-b border-[#D9D2C3] dark:border-[#394139] px-4 pt-3 pb-6 space-y-3"
         >
           <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => {
@@ -201,8 +201,8 @@ export function Navbar() {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-[#B66A3C]/10 dark:bg-[#B66A3C]/20 text-[#B66A3C] dark:text-[#E28754] font-bold"
-                      : "text-[#29251F] dark:text-slate-200 hover:bg-[#EAE3D6] dark:hover:bg-[#25211D] hover:text-[#B66A3C] dark:hover:text-[#E28754]"
+                      ? "bg-[#A4472D]/10 dark:bg-[#E3A56E]/15 text-[#A4472D] dark:text-[#E3A56E] font-bold"
+                      : "text-[#20251F] dark:text-[#F1EDE3] hover:bg-[#EEE9DE] dark:hover:bg-[#1F2520] hover:text-[#A4472D] dark:hover:text-[#E3A56E]"
                   }`}
                 >
                   {link.label}
@@ -210,13 +210,13 @@ export function Navbar() {
               );
             })}
           </nav>
-          <div className="pt-2 border-t border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] flex gap-2">
+          <div className="pt-2 border-t border-[#D9D2C3] dark:border-[#394139] flex gap-2">
             <a
               href="/resume.pdf"
               download="Saimon_Hasan_Emon_Resume.pdf"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-md text-xs font-mono font-medium text-[#29251F] dark:text-slate-200 bg-[#EAE3D6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.12] hover:border-[#B66A3C]/50"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-md text-xs font-mono font-medium text-[#20251F] dark:text-[#F1EDE3] bg-[#EEE9DE] dark:bg-[#1F2520] border border-[#D9D2C3] dark:border-[#394139] hover:border-[#A4472D]/50 text-center"
             >
-              <FileDown className="w-4 h-4 text-[#B66A3C] dark:text-[#E28754]" />
+              <FileDown className="w-4 h-4 text-[#A4472D] dark:text-[#E3A56E]" />
               <span>Download Resume</span>
             </a>
           </div>

@@ -12,7 +12,7 @@ export function FloatingActions() {
       {/* Email Floating Button */}
       <a
         href="mailto:saimonemon46@gmail.com"
-        className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30 border border-blue-400/40 hover:scale-110 active:scale-95 transition-all duration-200"
+        className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-[#A4472D] hover:bg-[#873A26] dark:bg-[#E3A56E] dark:hover:bg-[#F0B981] text-white dark:text-[#151916] shadow-lg shadow-[#A4472D]/25 dark:shadow-[#E3A56E]/20 border border-[#A4472D]/40 dark:border-[#E3A56E]/40 hover:scale-110 active:scale-95 transition-all duration-200"
         aria-label="Send an email to saimonemon46@gmail.com"
       >
         <Mail className="w-5 h-5 text-white" />

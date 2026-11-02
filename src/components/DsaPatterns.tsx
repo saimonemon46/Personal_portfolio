@@ -222,55 +222,55 @@ export function DsaPatterns() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6 pb-6 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08]">
           <div>
-            <div className="text-xs font-mono font-semibold tracking-wider text-[#B66A3C] dark:text-[#E28754] uppercase flex items-center gap-1.5">
-              <Code2 className="w-3.5 h-3.5 text-[#B66A3C] dark:text-[#E28754]" />
+            <div className="text-xs font-mono font-semibold tracking-wider text-[#A4472D] dark:text-[#E3A56E] uppercase flex items-center gap-1.5">
+              <Code2 className="w-3.5 h-3.5 text-[#A4472D] dark:text-[#E3A56E]" />
               <span>03 / Algorithmic Rigor</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-[#29251F] dark:text-[#F5F1E8] tracking-tight mt-1">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-[#20251F] dark:text-[#F4F0E6] tracking-tight mt-1">
               Data Structures &amp; Patterns
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-[#777168] dark:text-slate-400 max-w-2xl font-sans">
+            <p className="mt-2 text-sm sm:text-base text-[#626A60] dark:text-slate-400 max-w-2xl font-sans">
               Interactive animated showcase of 16 algorithmic invariant patterns mastered across 125+ problems. Not syntax grinding, but invariants that power production systems.
             </p>
           </div>
 
           <Link
             href="/notes"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-semibold text-[#29251F] dark:text-slate-200 bg-[#EAE3D6] hover:bg-[#DCD3C5] dark:bg-[#25211D] dark:hover:bg-[#1E1B18] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] hover:border-[#B66A3C]/40 transition-all self-start md:self-auto group shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-semibold text-[#20251F] dark:text-slate-200 bg-[#EEE9DE] hover:bg-[#D9D2C3] dark:bg-[#1F2520] dark:hover:bg-[#252D27] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] hover:border-[#A4472D]/40 transition-all self-start md:self-auto group shadow-sm"
           >
             <span>View All 16 DSA Notes</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#B66A3C] dark:text-[#E28754] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#A4472D] dark:text-[#E3A56E] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
         {/* Master Showcase Box */}
         <div
-          className="rounded-2xl bg-[#FFFCF6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] p-5 sm:p-7 shadow-xs dark:shadow-xl"
+          className="rounded-2xl bg-[#FFFCF5] dark:bg-[#1F2520] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.08] p-5 sm:p-7 shadow-xs dark:shadow-xl"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Top Radar Stats & Profile Links Pills */}
           <div className="flex flex-wrap items-center gap-2 pb-6 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08]">
-            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#EAE3D6] dark:bg-[#1E1B18] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#777168] dark:text-slate-300">
+            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#EEE9DE] dark:bg-[#252D27] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#626A60] dark:text-slate-300">
               Total Solved:{" "}
-              <strong className="text-[#B66A3C] dark:text-[#E28754] font-bold">125+ Problems</strong>
+              <strong className="text-[#A4472D] dark:text-[#E3A56E] font-bold">125+ Problems</strong>
             </div>
 
-            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#EAE3D6] dark:bg-[#1E1B18] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#777168] dark:text-slate-300">
+            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#EEE9DE] dark:bg-[#252D27] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#626A60] dark:text-slate-300">
               GeeksforGeeks:{" "}
-              <strong className="text-[#B66A3C] dark:text-[#E28754] font-bold">75 (220 Score)</strong>
+              <strong className="text-[#A4472D] dark:text-[#E3A56E] font-bold">75 (220 Score)</strong>
             </div>
 
-            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#EAE3D6] dark:bg-[#1E1B18] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#777168] dark:text-slate-300">
+            <div className="px-3 py-1 rounded-md text-xs font-mono bg-[#EEE9DE] dark:bg-[#252D27] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] text-[#626A60] dark:text-slate-300">
               LeetCode:{" "}
-              <strong className="text-[#B66A3C] dark:text-[#E28754] font-bold">50+ Solved</strong>
+              <strong className="text-[#A4472D] dark:text-[#E3A56E] font-bold">50+ Solved</strong>
             </div>
 
             <a
               href="https://leetcode.com/u/saimonemon46/"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#B66A3C] dark:text-[#E28754] bg-white dark:bg-[#1E1B18] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-[#B66A3C]/60 dark:border-[#E28754]/60 transition-all flex items-center gap-1.5 shadow-2xs"
+              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#A4472D] dark:text-[#E3A56E] bg-white dark:bg-[#252D27] hover:bg-[#A4472D]/10 dark:hover:bg-[#E3A56E]/10 border border-[#A4472D]/60 dark:border-[#E3A56E]/60 transition-all flex items-center gap-1.5 shadow-2xs"
             >
               <span>LeetCode Profile</span>
               <ExternalLink className="w-3 h-3" />
@@ -280,7 +280,7 @@ export function DsaPatterns() {
               href="https://www.geeksforgeeks.org/profile/saimon46?tab=activity"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#0b7a55] dark:text-emerald-400 bg-white dark:bg-[#1E1B18] hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 border border-[#0b7a55]/60 dark:border-emerald-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
+              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#0b7a55] dark:text-emerald-400 bg-white dark:bg-[#252D27] hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 border border-[#0b7a55]/60 dark:border-emerald-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
             >
               <span>GFG Profile</span>
               <ExternalLink className="w-3 h-3" />
@@ -290,7 +290,7 @@ export function DsaPatterns() {
               href="https://github.com/saimonemon46/LeetCode-Practice"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#b45309] dark:text-amber-400 bg-white dark:bg-[#1E1B18] hover:bg-amber-50/50 dark:hover:bg-amber-900/20 border border-[#b45309]/60 dark:border-amber-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
+              className="px-3 py-1 rounded-md text-xs font-mono font-medium text-[#b45309] dark:text-amber-400 bg-white dark:bg-[#252D27] hover:bg-amber-50/50 dark:hover:bg-amber-900/20 border border-[#b45309]/60 dark:border-amber-400/60 transition-all flex items-center gap-1.5 shadow-2xs"
             >
               <span>Code Repo</span>
               <ExternalLink className="w-3 h-3" />
@@ -308,8 +308,8 @@ export function DsaPatterns() {
                   onClick={() => handleFilterChange(btn.value)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                     isActive
-                      ? "bg-[#B66A3C] text-white dark:bg-[#B66A3C] dark:text-white font-bold shadow-xs"
-                      : "bg-[#EAE3D6] dark:bg-[#1E1B18] text-[#777168] dark:text-slate-400 hover:text-[#29251F] dark:hover:text-slate-200 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]"
+                      ? "bg-[#A4472D] text-white dark:bg-[#A4472D] dark:text-white font-bold shadow-xs"
+                      : "bg-[#EEE9DE] dark:bg-[#252D27] text-[#626A60] dark:text-slate-400 hover:text-[#20251F] dark:hover:text-slate-200 border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]"
                   }`}
                 >
                   {btn.label} ({btn.count})
@@ -329,27 +329,27 @@ export function DsaPatterns() {
                   onClick={() => goToPattern(idx)}
                   className={`relative p-2.5 rounded-lg border text-left transition-all duration-200 flex flex-col justify-between cursor-pointer group ${
                     isActive
-                      ? "bg-white dark:bg-[#1E1B18] border-[#B66A3C] dark:border-[#E28754] shadow-sm ring-1 ring-[#B66A3C]/20 dark:ring-[#E28754]/30"
-                      : "bg-[#EAE3D6]/50 hover:bg-[#EAE3D6] dark:bg-[#1E1B18]/40 dark:hover:bg-[#1E1B18] border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] hover:border-[rgba(24,25,31,0.2)] dark:hover:border-white/[0.14]"
+                      ? "bg-white dark:bg-[#252D27] border-[#A4472D] dark:border-[#E3A56E] shadow-sm ring-1 ring-[#A4472D]/20 dark:ring-[#E3A56E]/30"
+                      : "bg-[#EEE9DE]/50 hover:bg-[#EEE9DE] dark:bg-[#252D27]/40 dark:hover:bg-[#252D27] border-[rgba(24,25,31,0.08)] dark:border-white/[0.06] hover:border-[rgba(24,25,31,0.2)] dark:hover:border-white/[0.14]"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeDsaPatternIndicator"
-                      className="absolute inset-0 rounded-lg bg-[#B66A3C]/[0.03] dark:bg-blue-500/[0.06] border-2 border-[#B66A3C] dark:border-[#E28754] pointer-events-none"
+                      className="absolute inset-0 rounded-lg bg-[#A4472D]/[0.03] dark:bg-[#E3A56E]/[0.06] border-2 border-[#A4472D] dark:border-[#E3A56E] pointer-events-none"
                       transition={{ type: "spring", stiffness: 350, damping: 30 }}
                     />
                   )}
                   <span
                     className={`text-[10px] font-mono font-bold ${
                       isActive
-                        ? "text-[#B66A3C] dark:text-[#E28754]"
-                        : "text-[#777168] dark:text-slate-400"
+                        ? "text-[#A4472D] dark:text-[#E3A56E]"
+                        : "text-[#626A60] dark:text-slate-400"
                     }`}
                   >
                     P.{pattern.number}
                   </span>
-                  <span className="text-xs font-semibold text-[#29251F] dark:text-slate-200 truncate mt-1">
+                  <span className="text-xs font-semibold text-[#20251F] dark:text-slate-200 truncate mt-1">
                     {pattern.name}
                   </span>
                 </button>
@@ -358,7 +358,7 @@ export function DsaPatterns() {
           </div>
 
           {/* Featured Active Pattern Card */}
-          <div className="rounded-xl bg-white dark:bg-[#1E1B18] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] p-6 sm:p-8 shadow-xs relative overflow-hidden">
+          <div className="rounded-xl bg-white dark:bg-[#252D27] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] p-6 sm:p-8 shadow-xs relative overflow-hidden">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={activePattern.number}
@@ -375,31 +375,31 @@ export function DsaPatterns() {
                     <span className="text-xs font-mono font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 uppercase">
                       PATTERN {activePattern.number} / 16
                     </span>
-                    <span className="text-xs font-mono text-[#777168] dark:text-slate-400">
+                    <span className="text-xs font-mono text-[#626A60] dark:text-slate-400">
                       Algorithmic Invariant
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#29251F] dark:text-[#F5F1E8] tracking-tight">
+                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#20251F] dark:text-[#F4F0E6] tracking-tight">
                     {activePattern.name}
                   </h3>
 
                   {/* Core Invariant Quote */}
-                  <div className="mt-4 p-4 rounded-xl bg-[#FFFCF6] dark:bg-[#25211D] border-l-4 border-[#B66A3C] dark:border-[#E28754] border-y border-r border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]">
-                    <div className="text-[11px] font-mono uppercase tracking-wider text-[#B66A3C] dark:text-[#E28754] font-semibold mb-1">
+                  <div className="mt-4 p-4 rounded-xl bg-[#FFFCF5] dark:bg-[#1F2520] border-l-4 border-[#A4472D] dark:border-[#E3A56E] border-y border-r border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]">
+                    <div className="text-[11px] font-mono uppercase tracking-wider text-[#A4472D] dark:text-[#E3A56E] font-semibold mb-1">
                       Invariant Definition
                     </div>
-                    <p className="text-sm sm:text-base text-[#29251F] dark:text-slate-200 font-sans leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#20251F] dark:text-slate-200 font-sans leading-relaxed">
                       &ldquo;{activePattern.invariant}&rdquo;
                     </p>
                   </div>
 
                   {/* Exemplar Problems Pill */}
                   <div className="mt-4 flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-mono text-[#777168] dark:text-slate-400 font-semibold">
+                    <span className="text-xs font-mono text-[#626A60] dark:text-slate-400 font-semibold">
                       Exemplar Problems:
                     </span>
-                    <span className="px-3 py-1 rounded-md bg-[#EAE3D6] dark:bg-[#25211D] text-xs font-mono font-semibold text-[#B66A3C] dark:text-[#F0A175] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]">
+                    <span className="px-3 py-1 rounded-md bg-[#EEE9DE] dark:bg-[#1F2520] text-xs font-mono font-semibold text-[#A4472D] dark:text-[#E3A56E] border border-[rgba(24,25,31,0.08)] dark:border-white/[0.06]">
                       {activePattern.exemplar}
                     </span>
                   </div>
@@ -408,12 +408,12 @@ export function DsaPatterns() {
                 {/* Right Side: Navigation & Actions */}
                 <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-6 pt-6 lg:pt-0 border-t lg:border-t-0 lg:border-l border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] lg:pl-8">
                   <div className="space-y-2">
-                    <div className="text-xs font-mono uppercase tracking-wider text-[#777168] dark:text-slate-400">
+                    <div className="text-xs font-mono uppercase tracking-wider text-[#626A60] dark:text-slate-400">
                       Deep Dive Notes
                     </div>
                     <Link
                       href="/notes"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-semibold text-white bg-[#B66A3C] hover:bg-[#96532B] dark:bg-[#B66A3C] dark:hover:bg-[#CC7B4A] transition-all shadow-md shadow-[#B66A3C]/20 group"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-semibold text-white bg-[#A4472D] hover:bg-[#873A26] dark:bg-[#A4472D] dark:hover:bg-[#F0B981] transition-all shadow-md shadow-[#A4472D]/20 group"
                     >
                       <BookOpen className="w-3.5 h-3.5" />
                       <span>Read Full Notes →</span>
@@ -425,18 +425,18 @@ export function DsaPatterns() {
                     <button
                       type="button"
                       onClick={handlePrev}
-                      className="w-9 h-9 rounded-lg bg-[#EAE3D6] hover:bg-[#DCD3C5] dark:bg-[#25211D] dark:hover:bg-[#1E1B18] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#29251F] dark:text-slate-200 transition-all cursor-pointer"
+                      className="w-9 h-9 rounded-lg bg-[#EEE9DE] hover:bg-[#D9D2C3] dark:bg-[#1F2520] dark:hover:bg-[#252D27] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#20251F] dark:text-slate-200 transition-all cursor-pointer"
                       aria-label="Previous pattern"
                     >
                       <ChevronLeft className="w-4 h-4" />
                     </button>
-                    <span className="text-xs font-mono text-[#777168] dark:text-slate-400 px-2 font-semibold">
+                    <span className="text-xs font-mono text-[#626A60] dark:text-slate-400 px-2 font-semibold">
                       {activePattern.number} / {filteredPatterns.length}
                     </span>
                     <button
                       type="button"
                       onClick={handleNext}
-                      className="w-9 h-9 rounded-lg bg-[#EAE3D6] hover:bg-[#DCD3C5] dark:bg-[#25211D] dark:hover:bg-[#1E1B18] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#29251F] dark:text-slate-200 transition-all cursor-pointer"
+                      className="w-9 h-9 rounded-lg bg-[#EEE9DE] hover:bg-[#D9D2C3] dark:bg-[#1F2520] dark:hover:bg-[#252D27] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#20251F] dark:text-slate-200 transition-all cursor-pointer"
                       aria-label="Next pattern"
                     >
                       <ChevronRight className="w-4 h-4" />
@@ -444,7 +444,7 @@ export function DsaPatterns() {
                     <button
                       type="button"
                       onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                      className="w-9 h-9 rounded-lg bg-[#EAE3D6] hover:bg-[#DCD3C5] dark:bg-[#25211D] dark:hover:bg-[#1E1B18] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#777168] dark:text-slate-400 hover:text-[#29251F] dark:hover:text-slate-200 transition-all cursor-pointer ml-1"
+                      className="w-9 h-9 rounded-lg bg-[#EEE9DE] hover:bg-[#D9D2C3] dark:bg-[#1F2520] dark:hover:bg-[#252D27] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] flex items-center justify-center text-[#626A60] dark:text-slate-400 hover:text-[#20251F] dark:hover:text-slate-200 transition-all cursor-pointer ml-1"
                       aria-label={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
                       title={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
                     >

@@ -21,7 +21,7 @@ export const achievements: Achievement[] = [
     context: "Nationwide AI Hackathon (400+ Teams)",
     category: "honors",
     description:
-      "Selected as one of the Top 40 teams nationwide for MediSA, an ambient clinical AI triage system built with grounded RAG and local vector indexing.",
+      "Selected as one of the Top 40 teams nationwide for MediSA, an AI-assisted healthcare triage prototype built with grounded RAG and local vector indexing.",
     linkText: "MediSA Project →",
     linkUrl: "/work/medisa",
   },
@@ -41,11 +41,11 @@ export const achievements: Achievement[] = [
     id: "dsa-mastery",
     title: "Algorithmic Problem Solving",
     badge: "Continuous Mastery",
-    metric: "125+",
-    context: "75 GeeksforGeeks (220 Score) · 50+ LeetCode",
+    metric: "100+",
+    context: "75+ GeeksforGeeks · 25+ LeetCode",
     category: "honors",
     description:
-      "Disciplined mastery of 16 core algorithmic patterns across dynamic programming, trees, heaps, binary search, and graph invariants.",
+      "Continuous algorithmic problem solving across dynamic programming, trees, heaps, binary search, and graph traversal invariants.",
     linkText: "View DSA Notes →",
     linkUrl: "/notes",
   },

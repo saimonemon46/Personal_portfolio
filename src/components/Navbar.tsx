@@ -24,7 +24,7 @@ export function Navbar() {
   useEffect(() => {
     if (pathname !== "/") return;
 
-    const sectionIds = ["projects", "experience", "systems", "dsa", "skills", "recognition", "contact"];
+    const sectionIds = ["work", "experience", "systems", "skills", "about", "contact"];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -44,6 +44,17 @@ export function Navbar() {
     return () => observer.disconnect();
   }, [pathname]);
 
+  // Close mobile drawer on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
   // Handle incoming hash anchor from cross-page navigation
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
@@ -58,12 +69,11 @@ export function Navbar() {
   }, [pathname]);
 
   const navLinks = [
-    { label: "Projects", href: pathname === "/" ? "#projects" : "/#projects", id: "projects" },
+    { label: "Work", href: pathname === "/" ? "#work" : "/#work", id: "work" },
     { label: "Experience", href: pathname === "/" ? "#experience" : "/#experience", id: "experience" },
-    { label: "Systems", href: pathname === "/" ? "#systems" : "/#systems", id: "systems" },
-    { label: "DSA", href: pathname === "/" ? "#dsa" : "/#dsa", id: "dsa" },
+    { label: "Engineering", href: pathname === "/" ? "#systems" : "/#systems", id: "systems" },
     { label: "Skills", href: pathname === "/" ? "#skills" : "/#skills", id: "skills" },
-    { label: "Recognition", href: pathname === "/" ? "#recognition" : "/#recognition", id: "recognition" },
+    { label: "About", href: pathname === "/" ? "#about" : "/#about", id: "about" },
     { label: "Contact", href: pathname === "/" ? "#contact" : "/#contact", id: "contact" },
   ];
 
@@ -162,7 +172,9 @@ export function Navbar() {
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="p-2 rounded-md bg-[#EAE3D6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] text-[#29251F] dark:text-slate-300"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            className="p-2 rounded-md bg-[#EAE3D6] dark:bg-[#25211D] border border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] text-[#29251F] dark:text-slate-300 cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -171,7 +183,10 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#FFFCF6]/98 dark:bg-[#161412]/98 backdrop-blur-xl border-b border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] px-4 pt-3 pb-6 space-y-3">
+        <div
+          id="mobile-navigation"
+          className="md:hidden bg-[#FFFCF6]/98 dark:bg-[#161412]/98 backdrop-blur-xl border-b border-[rgba(24,25,31,0.1)] dark:border-white/[0.08] px-4 pt-3 pb-6 space-y-3"
+        >
           <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => {
               const isActive =

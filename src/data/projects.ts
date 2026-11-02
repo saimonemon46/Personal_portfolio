@@ -49,92 +49,87 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "medisa",
-    title: "MediSA: Ambient Clinical AI Triage Engine",
-    category: "Healthcare AI · Grounded RAG",
-    filterCategory: "AI / ML",
-    tierTag: "Healthcare AI • IEEE & National Finalist",
-    honorBadge: "ICADI 2026 IEEE Shortlist • MillionX Top 40",
-    tagline: "Dynamic symptom extraction, local FAISS vector matching, and doctor recommendation.",
+    slug: "zerodrift",
+    title: "LedgerCore: High-Concurrency Payment & Ledger Engine",
+    category: "Fintech Systems · Clean Architecture",
+    filterCategory: "Backend",
+    tierTag: "Fintech Systems • Clean Architecture",
+    honorBadge: "1,023.8 RPS Locust Benchmark • Zero Deadlocks • 0.00 Drift",
+    tagline: "Double-entry financial transaction engine built with Clean Architecture, canonical lock ordering, and zero balance drift.",
     description:
-      "Most patients in developing healthcare systems describe complex medical symptoms in colloquial terms, leading to misdirection and dangerous triage delays. MediSA uses a grounded RAG architecture with local vector databases to accurately classify clinical conditions and recommend specialist departments.",
+      "Financial platforms (such as mobile wallets and payment gateways) face severe race conditions, balance drift, and deadlocks during high-traffic flash sales and bilateral transfers. LedgerCore (ZeroDrift engine) models a double-entry transaction core from first principles, enforcing strict mathematical balance conservation (∑ Debits = ∑ Credits) and deterministic concurrency control under load.",
     problem:
-      "Most patients in developing healthcare systems describe complex medical symptoms in colloquial terms, leading to misdirection and dangerous triage delays. Furthermore, transmitting unvetted patient health records to public third-party cloud APIs poses significant patient privacy and HIPAA/GDPR compliance risks.",
+      "Financial transaction backends face severe race conditions, balance drift, and deadlocks during concurrent bilateral transfers (User A → User B and User B → User A). Without canonical lock ordering and strict mathematical double-entry invariants, high concurrency results in Coffman circular waits and silent balance corruption.",
     solution:
-      "Engineered a grounded RAG architecture using FastAPI, LangChain, LangGraph, and local FAISS vector databases. Evaluates colloquial Bengali and English symptom descriptions, normalizes them against clinical taxonomies, and routes patients to attending specialists in sub-80ms without cloud egress.",
+      "Engineered LedgerCore in Python 3.12 and FastAPI using Clean/Hexagonal Architecture. Enforces mathematical balance conservation (∑ Debits = ∑ Credits), eliminates deadlocks via Canonical Global Lock Ordering (min(A,B) → max(A,B)) with SELECT FOR UPDATE row-level locking, and uses Redis UUIDv4 check-and-set for atomic idempotency with PostgreSQL transaction isolation.",
     caseStudyBreakdown: [
       {
-        label: "Grounded RAG",
-        value: "Self-contained local FAISS vector retrieval ensuring sub-80ms response times without transmitting patient data to unverified external cloud endpoints.",
+        label: "Deadlock Free",
+        value: "Canonical Global Lock Ordering (min(IDA, IDB) → max(IDA, IDB)) with row-level pessimistic locking (SELECT ... FOR UPDATE) completely eliminates Coffman circular waits.",
       },
       {
-        label: "Clinical NLP",
-        value: "Dual-language entity extraction parsing colloquial Bengali and English symptoms into structured clinical profiles and specialty routing.",
+        label: "Zero Drift",
+        value: "Strict double-entry bookkeeping enforces mathematical balance conservation with zero-drift decimal precision, transaction state machines, and continuous invariant auditing.",
       },
       {
-        label: "National Honors",
-        value: "Recognized as a National Finalist at MillionX AI Buildathon (Top 40 out of 400+ teams nationwide) and presented at ICADI 2026 (IEEE International).",
+        label: "Idempotency & CB",
+        value: "Atomic UUIDv4 check-and-set protocol prevents duplicate charges on mobile network retries; 3-State Circuit Breaker (Closed → Open → Half-Open) fails fast in <1ms during downstream outages.",
       },
       {
-        label: "Verification",
-        value: "Validated against real-world clinical datasets with structured triage summaries delivered to attending physicians.",
+        label: "Verified Load",
+        value: "Benchmarked at 1,023.8 RPS via Locust load simulation (15,241 total requests, 0.00% error rate, 42ms median, 80ms P95 latency) with 70% transfers and 10% retry storms.",
       },
     ],
-    architectureHint: "Colloquial Query → NLP Extraction → Local FAISS Vector Store → LangGraph State Machine → Specialist Routing",
-    stack: ["FastAPI", "LangChain", "LangGraph", "FAISS", "Python", "MySQL", "Docker"],
+    architectureHint: "Transfer Request → Idempotency Check → Canonical Row Locks → Invariant Audit → Commit",
+    stack: ["Python 3.12", "FastAPI", "PostgreSQL", "Redis", "Docker", "Locust", "PyTest", "Clean Architecture", "Pydantic v2"],
     featured: true,
     order: 1,
     metrics: [
-      { label: "Recognition", value: "Top 40", detail: "MillionX AI Buildathon (400+ Teams)" },
-      { label: "Latency", value: "<80ms", detail: "Local Vector Similarity Match" },
-      { label: "Global Stage", value: "IEEE ICADI", detail: "Shortlisted International Finalist" },
-      { label: "Verified Screens", value: "7 UI Flows", detail: "Clinical Triage & Doctor Match" },
+      { label: "Throughput", value: "1,023.8 RPS", detail: "Locust Benchmark (15,241 Requests)" },
+      { label: "P95 Latency", value: "80ms", detail: "42ms Median Response Time" },
+      { label: "Deadlocks", value: "0", detail: "Canonical Global Lock Ordering" },
+      { label: "Drift", value: "0.00 USD", detail: "Balance Conservation Invariant" },
     ],
     highlights: [
-      "Sub-80ms local FAISS vector retrieval ensuring patient confidentiality without external cloud endpoints",
-      "Dual-language entity extraction parsing colloquial Bengali and English symptoms into clinical profiles",
-      "Specialist doctor matching algorithm routing patients according to symptom urgency and clinical category",
-      "National Finalist at MillionX AI Buildathon (Top 40 out of 400+ teams nationwide)",
-      "Shortlisted at ICADI 2026 (IEEE International Congress on AI & Digital Health Innovation)",
+      "Canonical Global Lock Ordering (min(IDA, IDB) → max(IDA, IDB)) with SELECT FOR UPDATE eliminating Coffman deadlocks",
+      "Strict double-entry bookkeeping with mathematical balance conservation (Σ Debits = Σ Credits)",
+      "Atomic UUIDv4 check-and-set idempotency protocol preventing duplicate deductions during network retries",
+      "3-State Circuit Breaker (Closed → Open → Half-Open) failing fast in <1ms during downstream dependency degradation",
+      "Benchmarked at 1,023.8 RPS sustained load in Locust with 0.00% error rate across 15,241 simulated transactions",
     ],
     screenshots: [
-      { url: "/assets/MediSA/1.png", title: "MediSA Main Dashboard Screen", caption: "Clinical triage overview and active clinical query console" },
-      { url: "/assets/MediSA/2.png", title: "Patient Triage Flow", caption: "Step-by-step symptom assessment and severity categorization" },
-      { url: "/assets/MediSA/3.png", title: "Doctor Recommendation", caption: "Specialty routing and physician availability matching" },
-      { url: "/assets/MediSA/4.png", title: "Clinical Entity Extraction", caption: "NLP tokenization and entity extraction from colloquial text" },
-      { url: "/assets/MediSA/5.png", title: "Patient Diagnostic Report", caption: "Structured medical summary ready for physician review" },
-      { url: "/assets/MediSA/6.png", title: "Workflow Execution View", caption: "LangGraph state machine graph execution view" },
-      { url: "/assets/MediSA/7.png", title: "Analytics & Taxonomy View", caption: "Vector search clusters and clinical taxonomy distribution" },
+      { url: "/assets/ledgercore/locust_load_test_report.png", title: "Locust Load Benchmark - 1023.8 RPS Zero Failure Rate", caption: "1,023.8 RPS sustained load report with zero failures, 42ms median, and 80ms P95 latency" },
+      { url: "/assets/ledgercore/system_verification_dashboard.png", title: "System Verification Dashboard", caption: "Invariant checker confirming mathematical zero-drift balance consistency" },
+      { url: "/assets/ledgercore/swagger_docs.png", title: "Swagger OpenAPI Documentation", caption: "Interactive Swagger documentation detailing financial endpoints, idempotency headers, and schemas" },
+      { url: "/assets/ledgercore/test_coverage_report.png", title: "PyTest Test Coverage Report", caption: "Automated test suite verifying 50-thread race conditions, rollback semantics, and circuit breakers" },
     ],
-    githubUrl: "https://github.com/saimonemon46/MediSA",
-    videoUrl: "https://youtu.be/N8_rTYncw5M",
-    docUrl: "https://drive.google.com/file/d/1VZ1ycK-DhsUskuV7Fm8k_TMbMZBDXAyz/view?usp=sharing",
+    githubUrl: "https://github.com/saimonemon46/ZeroDrift-High-Concurrency-Payment-Ledger-Core",
     deepDive: {
       overview:
-        "MediSA was built to solve a critical point of friction in clinical triage: patient descriptions of symptoms are colloquial, emotionally charged, and frequently imprecise. By combining dual-language tokenization with local vector embeddings, MediSA structures raw patient input into actionable clinical summaries before handoff to human physicians.",
+        "LedgerCore (ZeroDrift engine) is an open-source double-entry ledger engine built from first principles to model the transaction guarantees required by high-concurrency payment services. It enforces mathematical balance conservation, atomicity, and deterministic deadlock avoidance under concurrent transfer workloads.",
       architectureDescription:
-        "The system operates with an edge-first philosophy. Rather than streaming raw medical disclosures to public third-party LLM providers, an offline FAISS vector database embeds curated clinical taxonomy, symptom-disease graphs, and hospital department listings. LangGraph manages the state machine governing follow-up inquiry questions and final doctor routing.",
+        "The application adheres to Clean / Hexagonal Architecture: domain balance invariants are decoupled from database engines and web frameworks. All state changes require balanced multi-legged ledger entries wrapped in PostgreSQL transaction isolation. An in-memory circuit breaker monitors downstream database latency and trips to protect upstream services.",
       keyDecisions: [
         {
-          title: "Local Vector Database over Cloud Endpoints",
-          explanation: "Chosen to guarantee strict sub-80ms response times and ensure sensitive patient healthcare queries never leave the trusted local subnet.",
+          title: "Canonical Global Lock Ordering",
+          explanation: "If Account A transfers to Account B while Account B transfers to Account A simultaneously, naive row locking causes a classic Coffman circular deadlock. By enforcing min(A,B) followed by max(A,B) lock acquisition, circular wait conditions are prevented.",
         },
         {
-          title: "LangGraph Stateful Orchestration",
-          explanation: "Replaced linear prompt chains with a cyclic state machine capable of asking clarifying diagnostic questions when confidence is low.",
+          title: "Pessimistic Locking over Optimistic Retries",
+          explanation: "Under high-contention accounts (such as a merchant account during a flash sale), optimistic locking experiences catastrophic retry storms. Row-level SELECT ... FOR UPDATE serializes access predictably without thrashing CPU cycles.",
         },
         {
-          title: "Dual-Language Normalization",
-          explanation: "Trained tokenizers to normalize Bengali phonetic colloquialisms into standardized ICD-10 medical terminology.",
+          title: "Double-Entry Invariant Conservation",
+          explanation: "Balances are never simply 'updated' as loose integers. Every mutation is a recorded credit and debit pair. A database check constraint enforces that the sum of debits strictly equals the sum of credits for every transaction.",
         },
       ],
       concurrencyAndFailures: [
-        "Stateless FastAPI instances deployed behind Nginx load balancers",
-        "Deterministic fallback to general triage whenever confidence falls below 0.65",
-        "Zero-retention ephemeral session memory for patient PII protection",
+        "Redis SETNX lock keys with TTL to handle network-dropped client retries safely",
+        "Continuous invariant reconciliation audits running asynchronously to verify zero ledger drift",
+        "Clean SIGTERM handler flushing in-flight ledger verification logs before process exit",
       ],
       benchmarkOrValidation:
-        "Validated against 500+ curated clinical vignettes; achieved 92.4% specialty routing accuracy and sub-80ms embedding retrieval latency.",
+        "Locust Load Simulation: 15,241 total requests (70% transfers with 10% duplicate idempotency retries, 25% balance queries, 5% audits) against FastAPI, PostgreSQL, and Redis in Docker containers. Result: 1,023.8 RPS aggregated throughput, 0 failures (0.00% error rate), 42ms median latency, 80ms P95 latency.",
     },
   },
   {
@@ -177,7 +172,7 @@ export const projects: Project[] = [
       { label: "Decoupling", value: "100% Async", detail: "Zero Blocking on HTTP Handlers" },
       { label: "Broker", value: "RabbitMQ", detail: "Durable Queues & Worker ACKs" },
       { label: "Storage", value: "MinIO S3", detail: "Pre-Signed Ephemeral Uploads" },
-      { label: "Test Rigor", value: "85%+ PyTest", detail: "Automated Integration Suites" },
+      { label: "Ingress", value: "<50ms", detail: "HTTP 202 Accepted Initial Response" },
     ],
     highlights: [
       "Decoupled heavy FFmpeg media transcoding from HTTP API handlers via RabbitMQ durable queues",
@@ -193,9 +188,9 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/saimonemon46/Distributed_Media_Processing",
     deepDive: {
       overview:
-        "In modern web applications, media processing (video compression, resolution scaling, thumbnail generation) is orders of magnitude slower than typical HTTP timeouts. This project implements a production-grade async pipeline that guarantees HTTP request responses in under 25ms regardless of file size.",
+        "In modern web applications, media processing (video compression, resolution scaling, thumbnail generation) is orders of magnitude slower than typical HTTP timeouts. This project implements a decoupled async pipeline that accepts uploads and acknowledges requests in under 50ms while background workers process transcoding tasks asynchronously.",
       architectureDescription:
-        "FastAPI acts purely as an ingestion gateway, issuing short-lived pre-signed S3 upload URLs to clients. Once MinIO confirms object receipt, FastAPI publishes a JSON task payload to a durable RabbitMQ exchange with manual consumer acknowledgments. A containerized worker pool consumes jobs concurrently, reporting state updates to PostgreSQL.",
+        "FastAPI acts purely as an ingestion gateway, issuing short-lived pre-signed S3 upload URLs to clients. Once MinIO confirms object receipt, FastAPI publishes a JSON task payload to a durable RabbitMQ exchange with manual consumer acknowledgments. A containerized worker pool consumes jobs concurrently with prefetch_count=1, reporting state updates to PostgreSQL.",
       keyDecisions: [
         {
           title: "RabbitMQ over In-Memory BackgroundTasks",
@@ -203,7 +198,7 @@ export const projects: Project[] = [
         },
         {
           title: "MinIO Object Storage over Filesystem Volumes",
-          explanation: "Using local server disk creates node affinity and prevents horizontal autoscaling. S3-compliant object storage provides infinite elasticity.",
+          explanation: "Using local server disk creates node affinity and prevents horizontal autoscaling. S3-compliant object storage provides shared asset access across worker nodes.",
         },
         {
           title: "Dead Letter Exchanges (DLX)",
@@ -216,7 +211,96 @@ export const projects: Project[] = [
         "Graceful SIGTERM handlers allowing currently running transcoding jobs to finish before container teardown",
       ],
       benchmarkOrValidation:
-        "Verified with 100+ concurrent multi-megabyte media uploads without a single dropped packet or API latency degradation.",
+        "Simulated burst ingestion loads demonstrating decoupled queue shock absorption without blocking FastAPI web worker threads or exhausting database connection pools.",
+    },
+  },
+  {
+    slug: "medisa",
+    title: "MediSA: AI Healthcare Triage & Recommendation Platform",
+    category: "Healthcare AI · Grounded RAG & FRAG",
+    filterCategory: "AI / ML",
+    tierTag: "Applied AI Prototype • MillionX Finalist",
+    honorBadge: "National Finalist (Top 40 of 400+) • IEEE ICADI Shortlisted",
+    tagline: "Symptom extraction, local FAISS vector matching, and doctor recommendation prototype.",
+    description:
+      "Patients in developing healthcare systems often describe symptoms in colloquial terms, leading to pre-consultation confusion and triage bottlenecks. MediSA is an AI-assisted healthcare triage prototype and research project using LangGraph orchestration and local FAISS vector retrieval to match patients with clinical specialties. (Prototype: Not clinically validated diagnostic software).",
+    problem:
+      "Patients frequently describe medical symptoms in colloquial terms rather than formal clinical taxonomy, causing pre-consultation confusion and delay. Additionally, sending raw patient disclosures directly to external third-party cloud APIs presents significant privacy and compliance challenges.",
+    solution:
+      "Engineered an AI triage prototype using FastAPI, LangChain, LangGraph, and local FAISS vector indexing. Parses colloquial Bengali and English symptom descriptions, normalizes them against structured clinical taxonomies, and assists with specialist routing while maintaining clear medical disclaimers.",
+    caseStudyBreakdown: [
+      {
+        label: "Grounded RAG",
+        value: "Local FAISS vector retrieval embedding clinical taxonomy and department guidelines for fast similarity matching.",
+      },
+      {
+        label: "Clinical NLP",
+        value: "Dual-language entity extraction parsing colloquial Bengali and English symptom descriptions into structured clinical profiles.",
+      },
+      {
+        label: "National Honors",
+        value: "Recognized as a National Finalist at MillionX AI Buildathon (Top 40 out of 400+ teams nationwide) and shortlisted at ICADI 2026 (IEEE International).",
+      },
+      {
+        label: "Prototype Scope",
+        value: "Designed as an early-stage clinical decision-support and triage prototype; explicitly not a replacement for professional clinical diagnosis.",
+      },
+    ],
+    architectureHint: "Colloquial Query → NLP Extraction → Local FAISS Vector Store → LangGraph State Machine → Specialist Routing",
+    stack: ["FastAPI", "LangChain", "LangGraph", "FAISS", "Python", "MySQL", "Docker"],
+    featured: true,
+    order: 3,
+    metrics: [
+      { label: "Recognition", value: "Top 40", detail: "MillionX AI Buildathon (400+ Teams)" },
+      { label: "Vector Search", value: "<80ms", detail: "Local Vector Similarity Match" },
+      { label: "Global Stage", value: "IEEE ICADI", detail: "Shortlisted International Finalist" },
+      { label: "Verified Screens", value: "7 UI Flows", detail: "Clinical Triage & Doctor Match" },
+    ],
+    highlights: [
+      "Sub-80ms local FAISS vector retrieval for symptom-to-specialty similarity matching",
+      "Dual-language entity extraction parsing colloquial Bengali and English symptoms into structured clinical profiles",
+      "Specialist doctor matching workflow routing patients according to symptom urgency and clinical category",
+      "National Finalist at MillionX AI Buildathon (Top 40 out of 400+ teams nationwide)",
+      "Shortlisted at ICADI 2026 (IEEE International Congress on AI & Digital Health Innovation)",
+    ],
+    screenshots: [
+      { url: "/assets/MediSA/1.png", title: "MediSA Main Dashboard Screen", caption: "Clinical triage overview and active clinical query console" },
+      { url: "/assets/MediSA/2.png", title: "Patient Triage Flow", caption: "Step-by-step symptom assessment and severity categorization" },
+      { url: "/assets/MediSA/3.png", title: "Doctor Recommendation", caption: "Specialty routing and physician availability matching" },
+      { url: "/assets/MediSA/4.png", title: "Clinical Entity Extraction", caption: "NLP tokenization and entity extraction from colloquial text" },
+      { url: "/assets/MediSA/5.png", title: "Patient Diagnostic Report", caption: "Structured medical summary ready for physician review" },
+      { url: "/assets/MediSA/6.png", title: "Workflow Execution View", caption: "LangGraph state machine graph execution view" },
+      { url: "/assets/MediSA/7.png", title: "Analytics & Taxonomy View", caption: "Vector search clusters and clinical taxonomy distribution" },
+    ],
+    githubUrl: "https://github.com/saimonemon46/MediSA",
+    videoUrl: "https://youtu.be/N8_rTYncw5M",
+    docUrl: "https://drive.google.com/file/d/1VZ1ycK-DhsUskuV7Fm8k_TMbMZBDXAyz/view?usp=sharing",
+    deepDive: {
+      overview:
+        "MediSA is an AI-assisted healthcare triage and doctor recommendation prototype. It demonstrates how natural language processing, vector similarity search, and stateful graph agents can assist patients in identifying relevant medical departments. It is an engineering prototype and decision-support concept, not a clinically approved medical diagnostic device.",
+      architectureDescription:
+        "The system uses local FAISS vector databases to embed medical taxonomies and hospital department descriptions. LangGraph coordinates conversational state transitions and clarifies ambiguous descriptions before suggesting specialist referrals. External LLM calls are isolated to conversational synthesis without persisting patient identifiers.",
+      keyDecisions: [
+        {
+          title: "Local Vector Database for Taxonomy Indexing",
+          explanation: "Provides fast, repeatable similarity search across curated medical specialty dictionaries without per-query vector API latency.",
+        },
+        {
+          title: "LangGraph Stateful Orchestration",
+          explanation: "Replaced linear prompt chains with a cyclic state machine capable of asking clarifying questions when symptom confidence is low.",
+        },
+        {
+          title: "Dual-Language Normalization",
+          explanation: "Trained tokenizers to normalize Bengali phonetic colloquialisms into standardized medical taxonomy keywords.",
+        },
+      ],
+      concurrencyAndFailures: [
+        "Stateless FastAPI instances deployed behind Nginx load balancers",
+        "Deterministic fallback to general triage whenever confidence falls below 0.65",
+        "Zero-retention ephemeral session memory for patient PII protection",
+      ],
+      benchmarkOrValidation:
+        "Evaluated on test sets of symptom queries with sub-80ms vector retrieval times; validated as a national finalist project at MillionX AI Buildathon.",
     },
   },
   {
@@ -290,90 +374,6 @@ export const projects: Project[] = [
       ],
       benchmarkOrValidation:
         "Simulated 500-attendee load tests demonstrating sustained 1.8 Gbps egress bandwidth with steady 45% CPU utilization.",
-    },
-  },
-  {
-    slug: "zerodrift",
-    title: "ZeroDrift: High-Concurrency Payment & Ledger Core",
-    category: "Fintech Systems · Clean Architecture",
-    filterCategory: "Backend",
-    tierTag: "Fintech Systems • Clean Architecture",
-    honorBadge: "1,000+ QPS Locust • Zero Deadlocks • 100% Core Verification",
-    tagline: "Enterprise double-entry financial transaction engine built with Clean Architecture, canonical lock ordering, and zero balance drift.",
-    description:
-      "Financial platforms (like bKash or Pathao Pay) face severe race conditions, balance drift, and deadlocks during high-traffic flash sales and bilateral transfers. ZeroDrift models an enterprise double-entry transaction core from first principles, enforcing strict mathematical balance conservation (∑ Debits + ∑ Credits = 0) and sub-15ms transaction finality under intense concurrent load.",
-    problem:
-      "Financial platforms (like bKash or Pathao Pay) face severe race conditions, balance drift, and deadlocks during high-traffic flash sales and bilateral transfers. Without canonical lock ordering and strict mathematical double-entry invariants, high concurrency results in Coffman circular waits and silent balance corruption.",
-    solution:
-      "Engineered ZeroDrift in Python 3.12 and FastAPI using Clean/Hexagonal Architecture. Enforces mathematical balance conservation (∑ Debits + ∑ Credits = 0), eliminates deadlocks via Canonical Global Lock Ordering (min(A,B) → max(A,B)) with SELECT FOR UPDATE, and uses Redis UUIDv4 check-and-set for atomic idempotency.",
-    caseStudyBreakdown: [
-      {
-        label: "Deadlock Free",
-        value: "Canonical Global Lock Ordering (min(IDA, IDB) → max(IDA, IDB)) with row-level pessimistic locking (SELECT ... FOR UPDATE) completely eliminates Coffman circular waits.",
-      },
-      {
-        label: "Zero Drift",
-        value: "Strict double-entry bookkeeping enforces mathematical balance conservation with zero-drift decimal precision, transaction state machines, and continuous invariant auditing.",
-      },
-      {
-        label: "Idempotency & CB",
-        value: "Atomic UUIDv4 check-and-set protocol prevents duplicate charges on mobile network retries; 3-State Circuit Breaker (Closed → Open → Half-Open) fails fast in <1ms during downstream outages.",
-      },
-      {
-        label: "Verified Load",
-        value: "Benchmarked under 1,000+ QPS via Locust load tests (0% error rate, sub-15ms latency), 50-thread concurrent race tests, and OS SIGTERM worker queue draining.",
-      },
-    ],
-    architectureHint: "Transfer Request → Idempotency Check → Canonical Row Locks → Invariant Audit → Commit",
-    stack: ["Python 3.12", "FastAPI", "PostgreSQL", "Redis", "Docker", "Locust", "PyTest", "Clean Architecture", "Pydantic v2"],
-    featured: true,
-    order: 3,
-    metrics: [
-      { label: "Load Benchmark", value: "1,000+ QPS", detail: "Locust Load Test (0% Error Rate)" },
-      { label: "P95 Latency", value: "<15ms", detail: "Sub-15ms Transaction Finality" },
-      { label: "Deadlocks", value: "0", detail: "Canonical Global Lock Ordering" },
-      { label: "Circuit Breaker", value: "<1ms", detail: "Fast-Fail Downstream Outages" },
-    ],
-    highlights: [
-      "Canonical Global Lock Ordering (min(IDA, IDB) → max(IDA, IDB)) with SELECT FOR UPDATE eliminating Coffman deadlocks",
-      "Strict double-entry bookkeeping with mathematical balance conservation (Σ Debits + Σ Credits = 0)",
-      "Atomic UUIDv4 check-and-set idempotency protocol preventing duplicate deductions during network retries",
-      "3-State Circuit Breaker (Closed → Open → Half-Open) failing fast in <1ms during downstream dependency degradation",
-      "Benchmarked at 1,000+ QPS via Locust load testing under high concurrency with 0% error rate",
-    ],
-    screenshots: [
-      { url: "/assets/ledgercore/locust_load_test_report.png", title: "Locust Load Benchmark - 1000+ QPS Zero Failure Rate", caption: "1,000+ QPS sustained load report with zero failures and sub-15ms response times" },
-      { url: "/assets/ledgercore/system_verification_dashboard.png", title: "System Verification Dashboard", caption: "Invariant checker confirming mathematical zero-drift balance consistency" },
-      { url: "/assets/ledgercore/swagger_docs.png", title: "Swagger OpenAPI Documentation", caption: "Interactive Swagger documentation detailing financial endpoints, idempotency headers, and schemas" },
-      { url: "/assets/ledgercore/test_coverage_report.png", title: "PyTest Test Coverage Report", caption: "Automated test suite verifying 50-thread race conditions, rollback semantics, and circuit breakers" },
-    ],
-    githubUrl: "https://github.com/saimonemon46/ZeroDrift-High-Concurrency-Payment-Ledger-Core",
-    deepDive: {
-      overview:
-        "ZeroDrift is a production-grade double-entry ledger engine built from first principles to simulate the transaction guarantees required by mission-critical digital wallets like bKash, Stripe, or Pathao Pay. It guarantees absolute consistency, mathematical balance conservation, and immediate transaction finality under high concurrent load.",
-      architectureDescription:
-        "The application strictly adheres to Clean / Hexagonal Architecture: domain invariants are decoupled from database engines and web frameworks. All state changes require balanced multi-legged ledger entries wrapped in PostgreSQL transaction isolation. An in-memory circuit breaker monitors downstream database latency and trips to protect upstream services.",
-      keyDecisions: [
-        {
-          title: "Canonical Global Lock Ordering",
-          explanation: "If Account A transfers to Account B while Account B transfers to Account A simultaneously, naive row locking causes a classic Coffman circular deadlock. By enforcing min(A,B) followed by max(A,B) lock acquisition, circular wait conditions become mathematically impossible.",
-        },
-        {
-          title: "Pessimistic Locking over Optimistic Retries",
-          explanation: "Under high-contention accounts (such as a merchant account during a flash sale), optimistic locking experiences catastrophic retry storms. Row-level SELECT ... FOR UPDATE serializes access predictably without thrashing CPU cycles.",
-        },
-        {
-          title: "Double-Entry Invariant Conservation",
-          explanation: "Balances are never simply 'updated' as loose integers. Every mutation is a recorded credit and debit pair. A database check constraint enforces that the sum of entries for every transaction identifier equals zero.",
-        },
-      ],
-      concurrencyAndFailures: [
-        "Redis SETNX lock keys with TTL to handle network-dropped client retries safely",
-        "Automated continuous invariant auditing query running asynchronously to detect ledger imbalance",
-        "Clean SIGTERM handler flushing in-flight ledger verification logs before process exit",
-      ],
-      benchmarkOrValidation:
-        "Benchmarked with Locust under 1,000+ QPS continuous traffic: 0 failed transactions, zero deadlocks observed, P95 latency maintained below 15ms.",
     },
   },
   {

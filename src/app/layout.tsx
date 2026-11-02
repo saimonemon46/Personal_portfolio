@@ -23,33 +23,35 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MD. Saimon Hasan Emon — Software Engineer | Backend & Distributed Systems",
+  title: "Saimon Emon | Software Engineer — Backend Systems & Applied AI",
   description:
-    "Portfolio of MD. Saimon Hasan Emon. Backend & Distributed Systems Engineer specializing in high-throughput asynchronous pipelines, distributed media architectures, real-time WebRTC clusters, and applied AI systems.",
+    "Portfolio of Saimon Emon, a software engineer focused on backend development, distributed systems, and applied AI. Explore selected projects, experience, and engineering case studies.",
   keywords: [
     "Saimon Hasan Emon",
     "Saimon Emon",
-    "Backend Engineer",
+    "Software Engineer",
+    "Backend Systems",
     "Distributed Systems",
+    "Applied AI",
     "Python",
     "FastAPI",
+    "Laravel",
     "PostgreSQL",
     "Redis",
     "RabbitMQ",
     "Docker",
-    "Software Engineer Dhaka",
-    "ZeroDrift",
+    "LedgerCore",
     "MediSA",
   ],
-  authors: [{ name: "MD. Saimon Hasan Emon", url: "https://github.com/saimonemon46" }],
-  creator: "MD. Saimon Hasan Emon",
+  authors: [{ name: "Saimon Emon", url: "https://github.com/saimonemon46" }],
+  creator: "Saimon Emon",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://saimonemon.vercel.app/",
-    title: "MD. Saimon Hasan Emon — Backend & Distributed Systems Engineer",
+    title: "Saimon Emon | Software Engineer — Backend Systems & Applied AI",
     description:
-      "I build resilient backend architectures, asynchronous distributed pipelines, real-time media clusters, and applied AI systems — where correctness is guaranteed and latency is minimized.",
+      "Software engineer focused on backend development, distributed systems, and applied AI. Explore selected projects, experience, and engineering case studies.",
     siteName: "Saimon Emon Portfolio",
   },
   icons: {

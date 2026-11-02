@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { FileDown, MapPin, GraduationCap, ArrowRight, Sparkles } from "lucide-react";
+import { FileDown, MapPin, GraduationCap, ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { ArchitectureVisual } from "@/components/ArchitectureVisual";
 
@@ -53,36 +53,25 @@ export function Hero() {
           >
             {/* Eyebrow & Status */}
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2.5 mb-4">
-              <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#B66A3C]/10 dark:bg-[#B66A3C]/15 text-[#B66A3C] dark:text-[#E28754] border border-[#B66A3C]/20 dark:border-[#E28754]/20 font-medium shadow-xs">
-                Ex-Leotech • Imjol
+              <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#B66A3C]/10 dark:bg-[#B66A3C]/15 text-[#B66A3C] dark:text-[#E28754] border border-[#B66A3C]/20 dark:border-[#E28754]/20 font-semibold uppercase tracking-wider">
+                Software Engineer · Backend &amp; Distributed Systems
               </span>
             </motion.div>
 
-            {/* Name & Title */}
+            {/* Headline H1 */}
             <motion.h1
               variants={itemVariants}
-              className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-[#29251F] dark:text-[#F5F1E8] uppercase"
+              className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-[#29251F] dark:text-[#F5F1E8]"
             >
-              MD. Saimon Hasan Emon
+              I build backend systems that solve real engineering problems.
             </motion.h1>
-
-            <motion.div
-              variants={itemVariants}
-              className="mt-2 text-xl sm:text-2xl font-display font-semibold text-[#B66A3C] dark:text-[#E28754] flex items-center flex-wrap gap-2"
-            >
-              <span>Software Engineer</span>
-              <span className="text-[#8b8d97] dark:text-slate-500 font-light">|</span>
-              <span className="bg-gradient-to-r from-[#B66A3C] to-[#CC7B4A] dark:from-[#E28754] dark:to-[#C9AE85] bg-clip-text text-transparent">
-                Backend &amp; Distributed Systems
-              </span>
-            </motion.div>
 
             {/* Summary */}
             <motion.p
               variants={itemVariants}
               className="mt-4 text-base sm:text-lg text-[#777168] dark:text-slate-300 leading-relaxed max-w-2xl font-sans"
             >
-              I engineer resilient backend architectures, asynchronous distributed pipelines, real-time media clusters, and applied AI systems — where <strong>correctness is guaranteed</strong>, background queues scale reliably, and systems are built for production.
+              Software engineer focused on backend development, distributed systems, and applied AI. I work with Python, FastAPI, Laravel, and PostgreSQL to build APIs, asynchronous workflows, and practical software products.
             </motion.p>
 
             {/* Quick metadata line */}
@@ -120,12 +109,21 @@ export function Hero() {
               <motion.a
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
+                href="#work"
+                className="relative group overflow-hidden flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-[#B66A3C] hover:bg-[#96532B] dark:bg-[#B66A3C] dark:hover:bg-[#CC7B4A] transition-all shadow-md shadow-[#B66A3C]/20"
+              >
+                <span>Explore Selected Work</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.02, y: -1 }}
+                whileTap={{ scale: 0.98 }}
                 href="/resume.pdf"
                 download="Saimon_Hasan_Emon_Resume.pdf"
-                className="relative group overflow-hidden flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-[#B66A3C] hover:bg-[#96532B] dark:bg-[#B66A3C] dark:hover:bg-[#CC7B4A] transition-all shadow-md shadow-blue-600/25 ring-1 ring-white/20"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-[#29251F] dark:text-slate-200 bg-[#EAE3D6] hover:bg-[#DCD3C5] dark:bg-[#25211D] dark:hover:bg-[#1E1B18] border border-[rgba(24,25,31,0.12)] dark:border-white/[0.12] hover:border-[#B66A3C]/40 dark:hover:border-blue-400/40 transition-all shadow-sm"
               >
-                <div className="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-700 pointer-events-none" />
-                <FileDown className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+                <FileDown className="w-4 h-4 text-[#B66A3C] dark:text-[#E28754]" />
                 <span>Download Resume</span>
               </motion.a>
 
@@ -152,14 +150,6 @@ export function Hero() {
                 <LinkedinIcon className="w-4 h-4 text-[#B66A3C] dark:text-[#E28754]" />
                 <span>LinkedIn</span>
               </motion.a>
-
-              <a
-                href="#systems"
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono text-[#777168] dark:text-slate-400 hover:text-[#29251F] dark:hover:text-white transition-colors ml-auto sm:ml-0 group"
-              >
-                <span>Featured Systems</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </a>
             </motion.div>
           </motion.div>
 
@@ -182,16 +172,15 @@ export function Hero() {
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-[10px] font-mono tracking-wider text-[#8b8d97] dark:text-slate-400 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-[#B66A3C] dark:text-[#E28754]" />
-                  <span>ENGINEER VERIFICATION</span>
+                <div className="text-[10px] font-mono tracking-wider text-[#8b8d97] dark:text-slate-400">
+                  SOFTWARE ENGINEER
                 </div>
                 <div className="text-sm font-semibold text-[#29251F] dark:text-[#F5F1E8] truncate">
                   MD. Saimon Hasan Emon
                 </div>
                 <div className="text-xs text-[#0b7a55] dark:text-emerald-400 font-mono flex items-center gap-1.5 mt-0.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Active on Production Clusters
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Software Engineer @ Imjol · B.Sc. CSE (3.84)
                 </div>
               </div>
             </div>

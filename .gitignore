@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Execution pack & governance reports
+CLAIM_REGISTER.md
+IMPLEMENTATION_AUDIT.md
+QA_REPORT.md
+saimonemon_portfolio_execution_pack/
+

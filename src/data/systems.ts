@@ -15,34 +15,26 @@ export interface SystemArchitecture {
 }
 
 export const systemsOverview = {
-  kicker: "03 / HOW I BUILD",
-  title: "Build & Operate Scalable Systems",
+  kicker: "Engineering Approach",
+  title: "How I approach engineering problems.",
   subtitle:
-    "I build systems that remain predictable under failure, concurrency, and asynchronous workloads.",
+    "I build systems that remain predictable under concurrency, asynchronous pipelines, and real-world failure modes.",
   principles: [
     {
-      name: "Concurrency Control",
-      detail: "Canonical lock ordering and pessimistic SELECT FOR UPDATE to prevent circular deadlocks.",
+      name: "System Design",
+      detail: "Clean service boundaries, decoupled asynchronous workloads, and explicit state machines.",
     },
     {
       name: "Data Integrity",
-      detail: "Mathematical balance conservation (Σ Debits + Σ Credits = 0) with zero tolerance for state drift.",
+      detail: "Mathematical balance conservation (Σ Debits = Σ Credits), pessimistic row locks, and strict invariants.",
     },
     {
-      name: "Async Decoupling",
-      detail: "Separating fast client request lifecycles from heavy compute-bound workers via durable message brokers.",
+      name: "Reliability",
+      detail: "Atomic idempotency keys, dead-letter exchanges (DLX), circuit breakers, and automated regression tests.",
     },
     {
-      name: "Database Performance",
-      detail: "Index engineering ordering equality before range to maximize B+ Tree traversal efficiency.",
-    },
-    {
-      name: "Failure Recovery",
-      detail: "Sub-1ms circuit breaking, dead-letter exchanges, and atomic idempotency tokens for safe retries.",
-    },
-    {
-      name: "Clean Boundaries",
-      detail: "Domain models strictly decoupled from database engines, web frameworks, and third-party APIs.",
+      name: "Performance",
+      detail: "Empirical load benchmarking, query optimization, non-blocking I/O, and bottleneck profiling.",
     },
   ],
 };

@@ -36,13 +36,13 @@ export function Contact() {
           {/* Headline & Pitch (7 cols) */}
           <div className="lg:col-span-7">
             <div className="text-xs font-mono font-semibold tracking-wider text-[#B66A3C] dark:text-[#E28754] uppercase mb-2">
-              Next Conversation
+              Get in Touch
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-[#29251F] dark:text-[#F5F1E8] tracking-tight leading-tight">
-              Build something that survives production.
+              Have an interesting engineering problem? Let&apos;s talk.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#777168] dark:text-slate-300 leading-relaxed max-w-xl font-sans">
-              Open to full-time software engineering roles, high-concurrency backend challenges, distributed systems, and applied AI infrastructure.
+              Open to full-time software engineering roles, backend systems challenges, distributed processing, and applied AI applications.
             </p>
 
             {/* Live Clock Card */}

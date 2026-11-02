@@ -103,6 +103,7 @@ export function Achievements() {
 
   return (
     <section id="recognition" className="scroll-mt-20 py-16 sm:py-20 lg:py-24 relative border-t border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] transition-colors">
+      <span id="about" className="scroll-mt-20 absolute top-0" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6 pb-6 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08]">

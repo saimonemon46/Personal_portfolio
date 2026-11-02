@@ -4,7 +4,6 @@ import { ProofStrip } from "@/components/ProofStrip";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { SystemsBlueprint } from "@/components/SystemsBlueprint";
-import { DsaPatterns } from "@/components/DsaPatterns";
 import { SkillsGrid } from "@/components/SkillsGrid";
 import { Achievements } from "@/components/Achievements";
 import { Education } from "@/components/Education";
@@ -21,7 +20,6 @@ export default function Home() {
         <FeaturedProjects />
         <ExperienceTimeline />
         <SystemsBlueprint />
-        <DsaPatterns />
         <SkillsGrid />
         <Achievements />
         <Education />

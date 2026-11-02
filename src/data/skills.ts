@@ -1,3 +1,98 @@
+export interface EngineeringCapability {
+  id: string;
+  capability: string;
+  category: "Distributed & Backend" | "Transactions & Storage" | "Applied AI" | "Web Applications";
+  summary: string;
+  technologies: string[];
+  evidence: {
+    name: string;
+    type: "Project" | "Experience";
+    href: string;
+    metric: string;
+  };
+}
+
+export const engineeringCapabilities: EngineeringCapability[] = [
+  {
+    id: "api-dev",
+    capability: "High-Throughput Async API Architecture",
+    category: "Distributed & Backend",
+    summary: "Asynchronous ASGI web services with non-blocking I/O, token-bucket rate limiting, and strict Pydantic/OpenAPI schema validation.",
+    technologies: ["Python", "FastAPI", "PostgreSQL", "Redis"],
+    evidence: {
+      name: "MediSA Diagnostic API",
+      type: "Project",
+      href: "/work/medisa",
+      metric: "Sub-15ms P95 Latency • ASGI Ingest",
+    },
+  },
+  {
+    id: "tx-processing",
+    capability: "High-Concurrency Transaction Processing",
+    category: "Transactions & Storage",
+    summary: "Pessimistic row-level locking (SELECT FOR UPDATE), SETNX distributed mutexes, and canonical lock ordering to eliminate deadlocks.",
+    technologies: ["PostgreSQL", "Redis", "Docker", "Python"],
+    evidence: {
+      name: "ZeroDrift Ledger Core",
+      type: "Project",
+      href: "/work/zerodrift",
+      metric: "0 Deadlocks • Balance Conservation Invariant",
+    },
+  },
+  {
+    id: "async-pipelines",
+    capability: "Asynchronous Pipelines & Distributed Task Queues",
+    category: "Distributed & Backend",
+    summary: "Decoupled asynchronous worker fleets, durable AMQP messaging exchanges, Dead Letter Exchanges (DLX), and horizontal queue scaling.",
+    technologies: ["RabbitMQ", "Docker", "Celery", "MinIO (S3)"],
+    evidence: {
+      name: "Distributed Media Engine",
+      type: "Project",
+      href: "/work/distributed-media",
+      metric: "Durable AMQP • 0 Dropped Packets Under Burst",
+    },
+  },
+  {
+    id: "web-apps",
+    capability: "Enterprise Web Applications & Multi-Tenant Systems",
+    category: "Web Applications",
+    summary: "Domain-driven multi-tenant architectures, authenticated enterprise portals, clean service layers, and production client deliveries.",
+    technologies: ["Laravel", "PHP", "Next.js", "MySQL", "Tailwind CSS"],
+    evidence: {
+      name: "Leotech & Imjol",
+      type: "Experience",
+      href: "#experience",
+      metric: "Production Client Software Shipped",
+    },
+  },
+  {
+    id: "ai-orchestration",
+    capability: "Applied AI Orchestration & Grounded RAG",
+    category: "Applied AI",
+    summary: "Cyclic agentic state machines with conditional edge branching, high-speed vector similarity indexing, and citation-backed clinical grounding.",
+    technologies: ["LangGraph", "FAISS", "LangChain", "OpenAI / Groq"],
+    evidence: {
+      name: "MediSA Clinical AI Agent",
+      type: "Project",
+      href: "/work/medisa",
+      metric: "Factual Grounding • Strict Citation Verification",
+    },
+  },
+  {
+    id: "media-clusters",
+    capability: "Bare-Metal Real-Time Media & Edge Telemetry",
+    category: "Distributed & Backend",
+    summary: "Headless WebRTC audio/video egress, automated meeting recorder bots, real-time telemetry processing, and edge inference pipelines.",
+    technologies: ["WebRTC", "Jitsi Meet", "Docker", "Linux / Bash", "OpenCV"],
+    evidence: {
+      name: "Jitsi Media Cluster",
+      type: "Project",
+      href: "/work/jitsi-cluster",
+      metric: "Headless Egress • Automated Multi-Stream Recording",
+    },
+  },
+];
+
 export interface SkillCategory {
   title: string;
   badge: string;

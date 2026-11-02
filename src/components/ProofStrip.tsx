@@ -11,22 +11,16 @@ export function ProofStrip() {
       highlight: false,
     },
     {
-      value: "125+",
-      label: "DSA Problems Solved",
-      subtext: "75 GFG · 50+ LeetCode",
+      value: "100+",
+      label: "Algorithmic Problems",
+      subtext: "GeeksforGeeks & LeetCode",
       highlight: false,
-    },
-    {
-      value: "Active Focus",
-      label: "Systems, LLD & Applied AI",
-      subtext: "DSA · Distributed Systems · LLD · AI",
-      highlight: true,
     },
     {
       value: "TOP 40",
       label: "MillionX AI Buildathon",
       subtext: "National Finalist (400+ Teams)",
-      highlight: false,
+      highlight: true,
     },
   ];
 
@@ -36,7 +30,7 @@ export function ProofStrip() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#B66A3C]/30 dark:via-blue-500/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
           {metrics.map((metric, idx) => (
             <motion.div
               key={idx}

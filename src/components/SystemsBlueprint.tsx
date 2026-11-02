@@ -32,21 +32,21 @@ export function SystemsBlueprint() {
                       MinIO
                  (S3 Object Store)`,
 
-    locust: `            Locust Load Cluster (1000+ QPS)
-          50 Virtual Users Concurrency
+    locust: `       Locust Load Benchmark (1,023.8 RPS)
+        15,241 Total Transactions (0% Errors)
                          │
                          ▼
                  ┌───────────────┐
-                 │ FastAPI (ASGI)│ ──> P95: 14ms (Audited)
+                 │ FastAPI (ASGI)│ ──> P95: 80ms (42ms Median)
                  └───────┬───────┘
                          │
        ┌─────────────────┴─────────────────┐
        ▼                                   ▼
-  Redis Cache (98.6%)              PostgreSQL Engine
-  (Sub-millisecond)          (SELECT FOR UPDATE Locking)
+  Redis Cache & Mutex               PostgreSQL Engine
+  (Sub-millisecond)           (SELECT FOR UPDATE Locking)
        │                                   │
        ▼                                   ▼
- [0 Cache Stampedes]              [Mathematical Zero-Drift]`,
+ [0 Duplicate Charges]            [0.00 Mathematical Drift]`,
 
     fault: `             Host Network Partition Event
             Worker Node Crash Simulation
@@ -111,7 +111,9 @@ export function SystemsBlueprint() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 sm:pb-4 border-b border-[rgba(24,25,31,0.08)] dark:border-white/[0.08] mb-3 sm:mb-4 text-xs font-mono">
               <div className="flex items-center gap-2">
                 <Terminal className="w-3.5 h-3.5 text-[#B66A3C] dark:text-[#E28754] flex-shrink-0" />
-                <span className="text-[#B66A3C] dark:text-[#E28754] font-semibold text-[11px] sm:text-xs">$ topology --mode={activeTopologyMode}</span>
+                <span className="text-[#B66A3C] dark:text-[#E28754] font-semibold text-[11px] sm:text-xs">
+                  $ topology --mode={activeTopologyMode} <span className="text-[10px] text-[#777168] dark:text-slate-400 font-normal hidden sm:inline">(Conceptual Architecture &amp; Benchmark)</span>
+                </span>
               </div>
 
               {/* Mode Selector Buttons */}

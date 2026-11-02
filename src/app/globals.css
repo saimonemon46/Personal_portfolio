@@ -22,6 +22,19 @@
   --code-bg: #1F1B18;
   --code-text: #F5F1E8;
 
+  /* Standard Specification Semantic Tokens */
+  --color-bg: #F4F0E6;
+  --color-surface: #FFFCF5;
+  --color-surface-muted: #EEE9DE;
+  --color-text: #20251F;
+  --color-text-muted: #626A60;
+  --color-accent: #A4472D;
+  --color-accent-hover: #873A26;
+  --color-border: #D9D2C3;
+  --color-focus: #245C9C;
+  --color-success: #28664F;
+  --color-warning: #8A5A17;
+
   --bg-base: var(--bg-primary);
   --border-subtle: var(--line-subtle);
   --border-bright: var(--line-bold);
@@ -46,6 +59,19 @@
   --accent-emerald: #52A374;
   --code-bg: #0F0E0C;
   --code-text: #F5F1E8;
+
+  /* Standard Specification Semantic Tokens */
+  --color-bg: #151916;
+  --color-surface: #1F2520;
+  --color-surface-muted: #252D27;
+  --color-text: #F1EDE3;
+  --color-text-muted: #B2B7AB;
+  --color-accent: #E3A56E;
+  --color-accent-hover: #F0B981;
+  --color-border: #394139;
+  --color-focus: #9DC7FF;
+  --color-success: #8EC5A5;
+  --color-warning: #E6BD76;
 
   --bg-base: var(--bg-primary);
   --border-subtle: var(--line-subtle);
@@ -194,5 +220,14 @@ body {
 
 .animate-beam-scan {
   animation: beamScan 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
